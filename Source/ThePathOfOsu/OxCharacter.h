@@ -1,0 +1,201 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Components/SphereComponent.h"
+#include "GameFramework/Character.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraComponent.h"
+#include "OxCharacter.generated.h"
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnBeginPush);
+
+UCLASS()
+class THEPATHOFOSU_API AOxCharacter : public ACharacter
+{
+	GENERATED_BODY()
+
+public:
+	// Sets default values for this character's properties
+	AOxCharacter();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	UAnimInstance* AnimInstance;
+
+	UCharacterMovementComponent* CharacterMovementComponent;
+
+
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	UAnimMontage* BlockMontage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
+	float BlockMontagePlayRate = 1.5f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
+	TArray<UAnimMontage*> FistAttackMontages;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	UAnimMontage* ExecutePunchAttackMontage;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	UAnimMontage* HitReactMontage;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	UAnimMontage* BeReflectedMontage;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	UAnimMontage* BreakMontage;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	UAnimMontage* DrinkPotionMontage;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	UAnimMontage* OsuMontage;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	UAnimMontage* PushMontage;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
+	float BreakMontagePlayRate = 0.7f;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	UAnimMontage* DieMontage;
+
+	UPROPERTY(VisibleAnywhere, Category = "Combat")
+	USphereComponent* LeftFistCollisionComponent;
+
+	UPROPERTY(VisibleAnywhere, Category = "Combat")
+	USphereComponent* RightFistCollisionComponent;
+
+	TArray<AActor*> HittingActorList;
+
+	UPROPERTY(EditAnywhere)
+	USoundBase* PunchHitSound;
+
+	UPROPERTY(EditAnywhere)
+	USoundBase* BlockSound;
+
+	UPROPERTY(EditAnywhere)
+	USoundBase* ReflectSound;
+
+	UPROPERTY(EditAnywhere)
+	UClass* HitEffectActor;
+
+	UPROPERTY(EditDefaultsOnly)
+	float PushingEnlargedCapsuleRadius = 65.0f;
+	UPROPERTY(EditDefaultsOnly)
+	float PushMoveCapsuleOffset = -30.0f;
+
+	UFUNCTION()
+	void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,
+	                    int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+
+	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,
+	                         AActor* DamageCauser) override;
+	virtual void RestoreHp(float HpToRestore);
+
+	virtual void ReducePostureValue(float PostureValueToReduce);
+	virtual void RestorePostureValue(float PostureValueToRestore);
+
+
+	virtual void BreakPosture();
+	virtual void RestorePosture();
+
+
+	UFUNCTION(BlueprintPure)
+	virtual bool CanRegenPosture();
+
+	UFUNCTION(BlueprintPure)
+	virtual bool CanMove();
+
+	UFUNCTION(BlueprintPure)
+	virtual bool CanCharacterJump();
+
+	UFUNCTION(BlueprintPure)
+	virtual bool CanAttack();
+
+	UFUNCTION(BlueprintPure)
+	bool IsPlayingFistAttackMontage();
+
+	UFUNCTION(BlueprintPure)
+	virtual bool CanBlock();
+
+	UFUNCTION(BlueprintPure)
+	virtual bool CanUseItem();
+
+	UFUNCTION(BlueprintPure)
+	virtual bool CanOsu();
+
+
+	virtual void Die();
+
+	UFUNCTION()
+	virtual void OnMontageEnded(UAnimMontage* Montage, bool bInterrupted);
+
+public:
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+
+	UFUNCTION(BlueprintPure)
+	virtual bool CanPush();
+
+	virtual void TryBlock();
+	virtual void TryFistAttack();
+	virtual void BeginFistAttack(bool IsLeftFist);
+	virtual void EndFistAttack(bool IsLeftFist);
+
+	virtual void TryUseItem();
+	virtual void TryOsu();
+	virtual bool TryPush();
+	void EndPush();
+	bool IsPushing();
+
+	UFUNCTION(BlueprintPure)
+	bool IsDead() const;
+
+	UFUNCTION(BlueprintPure)
+	bool IsAlive() const;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
+	float MaxHp = 100;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat")
+	float CurrentHp = MaxHp;
+
+	UFUNCTION(BlueprintPure)
+	float GetHpPercentage() const;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
+	float MaxPostureValue = 100;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat")
+	float CurrentPostureValue;
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	float PostureValueRegenRate = 5.0f;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
+	float RecoverFromBreakPostureValue = 30.0f;
+
+	UFUNCTION(BlueprintPure)
+	float GetPostureValuePercentage() const;
+
+	UPROPERTY(EditAnywhere, Category = "Combat")
+	float PunchDamage = 15;
+
+	bool IsAttackReflectable = false;
+	bool IsBlockReflectable = false;
+	bool IsBlocking = false;
+	bool IsExecutable = false;
+
+	TSet<FString> BlockMovementReasons;
+
+	FOnBeginPush OnBeginPush;
+
+private:
+	float DefaultCapsuleRadius;
+};

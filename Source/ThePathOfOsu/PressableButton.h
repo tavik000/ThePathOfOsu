@@ -1,0 +1,61 @@
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Transporter.h"
+#include "GameFramework/Actor.h"
+#include "Components/StaticMeshComponent.h"
+#include "Components/BillboardComponent.h"
+#include "Interface/InteractableInterface.h"
+#include "PressableButton.generated.h"
+
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPressableButtonOnActivated);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPressableButtonOnDeactivated);
+
+UCLASS()
+class THEPATHOFOSU_API APressableButton : public AActor, public IInteractableInterface
+{
+	GENERATED_BODY()
+	
+public:	
+	APressableButton();
+
+protected:
+	virtual void BeginPlay() override;
+
+public:	
+	virtual void Tick(float DeltaTime) override;
+
+	void Interact_Implementation() override;
+	void ToggleOutline_Implementation(bool bValue) override;
+	bool IsEnable_Implementation() override;
+	void StartCheckAndUpdateWidgetVisibleTimer_Implementation() override;
+	void CheckAndUpdateWidgetVisible_Implementation() override;
+	void SetupOutline_Implementation() override;;
+	
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	USceneComponent* RootComp;
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	UStaticMeshComponent* Mesh;
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	UStaticMeshComponent* MeshOutline;
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	bool IsActivated;
+
+	UPROPERTY(BlueprintAssignable)
+	FPressableButtonOnActivated OnActivated;
+	UPROPERTY(BlueprintAssignable)
+	FPressableButtonOnDeactivated OnDeactivated;
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	UTransporter* Transporter;
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	UBillboardComponent* InteractionHUD;
+	
+private:
+	FTimerHandle CheckAndUpdateWidgetVisibleTimer;
+};
