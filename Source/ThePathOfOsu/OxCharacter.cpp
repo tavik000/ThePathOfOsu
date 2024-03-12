@@ -317,13 +317,9 @@ bool AOxCharacter::TryPush()
 	{
 		return false;
 	}
-	// UCapsuleComponent* PlayerCapsule = GetCapsuleComponent();
-	// PlayerCapsule->SetCapsuleRadius(PushingEnlargedCapsuleRadius);
-	// FVector CapsuleTargetRelativeLocation = PlayerCapsule->GetComponentLocation() + GetActorForwardVector() *
-	// 	PushMoveCapsuleOffset;
-	// UKismetSystemLibrary::MoveComponentTo(PlayerCapsule, CapsuleTargetRelativeLocation,
-	//                                       PlayerCapsule->GetComponentRotation(), false, false, 0.1f, false,
-	//                                       EMoveComponentAction::Move, FLatentActionInfo());
+	UCapsuleComponent* PlayerCapsule = GetCapsuleComponent();
+	PlayerCapsule->SetCapsuleRadius(PushingEnlargedCapsuleRadius);
+	PlayerCapsule->MoveComponent(GetActorForwardVector() * PushMoveCapsuleOffset, PlayerCapsule->GetComponentRotation(), false);
 	AnimInstance->Montage_Play(PushMontage, 1.0f);
 	return true;
 }

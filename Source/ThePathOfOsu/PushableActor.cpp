@@ -52,6 +52,8 @@ void APushableActor::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor
                            FVector NormalImpulse, const FHitResult& Hit)
 {
 	FVector PushingActorForwardVector = OtherActor->GetActorForwardVector();
+	PushingDirection = FVector(UKismetMathLibrary::Round(PushingActorForwardVector.X),
+	                           UKismetMathLibrary::Round(PushingActorForwardVector.Y), 0.0f);
 	if (IsPushingDiagonal(PushingActorForwardVector, Hit.Normal))
 	{
 		return;
@@ -75,6 +77,7 @@ void APushableActor::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor
 	{
 		if (PushingPlayerCharacter->TryPush())
 		{
+			PushingPlayerCharacter->SetActorRotation(PushingDirection.Rotation());
 			PushingPlayerCharacter->AttachToActor(this, FAttachmentTransformRules::KeepWorldTransform);
 			PushingPlayerCharacter->OnBeginPush.AddDynamic(this, &APushableActor::Push);
 		}
@@ -86,8 +89,6 @@ bool APushableActor::IsPushingDiagonal(FVector PushingActorForwardVector, FVecto
 {
 	double HitNormalAndForwardDot = UKismetMathLibrary::Dot_VectorVector(HitNormal, PushingActorForwardVector);
 
-	PushingDirection = FVector(UKismetMathLibrary::Round(PushingActorForwardVector.X),
-	                           UKismetMathLibrary::Round(PushingActorForwardVector.Y), 0.0f);
 
 	bool IsPushingDiagonal = UKismetMathLibrary::Abs(PushingDirection.X) + UKismetMathLibrary::Abs(PushingDirection.Y) >
 		1.0f
@@ -122,7 +123,7 @@ bool APushableActor::CanPush(AActor* PushingActor)
 	UKismetSystemLibrary::BoxTraceSingle(GetWorld(), SelfTraceStartLocation, SelfTraceEndLocation, HalfSize,
 	                                     FRotator::ZeroRotator,
 	                                     UEngineTypes::ConvertToTraceType(ECC_Visibility), false, IgnoredActors,
-	                                     EDrawDebugTrace::ForDuration, SelfTraceHitResult, true, FLinearColor::Red,
+	                                     EDrawDebugTrace::None, SelfTraceHitResult, true, FLinearColor::Red,
 	                                     FLinearColor::Green, 5.0f);
 	bool IsPathClear = !SelfTraceHitResult.bBlockingHit;
 

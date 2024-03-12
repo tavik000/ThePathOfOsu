@@ -88,7 +88,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly)
 	float PushingEnlargedCapsuleRadius = 65.0f;
 	UPROPERTY(EditDefaultsOnly)
-	float PushMoveCapsuleOffset = -30.0f;
+	float PushMoveCapsuleOffset = -50.0f;
 
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,
