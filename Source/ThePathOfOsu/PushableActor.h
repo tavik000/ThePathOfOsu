@@ -10,6 +10,8 @@
 
 class UCurveFloat;
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FPushableActorOnPushFinished);
+
 UCLASS()
 class THEPATHOFOSU_API APushableActor : public AActor
 {
@@ -69,6 +71,9 @@ public:
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
 	bool IsBeingPushed;
+
+	UPROPERTY(BlueprintAssignable)
+	FPushableActorOnPushFinished OnPushFinished;
 
 private:
 	bool IsPushingDiagonal(FVector PushingActorForwardVector, FVector HitNormal, double StraightDirectionTolerance = 0.95f);

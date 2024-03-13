@@ -46,6 +46,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	UAudioComponent* CollectAudio;
 
+	UPROPERTY(BlueprintAssignable)
 	FOnCollectableActorCollected OnCollected;
 
 	UFUNCTION(BlueprintCallable)

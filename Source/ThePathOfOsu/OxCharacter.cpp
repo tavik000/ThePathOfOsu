@@ -76,15 +76,15 @@ float AOxCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 	return DamageToApply;
 }
 
-void AOxCharacter::RestoreHp(float HpToRestore)
+void AOxCharacter::Heal(float HealAmount)
 {
-	if (HpToRestore <= 0)
+	if (HealAmount <= 0)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
-		                                 FString::Printf(TEXT("Hp To Restore <= 0 %f"), HpToRestore));
+		                                 FString::Printf(TEXT("Hp To Restore <= 0 %f"), HealAmount));
 		return;
 	}
-	CurrentHp = FMath::Min(MaxHp, CurrentHp + HpToRestore);
+	CurrentHp = FMath::Min(MaxHp, CurrentHp + HealAmount);
 }
 
 void AOxCharacter::ReducePostureValue(float PostureValueToReduce)
@@ -304,6 +304,7 @@ void AOxCharacter::TryOsu()
 	}
 
 	AnimInstance->Montage_Play(OsuMontage, 1.0f);
+	DoOsuGesture.Broadcast();
 }
 
 bool AOxCharacter::TryPush()

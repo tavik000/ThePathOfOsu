@@ -193,6 +193,7 @@ void APushableActor::StopPushing()
 	{
 		MovementComponent->Activate();
 		PushingPlayerCharacter->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		OnPushFinished.Broadcast();
 	}
 }
 

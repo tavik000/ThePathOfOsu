@@ -18,6 +18,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Mission")
 	void CompleteMission(UOsuMission* Mission);
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Mission")
+	USoundBase* CompleteMissionSound;
 	
 
 private:

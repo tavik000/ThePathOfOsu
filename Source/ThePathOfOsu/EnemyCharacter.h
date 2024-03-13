@@ -7,9 +7,8 @@
 #include "Components/WidgetComponent.h"
 #include "EnemyCharacter.generated.h"
 
-/**
- * 
- */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEnemyDeath);
+
 UCLASS()
 class THEPATHOFOSU_API AEnemyCharacter : public AOxCharacter
 {
@@ -35,6 +34,9 @@ public:
 	UWidgetComponent* HealthBarWidget;
 	
 	void HideHealthBar();
+
+	UPROPERTY(BlueprintAssignable)
+	FOnEnemyDeath OnEnemyDeath;
 	
 protected:
 	virtual void BeginPlay() override;
@@ -47,5 +49,7 @@ protected:
 	virtual void BreakPosture() override;
 	virtual void RestorePosture() override;
 	virtual void Die() override;
+
+	
 private:
 };

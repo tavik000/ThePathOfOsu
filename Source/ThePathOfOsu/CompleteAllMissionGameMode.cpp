@@ -3,6 +3,8 @@
 
 #include "CompleteAllMissionGameMode.h"
 
+#include "Kismet/GameplayStatics.h"
+
 void ACompleteAllMissionGameMode::CompleteMission(UOsuMission* Mission)
 {
 	if (CurrentMission.IsEmpty())
@@ -33,6 +35,9 @@ void ACompleteAllMissionGameMode::CompleteMission(UOsuMission* Mission)
 	}
 
 	CurrentMission[Mission] = true;
+
+
+	UGameplayStatics::SpawnSound2D(GetWorld(), CompleteMissionSound);
 	if (IsAllMissionCompleted())
 	{
 		WinGame();
@@ -55,5 +60,4 @@ void ACompleteAllMissionGameMode::WinGame()
 {
 	// TODO
 	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::White, FString::Printf(TEXT("Win Game")));
-	
 }

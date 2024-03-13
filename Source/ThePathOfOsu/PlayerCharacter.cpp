@@ -46,7 +46,7 @@ APlayerCharacter::APlayerCharacter()
 	CameraBoom->TargetArmLength = 250.0f; // The camera follows at this distance behind the character	
 	CameraBoom->bUsePawnControlRotation = true; // Rotate the arm based on the controller
 	CameraBoom->SetRelativeLocation(FVector(0.f, 0.f, 50.f));
-	CameraBoom->SocketOffset = FVector(0.f,  50.f, 0.f);
+	CameraBoom->SocketOffset = FVector(0.f, 50.f, 0.f);
 	CameraBoom->SetUsingAbsoluteRotation(true);
 
 	// Create a follow camera
@@ -298,8 +298,9 @@ void APlayerCharacter::TryFistAttack()
 	// if (AnimInstance->Montage_IsPlaying(FistAttackMontage)) return;
 	if (FistAttackMontages.IsEmpty())
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("FistAttackMontages is empty, %s"),
-		                                                                         *GetName()));
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(
+			                                 TEXT("FistAttackMontages is empty, %s"),
+			                                 *GetName()));
 		UE_LOG(LogTemp, Error, TEXT("FistAttackMontages is empty! %s"), *GetName());
 		return;
 	}
@@ -523,9 +524,13 @@ bool APlayerCharacter::UseItem(UItem* Item)
 		return false;
 	}
 
-	// Vinegar Only
-	RestoreHp(MaxHp * 0.5f);
 	bool IsRemoveItemSuccessful = RemoveInventoryItem(Item, 1);
+	if (IsRemoveItemSuccessful)
+	{
+		// Vinegar Only
+		Heal(MaxHp * 0.5f);
+		OnPlayerUseItem.Broadcast();
+	}
 	return IsRemoveItemSuccessful;
 }
 

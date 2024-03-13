@@ -10,6 +10,7 @@
 #include "OxCharacter.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnBeginPush);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDoOsuGesture);
 
 UCLASS()
 class THEPATHOFOSU_API AOxCharacter : public ACharacter
@@ -96,7 +97,7 @@ protected:
 
 	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,
 	                         AActor* DamageCauser) override;
-	virtual void RestoreHp(float HpToRestore);
+	virtual void Heal(float HealAmount);
 
 	virtual void ReducePostureValue(float PostureValueToReduce);
 	virtual void RestorePostureValue(float PostureValueToRestore);
@@ -195,6 +196,9 @@ public:
 	TSet<FString> BlockMovementReasons;
 
 	FOnBeginPush OnBeginPush;
+
+	UPROPERTY(BlueprintAssignable)
+	FDoOsuGesture DoOsuGesture;
 
 	void SetTimeScale(float TimeScale);
 

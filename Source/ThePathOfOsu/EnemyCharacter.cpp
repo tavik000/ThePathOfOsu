@@ -93,4 +93,5 @@ void AEnemyCharacter::Die()
 	Super::Die();
 	HideHealthBar();
 	HideExecutableTargetWidget();
+	OnEnemyDeath.Broadcast();
 }

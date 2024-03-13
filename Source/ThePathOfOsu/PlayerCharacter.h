@@ -18,9 +18,7 @@ class UInputMappingContext;
 class UInputAction;
 struct FInputActionValue;
 
-/**
- * 
- */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerUseItem);
 
 UCLASS(Config=Game)
 class APlayerCharacter : public AOxCharacter
@@ -141,6 +139,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	bool UseSlotItem();
 
+	UPROPERTY(BlueprintAssignable)
+	FOnPlayerUseItem OnPlayerUseItem;
+	
 private:
 	bool IsMeleeAttackInputReceived = false;
 
