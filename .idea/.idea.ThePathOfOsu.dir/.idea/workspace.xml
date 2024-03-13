@@ -8,9 +8,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/5/0L/LDJDW40NYR5Z5RHF29ICMO.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/SlowMotionAnimNotifyState.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/SlowMotionAnimNotifyState.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Animations/Manny/Custom/AM_MM_ExecutePunch.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Animations/Manny/Custom/AM_MM_ExecutePunch.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/C/8G/4BK74T4154MD5R7Y1J8D8G.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/C/8G/4BK74T4154MD5R7Y1J8D8G.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,7 +172,7 @@
       <workItem from="1710172666203" duration="9066000" />
       <workItem from="1710240000643" duration="29648000" />
       <workItem from="1710305217739" duration="223000" />
-      <workItem from="1710305455810" duration="1281000" />
+      <workItem from="1710305455810" duration="5882000" />
     </task>
     <servers />
   </component>

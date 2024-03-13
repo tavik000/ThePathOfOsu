@@ -196,6 +196,8 @@ public:
 
 	FOnBeginPush OnBeginPush;
 
+	void SetTimeScale(float TimeScale);
+
 private:
 	float DefaultCapsuleRadius;
 };

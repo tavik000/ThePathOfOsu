@@ -429,3 +429,8 @@ float AOxCharacter::GetPostureValuePercentage() const
 {
 	return CurrentPostureValue / MaxPostureValue;
 }
+
+void AOxCharacter::SetTimeScale(float TimeScale)
+{
+	UGameplayStatics::SetGlobalTimeDilation(GetWorld(), TimeScale);
+}

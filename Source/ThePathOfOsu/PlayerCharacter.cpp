@@ -43,8 +43,11 @@ APlayerCharacter::APlayerCharacter()
 	// Create a camera boom (pulls in towards the player if there is a collision)
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
-	CameraBoom->TargetArmLength = 400.0f; // The camera follows at this distance behind the character	
+	CameraBoom->TargetArmLength = 250.0f; // The camera follows at this distance behind the character	
 	CameraBoom->bUsePawnControlRotation = true; // Rotate the arm based on the controller
+	CameraBoom->SetRelativeLocation(FVector(0.f, 0.f, 50.f));
+	CameraBoom->SocketOffset = FVector(0.f,  50.f, 0.f);
+	CameraBoom->SetUsingAbsoluteRotation(true);
 
 	// Create a follow camera
 	FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
@@ -295,6 +298,8 @@ void APlayerCharacter::TryFistAttack()
 	// if (AnimInstance->Montage_IsPlaying(FistAttackMontage)) return;
 	if (FistAttackMontages.IsEmpty())
 	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("FistAttackMontages is empty, %s"),
+		                                                                         *GetName()));
 		UE_LOG(LogTemp, Error, TEXT("FistAttackMontages is empty! %s"), *GetName());
 		return;
 	}
