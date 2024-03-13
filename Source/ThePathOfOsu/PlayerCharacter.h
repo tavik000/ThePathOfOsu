@@ -19,6 +19,7 @@ class UInputAction;
 struct FInputActionValue;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerUseItem);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerDeath);
 
 UCLASS(Config=Game)
 class APlayerCharacter : public AOxCharacter
@@ -95,6 +96,7 @@ protected:
 	                         AActor* DamageCauser) override;
 
 	virtual void OnMontageEnded(UAnimMontage* Montage, bool bInterrupted) override;
+	virtual void Die() override;
 
 public:
 	/** Returns CameraBoom subobject **/
@@ -141,6 +143,9 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FOnPlayerUseItem OnPlayerUseItem;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnPlayerDeath OnPlayerDeath;
 	
 private:
 	bool IsMeleeAttackInputReceived = false;

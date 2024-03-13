@@ -13,6 +13,8 @@ class THEPATHOFOSU_API ACompleteAllMissionGameMode : public AThePathOfOsuGameMod
 	GENERATED_BODY()
 
 public:
+	virtual void BeginPlay() override;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Mission")
 	TMap<UOsuMission*, bool> CurrentMission;
 
@@ -21,9 +23,27 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Mission")
 	USoundBase* CompleteMissionSound;
+
+	UFUNCTION(BlueprintCallable)
+	void OnPlayerDeath();
 	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Mission")
+	USoundBase* OsuSong;
 
 private:
 	void WinGame();
+	void LoseGame();
 	bool IsAllMissionCompleted();
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<UUserWidget> WinScreenWidgetClass;
+	
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<UUserWidget> LoseScreenWidgetClass;
+
+	FTimerHandle LoseGameTimer;;
+	FTimerHandle WinGameTimer;
+	APlayerController* PlayerController;
+	void ShowWinScreen();
+	void ShowLoseScreen();
 };

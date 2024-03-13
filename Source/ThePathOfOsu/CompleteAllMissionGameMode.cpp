@@ -3,7 +3,21 @@
 
 #include "CompleteAllMissionGameMode.h"
 
+#include "PlayerCharacter.h"
+#include "Blueprint/UserWidget.h"
 #include "Kismet/GameplayStatics.h"
+
+void ACompleteAllMissionGameMode::BeginPlay()
+{
+	Super::BeginPlay();
+
+	PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
+	APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(PlayerController->GetCharacter());
+	if (PlayerCharacter)
+	{
+		PlayerCharacter->OnPlayerDeath.AddDynamic(this, &ACompleteAllMissionGameMode::OnPlayerDeath);
+	}
+}
 
 void ACompleteAllMissionGameMode::CompleteMission(UOsuMission* Mission)
 {
@@ -44,6 +58,33 @@ void ACompleteAllMissionGameMode::CompleteMission(UOsuMission* Mission)
 	}
 }
 
+void ACompleteAllMissionGameMode::OnPlayerDeath()
+{
+	LoseGame();
+}
+
+void ACompleteAllMissionGameMode::LoseGame()
+{
+	GetWorldTimerManager().SetTimer(
+		LoseGameTimer, this, &ACompleteAllMissionGameMode::ShowLoseScreen, 2.0f, false);
+}
+
+void ACompleteAllMissionGameMode::ShowLoseScreen()
+{
+	if (!LoseScreenWidgetClass)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+		                                 FString::Printf(TEXT("LoseScreenWidgetClass is null")));
+		return;
+	}
+	CreateWidget<UUserWidget>(GetWorld(), LoseScreenWidgetClass)->AddToViewport();
+
+	PlayerController->SetInputMode(FInputModeUIOnly());
+	PlayerController->SetShowMouseCursor(true);
+	PlayerController->GameHasEnded(PlayerController->GetPawn(), false);
+	UGameplayStatics::SetGlobalTimeDilation(GetWorld(), 0.0f);
+}
+
 bool ACompleteAllMissionGameMode::IsAllMissionCompleted()
 {
 	for (auto& Mission : CurrentMission)
@@ -58,6 +99,24 @@ bool ACompleteAllMissionGameMode::IsAllMissionCompleted()
 
 void ACompleteAllMissionGameMode::WinGame()
 {
-	// TODO
-	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::White, FString::Printf(TEXT("Win Game")));
+	PlayerController->SetIgnoreMoveInput(true);
+	GetWorldTimerManager().SetTimer(
+		WinGameTimer, this, &ACompleteAllMissionGameMode::ShowWinScreen, 2.0f, false);
+
+}
+
+void ACompleteAllMissionGameMode::ShowWinScreen()
+{
+	if (!WinScreenWidgetClass)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("WinScreenWidgetClass is null")));
+		return;
+	}
+	CreateWidget<UUserWidget>(GetWorld(), WinScreenWidgetClass)->AddToViewport();
+
+	PlayerController->SetInputMode(FInputModeUIOnly());
+	PlayerController->SetShowMouseCursor(true);
+	PlayerController->GameHasEnded(PlayerController->GetPawn(), true);
+	
+	UGameplayStatics::SpawnSound2D(GetWorld(), OsuSong);
 }

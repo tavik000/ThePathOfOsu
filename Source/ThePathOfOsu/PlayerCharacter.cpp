@@ -377,6 +377,12 @@ void APlayerCharacter::OnMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 	}
 }
 
+void APlayerCharacter::Die()
+{
+	Super::Die();
+	OnPlayerDeath.Broadcast();
+}
+
 void APlayerCharacter::BeginFistAttack(bool IsLeftFist)
 {
 	Super::BeginFistAttack(IsLeftFist);
