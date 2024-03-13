@@ -15,7 +15,6 @@ void USlowMotionAnimNotifyState::NotifyBegin(USkeletalMeshComponent* MeshComp, U
 	{
 		Character->SetTimeScale(TimeScale);
 	}
-	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::White, FString::Printf(TEXT("Slow Motion")));
 }
 
 void USlowMotionAnimNotifyState::NotifyEnd(USkeletalMeshComponent* MeshComp, UAnimSequenceBase* Animation)
