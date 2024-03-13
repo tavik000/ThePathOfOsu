@@ -16,6 +16,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Mission")
 	TMap<UOsuMission*, bool> CurrentMission;
 
+	UFUNCTION(BlueprintCallable, Category = "Mission")
 	void CompleteMission(UOsuMission* Mission);
 	
 
