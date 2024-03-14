@@ -13,6 +13,8 @@ class AThePathOfOsuGameMode : public AGameModeBase
 
 public:
 	AThePathOfOsuGameMode();
+
+	//TODO init setting, Resolution, etc.
 };
 
 
