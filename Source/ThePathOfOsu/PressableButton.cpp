@@ -42,7 +42,7 @@ void APressableButton::SetupOutline_Implementation()
 void APressableButton::BeginPlay()
 {
 	Super::BeginPlay();
-	Transporter->SetPoints(GetActorLocation(), GetActorLocation() + FVector(0.0f, 0.0f, -5.0f));
+	Transporter->SetPoints(GetActorLocation(), GetActorLocation() + FVector(0.0f, 5.0f, 0.0f));
 	SetupOutline_Implementation();
 	
 	// FTimerHandle UnusedHandle;

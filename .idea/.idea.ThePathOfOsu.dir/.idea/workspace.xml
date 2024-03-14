@@ -8,20 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_MainMenuGameMode.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_MainMenuPawn.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_MainMenu.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Maps/MainMenu.umap" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/MainMenuGameMode.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/MainMenuGameMode.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/MainMenuPawn.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/MainMenuPawn.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_PushableRack.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Maps/Main_Level.umap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Maps/Osu_Level1_BuiltData.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_CompleteAllMissionGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_CompleteAllMissionGameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_EnemyDummy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_EnemyDummy.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_CollectableOsuMark.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_CollectableOsuMark.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_PlayerHUD.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_PlayerHUD.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Sequences/LS_OsuIntro.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sequences/LS_OsuIntro.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPerson/Maps/ThirdPersonMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/ThePathOfOsuGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/ThePathOfOsuGameMode.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/HF/9H7TKAXH9DD8KI3TIXGI2I.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/__ExternalActors__/ThirdPerson/Maps/ThirdPersonMap/6/HF/9H7TKAXH9DD8KI3TIXGI2I.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +175,7 @@
       <workItem from="1710240000643" duration="29648000" />
       <workItem from="1710305217739" duration="223000" />
       <workItem from="1710305455810" duration="19536000" />
-      <workItem from="1710384543869" duration="2390000" />
+      <workItem from="1710384543869" duration="5419000" />
     </task>
     <servers />
   </component>
