@@ -47,6 +47,7 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FPressableButtonOnActivated OnActivated;
+	
 	UPROPERTY(BlueprintAssignable)
 	FPressableButtonOnDeactivated OnDeactivated;
 
@@ -55,6 +56,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	UBillboardComponent* InteractionHUD;
+
+	UPROPERTY(EditAnywhere)
+	UMaterialInterface* OutlineMaterial;
 	
 private:
 	FTimerHandle CheckAndUpdateWidgetVisibleTimer;

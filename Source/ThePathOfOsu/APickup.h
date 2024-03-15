@@ -60,6 +60,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	USoundBase* GiveItemSound;
 	
+	UPROPERTY(EditAnywhere)
+	UMaterialInterface* OutlineMaterial;
+	
 private:
 	FTimerHandle CheckAndUpdateWidgetVisibleTimer;
 };

@@ -47,7 +47,7 @@ protected:
 	virtual void TryFistAttack() override;
 
 	virtual void BreakPosture() override;
-	virtual void RestorePosture() override;
+	virtual void RestorePostureFromBreak() override;
 	virtual void Die() override;
 
 	

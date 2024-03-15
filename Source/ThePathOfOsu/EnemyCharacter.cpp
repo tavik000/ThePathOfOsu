@@ -82,9 +82,9 @@ void AEnemyCharacter::BreakPosture()
 	ShowExecutableTargetWidget();
 }
 
-void AEnemyCharacter::RestorePosture()
+void AEnemyCharacter::RestorePostureFromBreak()
 {
-	Super::RestorePosture();
+	Super::RestorePostureFromBreak();
 	HideExecutableTargetWidget();
 }
 

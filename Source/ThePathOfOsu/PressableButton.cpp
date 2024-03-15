@@ -29,10 +29,17 @@ void APressableButton::SetupOutline_Implementation()
 	MeshOutline->SetStaticMesh(Mesh->GetStaticMesh());
 	MeshOutline->SetRelativeScale3D(FVector(1.02f, 1.02f, 1.02f));
 
+	
+	if (!OutlineMaterial)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("OutlineMaterial is null, function: AAPickup::SetupOutline_Implementation()")));
+		UE_LOG(LogTemp, Error, TEXT("OutlineMaterial is null, function: AAPickup::SetupOutline_Implementation()"));
+	}
+	
 	for (int i = 0; i <= Mesh->GetNumMaterials() - 1; i++)
 	{
-		UMaterialInterface* OutlineMaterial = Cast<UMaterialInterface>(
-			StaticLoadObject(UObject::StaticClass(), nullptr, TEXT("/Game/Materials/M_MeshOutline")));
+		// UMaterialInterface* OutlineMaterial = Cast<UMaterialInterface>(
+		// 	StaticLoadObject(UObject::StaticClass(), nullptr, TEXT("/Game/Materials/M_MeshOutline")));
 		MeshOutline->SetMaterial(i, OutlineMaterial);
 	}
 	MeshOutline->SetVisibility(false);

@@ -122,7 +122,7 @@ void AOxCharacter::BreakPosture()
 	}
 }
 
-void AOxCharacter::RestorePosture()
+void AOxCharacter::RestorePostureFromBreak()
 {
 	if (IsExecutable)
 	{
@@ -221,7 +221,7 @@ void AOxCharacter::OnMontageEnded(UAnimMontage* Montage, bool bInterrupted)
 	// GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::White, FString::Printf(TEXT("Montage Ended %s"), *Montage->GetName()));
 	if (!bInterrupted && Montage->GetName().Contains("Break"))
 	{
-		RestorePosture();
+		RestorePostureFromBreak();
 	}
 }
 
@@ -434,4 +434,9 @@ float AOxCharacter::GetPostureValuePercentage() const
 void AOxCharacter::SetTimeScale(float TimeScale)
 {
 	UGameplayStatics::SetGlobalTimeDilation(GetWorld(), TimeScale);
+}
+
+void AOxCharacter::OsuGestureRestorePosture()
+{
+	RestorePostureValue(OsuGestureRestorePostureAmount);
 }

@@ -91,6 +91,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly)
 	float PushMoveCapsuleOffset = -50.0f;
 
+	UPROPERTY(EditAnywhere)
+	float OsuGestureRestorePostureAmount = 30.0f;
+	
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,
 	                    int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
@@ -104,7 +107,7 @@ protected:
 
 
 	virtual void BreakPosture();
-	virtual void RestorePosture();
+	virtual void RestorePostureFromBreak();
 
 
 	UFUNCTION(BlueprintPure)
@@ -201,6 +204,8 @@ public:
 	FDoOsuGesture DoOsuGesture;
 
 	void SetTimeScale(float TimeScale);
+
+	void OsuGestureRestorePosture();
 
 private:
 	float DefaultCapsuleRadius;
