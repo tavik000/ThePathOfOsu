@@ -57,6 +57,11 @@ void AAPickup::SetupOutline_Implementation()
 	ObjectNameText->SetVisibility(false);
 }
 
+bool AAPickup::IsInteractiveHUDVisible_Implementation()
+{
+	return InteractionHUD->IsVisible();
+}
+
 void AAPickup::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);

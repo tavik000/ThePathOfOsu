@@ -33,6 +33,7 @@ public:
 	void StartCheckAndUpdateWidgetVisibleTimer_Implementation() override;
 	void CheckAndUpdateWidgetVisible_Implementation() override;
 	void SetupOutline_Implementation() override;;
+	bool IsInteractiveHUDVisible_Implementation() override;
 	
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	USceneComponent* RootComp;

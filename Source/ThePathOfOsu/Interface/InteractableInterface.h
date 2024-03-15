@@ -25,6 +25,9 @@ public:
 	void ToggleOutline(bool bValue);
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Interactable")
+	bool IsInteractiveHUDVisible();
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Interactable")
 	void StartCheckAndUpdateWidgetVisibleTimer();
 	
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Interactable")

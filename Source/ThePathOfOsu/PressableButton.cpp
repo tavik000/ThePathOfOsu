@@ -46,6 +46,11 @@ void APressableButton::SetupOutline_Implementation()
 	InteractionHUD->SetVisibility(false);
 }
 
+bool APressableButton::IsInteractiveHUDVisible_Implementation()
+{
+	return InteractionHUD->IsVisible();
+}
+
 void APressableButton::BeginPlay()
 {
 	Super::BeginPlay();

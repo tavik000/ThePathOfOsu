@@ -397,7 +397,7 @@ void APlayerCharacter::FindAndHighlightInteractableObjectNearPlayer()
 {
 	TArray<AActor*> IgnoredActors;
 	IgnoredActors.Add(this);
-	bool IsHit = UKismetSystemLibrary::SphereOverlapActors(GetWorld(), GetActorLocation(), 280.0f,
+	bool IsHit = UKismetSystemLibrary::SphereOverlapActors(GetWorld(), GetActorLocation(), 330.0f,
 	                                                       InteractableObjectTypes, nullptr,
 	                                                       IgnoredActors, CloseActors);
 	if (IsHit)
@@ -418,7 +418,8 @@ void APlayerCharacter::FindAndHighlightInteractableObjectNearPlayer()
 		IInteractableInterface* InteractableInterface = Cast<IInteractableInterface>(ClosestInteractableObject);
 		if (InteractableInterface)
 		{
-			if (InteractableInterface->Execute_IsEnable(ClosestInteractableObject))
+			if (!InteractableInterface->Execute_IsInteractiveHUDVisible(ClosestInteractableObject) &&
+				InteractableInterface->Execute_IsEnable(ClosestInteractableObject))
 			{
 				InteractableInterface->Execute_ToggleOutline(ClosestInteractableObject, true);
 				InteractableInterface->Execute_StartCheckAndUpdateWidgetVisibleTimer(ClosestInteractableObject);

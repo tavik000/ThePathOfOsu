@@ -174,6 +174,7 @@ private:
 
 	FTimerHandle FindInteractableTimerHandle;
 	void FindAndHighlightInteractableObjectNearPlayer();
+	
 	UPROPERTY(EditAnywhere)
 	TArray<TEnumAsByte<EObjectTypeQuery>> InteractableObjectTypes;
 };

@@ -1,39 +1,35 @@
-﻿
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Item.h"
-#include "Components/ArrowComponent.h"
 #include "GameFramework/Actor.h"
 #include "Interface/InteractableInterface.h"
-#include "Components/StaticMeshComponent.h"
-#include "Components/BillboardComponent.h"
-#include "Components/TextRenderComponent.h"
-#include "APickup.generated.h"
+#include "OpenableDoor.generated.h"
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInteract);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDoorOpened);
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDoorInteracted);
+
 UCLASS()
-class THEPATHOFOSU_API AAPickup : public AActor, public IInteractableInterface
+class THEPATHOFOSU_API AOpenableDoor : public AActor, public IInteractableInterface
 {
 	GENERATED_BODY()
 
 public:
-	AAPickup();
+	AOpenableDoor();
 
 protected:
 	virtual void BeginPlay() override;
 
 public:
 	virtual void Tick(float DeltaTime) override;
-	bool GiveItem();
 
 	virtual void Interact_Implementation() override;
-	virtual void ToggleOutline_Implementation(bool bValue) override;
 	virtual bool IsEnable_Implementation() override;
+	virtual void ToggleOutline_Implementation(bool bValue) override;
 	virtual void StartCheckAndUpdateWidgetVisibleTimer_Implementation() override;
 	virtual void CheckAndUpdateWidgetVisible_Implementation() override;
-	virtual void SetupOutline_Implementation() override;
 	virtual bool IsInteractiveHUDVisible_Implementation() override;
+
 
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	USceneComponent* RootComp;
@@ -41,29 +37,22 @@ public:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	UStaticMeshComponent* Mesh;
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
-	UStaticMeshComponent* MeshOutline;
+	UStaticMeshComponent* DoorFrameMesh;
 
-	UPROPERTY(BlueprintAssignable)
-	FOnInteract OnInteract;
 
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	UBillboardComponent* InteractionHUD;
 
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
-	UArrowComponent* Arrow;
+	UPROPERTY(BlueprintAssignable, BlueprintCallable)
+	FOnDoorOpened OnOpen;
 
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
-	UTextRenderComponent* ObjectNameText;
+	UPROPERTY(BlueprintAssignable)
+	FOnDoorInteracted OnInteracted;
 
-	UPROPERTY(EditAnywhere)
-	UItem* ItemType;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float OpenAngle;
 
-	UPROPERTY(EditAnywhere)
-	USoundBase* GiveItemSound;
-	
-	UPROPERTY(EditAnywhere)
-	UMaterialInterface* OutlineMaterial;
-	
 private:
 	FTimerHandle CheckAndUpdateWidgetVisibleTimer;
+	bool IsActivated;
 };
