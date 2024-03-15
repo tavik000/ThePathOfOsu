@@ -54,7 +54,6 @@ void AOpenableDoor::ToggleOutline_Implementation(bool bValue)
 {
 	IInteractableInterface::ToggleOutline_Implementation(bValue);
 	InteractionHUD->SetVisibility(bValue);
-	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::White, FString::Printf(TEXT("Visible: %d"), bValue));
 }
 
 void AOpenableDoor::StartCheckAndUpdateWidgetVisibleTimer_Implementation()
