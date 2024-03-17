@@ -75,6 +75,8 @@ void APlayerCharacter::BeginPlay()
 		}
 	}
 
+	GameInstance = Cast<UOsuGameInstance>(GetGameInstance());
+
 	AnimInstance->OnPlayMontageNotifyBegin.AddDynamic(this, &APlayerCharacter::OnPlayMontageNotifyBegin);
 
 	GetWorldTimerManager().SetTimer(FindInteractableTimerHandle, this,
@@ -152,6 +154,9 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 		EnhancedInputComponent->BindAction(OsuAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::TryOsu);
+		
+		EnhancedInputComponent->BindAction(PauseAction, ETriggerEvent::Started, this,
+		                                   &APlayerCharacter::TogglePauseGame);
 	}
 	else
 	{
@@ -426,6 +431,11 @@ void APlayerCharacter::FindAndHighlightInteractableObjectNearPlayer()
 			}
 		}
 	}
+}
+
+void APlayerCharacter::TogglePauseGame()
+{
+	GameInstance->TogglePauseGame();
 }
 
 float APlayerCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,

@@ -8,6 +8,7 @@
 #include "OxCharacter.h"
 #include "Logging/LogMacros.h"
 #include "Item.h"
+#include "OsuGameInstance.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "PlayerCharacter.generated.h"
 
@@ -67,6 +68,9 @@ class APlayerCharacter : public AOxCharacter
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* OsuAction;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* PauseAction;
 
 public:
 	APlayerCharacter();
@@ -177,4 +181,8 @@ private:
 	
 	UPROPERTY(EditAnywhere)
 	TArray<TEnumAsByte<EObjectTypeQuery>> InteractableObjectTypes;
+
+	void TogglePauseGame();
+
+	UOsuGameInstance* GameInstance;
 };

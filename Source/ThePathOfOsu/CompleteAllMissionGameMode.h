@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "OsuMission.h"
 #include "ThePathOfOsuGameMode.h"
+#include "Blueprint/UserWidget.h"
 #include "CompleteAllMissionGameMode.generated.h"
 
 UCLASS()
