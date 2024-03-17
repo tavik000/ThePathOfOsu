@@ -8,6 +8,8 @@
 #include "EnemyCharacter.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEnemyDeath);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEnemyStartBattle);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEnemyEndBattle);
 
 UCLASS()
 class THEPATHOFOSU_API AEnemyCharacter : public AOxCharacter
@@ -37,6 +39,15 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FOnEnemyDeath OnEnemyDeath;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AI")
+	float AcquisitionRange = 500.0f;
+
+	UPROPERTY(BlueprintAssignable, BlueprintCallable)
+	FOnEnemyStartBattle OnEnemyStartBattle;
+	
+	UPROPERTY(BlueprintAssignable, BlueprintCallable)
+	FOnEnemyEndBattle OnEnemyEndBattle;
 	
 protected:
 	virtual void BeginPlay() override;
