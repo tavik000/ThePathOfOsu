@@ -35,6 +35,13 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FOnGameResume OnGameResume;
 
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	float MusicVolume = 100.0f;
+	
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	float SFXVolume = 100.0f;
+
+
 private:
 	APlayerController* PlayerController;
 	APlayerCharacter* PlayerCharacter;
