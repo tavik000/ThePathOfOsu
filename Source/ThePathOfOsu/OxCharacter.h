@@ -188,7 +188,7 @@ public:
 	UFUNCTION(BlueprintPure)
 	float GetPostureValuePercentage() const;
 
-	UPROPERTY(EditAnywhere, Category = "Combat")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat")
 	float PunchDamage = 15;
 
 	bool IsAttackReflectable = false;
