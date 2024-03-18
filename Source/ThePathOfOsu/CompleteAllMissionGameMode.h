@@ -28,8 +28,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OnPlayerDeath();
 	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Mission")
-	USoundBase* OsuSong;
 
 private:
 	void WinGame();

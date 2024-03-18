@@ -118,5 +118,4 @@ void ACompleteAllMissionGameMode::ShowWinScreen()
 	PlayerController->SetShowMouseCursor(true);
 	PlayerController->GameHasEnded(PlayerController->GetPawn(), true);
 	
-	UGameplayStatics::SpawnSound2D(GetWorld(), OsuSong);
 }
