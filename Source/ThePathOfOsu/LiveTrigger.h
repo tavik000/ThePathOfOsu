@@ -49,14 +49,14 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	UItem *RequireItemType;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditAnywhere)
 	ASubtitle* SubtitleActor;
 
-	UPROPERTY(EditDefaultsOnly)
+	UPROPERTY(EditAnywhere)
 	FText SubtitleText;
 
 	UPROPERTY(EditDefaultsOnly)
-	float SubtitleDuration;
+	float SubtitleDuration = 4.0f;
 	
 private:
 	FTimerHandle CheckAndUpdateWidgetVisibleTimer;

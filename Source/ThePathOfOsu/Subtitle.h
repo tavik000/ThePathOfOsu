@@ -18,6 +18,6 @@ protected:
 public:
 	virtual void Tick(float DeltaTime) override;
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	void ShowSubtitle(const FString& SubtitleText, float Duration);
+	UFUNCTION(BlueprintImplementableEvent)
+	void ShowSubtitleFromScript(const FString& SubtitleText, float Duration);
 };

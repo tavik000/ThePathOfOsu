@@ -11,13 +11,13 @@
 ALiveTrigger::ALiveTrigger()
 {
 	PrimaryActorTick.bCanEverTick = true;
-	
+
 	IsActivated = false;
 	RootComp = CreateDefaultSubobject<USceneComponent>(TEXT("RootComp"));
 	SetRootComponent(RootComp);
 	Mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Mesh"));
 	Mesh->SetupAttachment(RootComp);
-	
+
 	InteractionHUD = CreateDefaultSubobject<UBillboardComponent>(TEXT("InteractionHUD"));
 	InteractionHUD->SetupAttachment(RootComp);
 	InteractionHUD->SetRelativeLocation(FVector(0.0f, -48.0f, 31.0f));
@@ -28,8 +28,14 @@ ALiveTrigger::ALiveTrigger()
 void ALiveTrigger::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 	InteractionHUD->SetVisibility(false);
+	if (!SubtitleActor)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+		                                 FString::Printf(
+			                                 TEXT("SubtitleActor is null!, function: ALiveTrigger::BeginPlay()")));
+	}
 }
 
 void ALiveTrigger::Tick(float DeltaTime)
@@ -42,7 +48,9 @@ void ALiveTrigger::Interact_Implementation(AActor* InteractActor)
 	APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(InteractActor);
 	if (!PlayerCharacter)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("PlayerCharacter is null!, function: ALiveTrigger::Interact_Implementation()")));
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+		                                 FString::Printf(TEXT(
+			                                 "PlayerCharacter is null!, function: ALiveTrigger::Interact_Implementation()")));
 		return;
 	}
 	if (PlayerCharacter->HasItem(RequireItemType))
@@ -54,7 +62,7 @@ void ALiveTrigger::Interact_Implementation(AActor* InteractActor)
 	}
 	else
 	{
-		SubtitleActor->ShowSubtitle(SubtitleText.ToString(), SubtitleDuration);
+		SubtitleActor->ShowSubtitleFromScript(SubtitleText.ToString(), SubtitleDuration);
 	}
 }
 
@@ -72,7 +80,7 @@ bool ALiveTrigger::IsEnable_Implementation()
 void ALiveTrigger::StartCheckAndUpdateWidgetVisibleTimer_Implementation()
 {
 	IInteractableInterface::StartCheckAndUpdateWidgetVisibleTimer_Implementation();
-	
+
 	GetWorldTimerManager().SetTimer(
 		CheckAndUpdateWidgetVisibleTimer, this, &ALiveTrigger::CheckAndUpdateWidgetVisible_Implementation, 0.1f, true);
 }
@@ -80,7 +88,7 @@ void ALiveTrigger::StartCheckAndUpdateWidgetVisibleTimer_Implementation()
 void ALiveTrigger::CheckAndUpdateWidgetVisible_Implementation()
 {
 	IInteractableInterface::CheckAndUpdateWidgetVisible_Implementation();
-	
+
 	APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
 	if (!PlayerCharacter)
 	{
@@ -99,4 +107,3 @@ bool ALiveTrigger::IsInteractiveHUDVisible_Implementation()
 {
 	return InteractionHUD->IsVisible();
 }
-
