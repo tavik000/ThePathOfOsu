@@ -172,7 +172,7 @@ private:
 	AEnemyCharacter* LockTargetEnemy = nullptr;
 
 	UPROPERTY(EditAnywhere)
-	TArray<TEnumAsByte<EObjectTypeQuery>> TraceObjectTypes;
+	TArray<TEnumAsByte<EObjectTypeQuery>> TraceEnemyObjectTypes;
 
 
 	APlayerController* PlayerController;

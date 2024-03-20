@@ -229,7 +229,7 @@ void APlayerCharacter::SearchEnemyInFront(FHitResult& OutHit, bool& IsHit)
 	TArray<AActor*> IgnoredActors;
 	IgnoredActors.Add(this);
 	IsHit = UKismetSystemLibrary::SphereTraceSingleForObjects(GetWorld(), StartLocation, EndLocation, 500.f,
-	                                                          TraceObjectTypes, false, IgnoredActors,
+	                                                          TraceEnemyObjectTypes, false, IgnoredActors,
 	                                                          EDrawDebugTrace::None, OutHit, true,
 	                                                          FLinearColor::Red, FLinearColor::Green, 15.f);
 }
