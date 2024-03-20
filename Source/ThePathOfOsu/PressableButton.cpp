@@ -70,9 +70,9 @@ void APressableButton::Tick(float DeltaTime)
 }
 
 
-void APressableButton::Interact_Implementation(AActor* InteractActor)
+void APressableButton::Interact_Implementation(APlayerCharacter* InteractCharacter)
 {
-	IInteractableInterface::Interact_Implementation(InteractActor);
+	IInteractableInterface::Interact_Implementation(InteractCharacter);
 	OnActivated.Broadcast();
 	IsActivated = true;
 }

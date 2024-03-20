@@ -2,6 +2,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PlayerCharacter.h"
 #include "Transporter.h"
 #include "GameFramework/Actor.h"
 #include "Components/StaticMeshComponent.h"
@@ -27,7 +28,7 @@ protected:
 public:	
 	virtual void Tick(float DeltaTime) override;
 
-	void Interact_Implementation(AActor* InteractActor) override;
+	void Interact_Implementation(APlayerCharacter* InteractCharacter) override;
 	void ToggleOutline_Implementation(bool bValue) override;
 	bool IsEnable_Implementation() override;
 	void StartCheckAndUpdateWidgetVisibleTimer_Implementation() override;

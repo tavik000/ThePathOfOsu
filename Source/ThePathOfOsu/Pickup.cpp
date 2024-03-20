@@ -1,11 +1,11 @@
-﻿#include "APickup.h"
+﻿#include "Pickup.h"
 
 #include "PlayerCharacter.h"
 #include "Kismet/GameplayStatics.h"
 #include "Kismet/KismetMathLibrary.h"
 
 
-AAPickup::AAPickup()
+APickup::APickup()
 {
 	PrimaryActorTick.bCanEverTick = true;
 	RootComp = CreateDefaultSubobject<USceneComponent>(TEXT("RootComp"));
@@ -28,13 +28,13 @@ AAPickup::AAPickup()
 	ObjectNameText->SetRelativeLocation(FVector(0.0f, 96.0f, 125.0f));
 }
 
-void AAPickup::BeginPlay()
+void APickup::BeginPlay()
 {
 	Super::BeginPlay();
 	SetupOutline_Implementation();
 }
 
-void AAPickup::SetupOutline_Implementation()
+void APickup::SetupOutline_Implementation()
 {
 	IInteractableInterface::SetupOutline_Implementation();
 	MeshOutline->SetStaticMesh(Mesh->GetStaticMesh());
@@ -57,12 +57,12 @@ void AAPickup::SetupOutline_Implementation()
 	ObjectNameText->SetVisibility(false);
 }
 
-bool AAPickup::IsInteractiveHUDVisible_Implementation()
+bool APickup::IsInteractiveHUDVisible_Implementation()
 {
 	return InteractionHUD->IsVisible();
 }
 
-void AAPickup::Tick(float DeltaTime)
+void APickup::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	if (ObjectNameText->IsVisible())
@@ -74,7 +74,8 @@ void AAPickup::Tick(float DeltaTime)
 	}
 }
 
-bool AAPickup::GiveItem()
+
+bool APickup::GiveItem()
 {
 	APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(), 0));
 	if (!PlayerCharacter)
@@ -85,20 +86,36 @@ bool AAPickup::GiveItem()
 	const bool IsGiveItemSuccessful = PlayerCharacter->AddInventoryItem(ItemType, 1);
 	if (IsGiveItemSuccessful)
 	{
+		if (!GiveItemSound)
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("GiveItemSound is null!")));
+		}
 		UGameplayStatics::SpawnSoundAtLocation(GetWorld(), GiveItemSound, GetActorLocation());
 		Destroy();
 	}
 	return IsGiveItemSuccessful;
 }
 
-void AAPickup::Interact_Implementation(AActor* InteractActor)
+void APickup::Interact_Implementation(APlayerCharacter* InteractCharacter)
 {
-	IInteractableInterface::Interact_Implementation(InteractActor);
-	OnInteract.Broadcast();
-	GiveItem();
+	if (CanPickup(InteractCharacter))
+	{
+		IInteractableInterface::Interact_Implementation(InteractCharacter);
+		OnInteract.Broadcast();
+		GiveItem();
+	}
+	else
+	{
+		//TODO: Show some message to player
+	}
 }
 
-void AAPickup::ToggleOutline_Implementation(bool bValue)
+bool APickup::CanPickup(APlayerCharacter* PickingCharacter)
+{
+	return true;
+}
+
+void APickup::ToggleOutline_Implementation(bool bValue)
 {
 	IInteractableInterface::ToggleOutline_Implementation(bValue);
 	MeshOutline->SetVisibility(bValue);
@@ -106,19 +123,19 @@ void AAPickup::ToggleOutline_Implementation(bool bValue)
 	ObjectNameText->SetVisibility(bValue);
 }
 
-bool AAPickup::IsEnable_Implementation()
+bool APickup::IsEnable_Implementation()
 {
 	return true;
 }
 
-void AAPickup::StartCheckAndUpdateWidgetVisibleTimer_Implementation()
+void APickup::StartCheckAndUpdateWidgetVisibleTimer_Implementation()
 {
 	IInteractableInterface::StartCheckAndUpdateWidgetVisibleTimer_Implementation();
 	GetWorldTimerManager().SetTimer(
-		CheckAndUpdateWidgetVisibleTimer, this, &AAPickup::CheckAndUpdateWidgetVisible_Implementation, 0.1f, true);
+		CheckAndUpdateWidgetVisibleTimer, this, &APickup::CheckAndUpdateWidgetVisible_Implementation, 0.1f, true);
 }
 
-void AAPickup::CheckAndUpdateWidgetVisible_Implementation()
+void APickup::CheckAndUpdateWidgetVisible_Implementation()
 {
 	IInteractableInterface::CheckAndUpdateWidgetVisible_Implementation();
 

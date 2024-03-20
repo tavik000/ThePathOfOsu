@@ -10,15 +10,16 @@
 #include "Components/BillboardComponent.h"
 #include "Components/TextRenderComponent.h"
 #include "OsuType.h"
-#include "APickup.generated.h"
+#include "PlayerCharacter.h"
+#include "Pickup.generated.h"
 
 UCLASS()
-class THEPATHOFOSU_API AAPickup : public AActor, public IInteractableInterface
+class THEPATHOFOSU_API APickup : public AActor, public IInteractableInterface
 {
 	GENERATED_BODY()
 
 public:
-	AAPickup();
+	APickup();
 
 protected:
 	virtual void BeginPlay() override;
@@ -27,13 +28,16 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	bool GiveItem();
 
-	virtual void Interact_Implementation(AActor* InteractActor) override;
+	virtual void Interact_Implementation(APlayerCharacter* InteractCharacter) override;
 	virtual void ToggleOutline_Implementation(bool bValue) override;
 	virtual bool IsEnable_Implementation() override;
 	virtual void StartCheckAndUpdateWidgetVisibleTimer_Implementation() override;
 	virtual void CheckAndUpdateWidgetVisible_Implementation() override;
 	virtual void SetupOutline_Implementation() override;
 	virtual bool IsInteractiveHUDVisible_Implementation() override;
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	virtual bool CanPickup(APlayerCharacter* PickingCharacter);
 
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	USceneComponent* RootComp;

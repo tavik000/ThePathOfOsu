@@ -38,9 +38,9 @@ void AOpenableDoor::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void AOpenableDoor::Interact_Implementation(AActor* InteractActor)
+void AOpenableDoor::Interact_Implementation(APlayerCharacter* InteractCharacter)
 {
-	IInteractableInterface::Interact_Implementation(InteractActor);
+	IInteractableInterface::Interact_Implementation(InteractCharacter);
 	IsActivated = true;
 	OnInteracted.Broadcast();
 }

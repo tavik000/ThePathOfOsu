@@ -4,6 +4,7 @@
 #include "CoreMinimal.h"
 #include "Item.h"
 #include "OsuType.h"
+#include "PlayerCharacter.h"
 #include "Subtitle.h"
 #include "GameFramework/Actor.h"
 #include "Interface/InteractableInterface.h"
@@ -22,7 +23,7 @@ protected:
 
 public:
 	virtual void Tick(float DeltaTime) override;
-	virtual void Interact_Implementation(AActor* InteractActor) override;
+	virtual void Interact_Implementation(APlayerCharacter* InteractCharacter) override;
 	virtual void ToggleOutline_Implementation(bool bValue) override;
 	virtual bool IsEnable_Implementation() override;
 	virtual void StartCheckAndUpdateWidgetVisibleTimer_Implementation() override;

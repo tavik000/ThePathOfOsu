@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "PlayerCharacter.h"
 #include "GameFramework/Actor.h"
 #include "Interface/InteractableInterface.h"
 #include "OpenableDoor.generated.h"
@@ -23,7 +24,7 @@ protected:
 public:
 	virtual void Tick(float DeltaTime) override;
 
-	virtual void Interact_Implementation(AActor* InteractActor) override;
+	virtual void Interact_Implementation(APlayerCharacter* InteractCharacter) override;
 	virtual bool IsEnable_Implementation() override;
 	virtual void ToggleOutline_Implementation(bool bValue) override;
 	virtual void StartCheckAndUpdateWidgetVisibleTimer_Implementation() override;

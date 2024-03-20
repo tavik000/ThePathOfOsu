@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "CoreMinimal.h"
+#include "ThePathOfOsu/PlayerCharacter.h"
 #include "UObject/Interface.h"
 #include "InteractableInterface.generated.h"
 
@@ -16,7 +17,7 @@ class THEPATHOFOSU_API IInteractableInterface
 
 public:
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Interactable")
-	void Interact(AActor* InteractActor);
+	void Interact(APlayerCharacter* InteractPlayerCharacter);
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Interactable")
 	bool IsEnable();

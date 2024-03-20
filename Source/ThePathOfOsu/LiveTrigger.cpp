@@ -43,9 +43,9 @@ void ALiveTrigger::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ALiveTrigger::Interact_Implementation(AActor* InteractActor)
+void ALiveTrigger::Interact_Implementation(APlayerCharacter* InteractCharacter)
 {
-	APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(InteractActor);
+	APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(InteractCharacter);
 	if (!PlayerCharacter)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
@@ -55,7 +55,7 @@ void ALiveTrigger::Interact_Implementation(AActor* InteractActor)
 	}
 	if (PlayerCharacter->HasItem(RequireItemType))
 	{
-		IInteractableInterface::Interact_Implementation(InteractActor);
+		IInteractableInterface::Interact_Implementation(InteractCharacter);
 		PlayerCharacter->RemoveInventoryItem(RequireItemType);
 		OnInteract.Broadcast();
 		IsActivated = true;
