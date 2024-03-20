@@ -168,7 +168,7 @@ public:
 	UFUNCTION(BlueprintPure)
 	bool IsAlive() const;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Combat")
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Combat")
 	float MaxHp = 100;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Combat")
 	float CurrentHp = MaxHp;
