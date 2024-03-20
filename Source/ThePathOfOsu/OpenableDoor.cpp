@@ -71,7 +71,7 @@ void AOpenableDoor::CheckAndUpdateWidgetVisible_Implementation()
 		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("PlayerCharacter is null!")));
 		return;
 	}
-	if (IsActivated || PlayerCharacter->FocusActor != this)
+	if (IsActivated || PlayerCharacter->FocusActor != this || !PlayerCharacter->CloseActors.Contains(this))
 	{
 		ToggleOutline_Implementation(false);
 		GetWorldTimerManager().ClearTimer(CheckAndUpdateWidgetVisibleTimer);

@@ -164,6 +164,8 @@ private:
 	float StaminaRegenRate = 10;
 	UPROPERTY(EditDefaultsOnly)
 	float RollStaminaCost = 70;
+	UPROPERTY(EditDefaultsOnly)
+	float FindHighlightInteractiveObjectDistance = 350.0f;
 
 	UPROPERTY(BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	bool IsTargetLocking = false;

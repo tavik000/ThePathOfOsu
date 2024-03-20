@@ -128,7 +128,7 @@ void AAPickup::CheckAndUpdateWidgetVisible_Implementation()
 		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("PlayerCharacter is null!")));
 		return;
 	}
-	if (!PlayerCharacter->CloseActors.Contains(this))
+	if (PlayerCharacter->FocusActor != this || !PlayerCharacter->CloseActors.Contains(this))
 	{
 		ToggleOutline_Implementation(false);
 		PlayerCharacter->FocusActor = nullptr;

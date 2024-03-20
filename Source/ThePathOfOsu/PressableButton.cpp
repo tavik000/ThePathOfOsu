@@ -104,7 +104,7 @@ void APressableButton::CheckAndUpdateWidgetVisible_Implementation()
 		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("PlayerCharacter is null!")));
 		return;
 	}
-	if (IsActivated || !PlayerCharacter->CloseActors.Contains(this))
+	if (IsActivated || PlayerCharacter->FocusActor != this || !PlayerCharacter->CloseActors.Contains(this))
 	{
 		ToggleOutline_Implementation(false);
 		PlayerCharacter->FocusActor = nullptr;
