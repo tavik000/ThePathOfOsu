@@ -8,17 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_OpenableDoor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_OpenableDoor.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/APickup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/APickup.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/LiveTrigger.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/LiveTrigger.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OpenableDoor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OpenableDoor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +174,7 @@
       <workItem from="1710762955153" duration="1546000" />
       <workItem from="1710771020592" duration="4710000" />
       <workItem from="1710923018702" duration="80000" />
-      <workItem from="1710923112024" duration="1402000" />
+      <workItem from="1710923112024" duration="2678000" />
     </task>
     <servers />
   </component>
