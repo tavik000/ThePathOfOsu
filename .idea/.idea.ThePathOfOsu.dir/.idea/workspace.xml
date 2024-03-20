@@ -7,13 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/LiveTrigger.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/LiveTrigger.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OsuType.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/APickup.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/APickup.h" afterDir="false" />
-    </list>
+    <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -176,7 +170,7 @@
       <workItem from="1710589542020" duration="1267000" />
       <workItem from="1710658677338" duration="10542000" />
       <workItem from="1710762955153" duration="1546000" />
-      <workItem from="1710771020592" duration="3847000" />
+      <workItem from="1710771020592" duration="4710000" />
     </task>
     <servers />
   </component>
