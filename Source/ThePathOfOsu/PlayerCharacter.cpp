@@ -266,7 +266,7 @@ void APlayerCharacter::Interact()
 
 bool APlayerCharacter::CanUseItem()
 {
-	return Super::CanUseItem() && InventoryData.Num() > 0;
+	return Super::CanUseItem() && InventoryData.Num() > 0 && HasItem(CurrentSlotItem);
 }
 
 void APlayerCharacter::TryTargetLock()
@@ -497,7 +497,6 @@ bool APlayerCharacter::AddInventoryItem(UItem* NewItem, int32 ItemCount)
 		IsAddSuccessful = true;
 	}
 	// Temp set slotItem
-	CurrentSlotItem = NewItem;
 	return IsAddSuccessful;
 }
 

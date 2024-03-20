@@ -127,7 +127,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
 	TMap<UItem*, int32> InventoryData;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Inventory")
+	UPROPERTY(EditDefaultsOnly, Category = "Inventory")
 	UItem* CurrentSlotItem;
 
 	UFUNCTION(BlueprintPure, Category = "Inventory")
