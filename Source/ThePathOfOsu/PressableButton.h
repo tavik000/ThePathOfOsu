@@ -27,7 +27,7 @@ protected:
 public:	
 	virtual void Tick(float DeltaTime) override;
 
-	void Interact_Implementation() override;
+	void Interact_Implementation(AActor* InteractActor) override;
 	void ToggleOutline_Implementation(bool bValue) override;
 	bool IsEnable_Implementation() override;
 	void StartCheckAndUpdateWidgetVisibleTimer_Implementation() override;

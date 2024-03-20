@@ -133,6 +133,9 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Inventory")
 	int32 GetInventoryItemCount(UItem* Item) const;
 
+	UFUNCTION(BlueprintPure, Category = "Inventory")
+	bool HasItem(UItem* Item);
+
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	bool AddInventoryItem(UItem* NewItem, int32 ItemCount = 1);
 

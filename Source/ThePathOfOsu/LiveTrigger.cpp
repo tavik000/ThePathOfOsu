@@ -37,11 +37,25 @@ void ALiveTrigger::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ALiveTrigger::Interact_Implementation()
+void ALiveTrigger::Interact_Implementation(AActor* InteractActor)
 {
-	IInteractableInterface::Interact_Implementation();
-	OnInteract.Broadcast();
-	IsActivated = true;
+	APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(InteractActor);
+	if (!PlayerCharacter)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("PlayerCharacter is null!, function: ALiveTrigger::Interact_Implementation()")));
+		return;
+	}
+	if (PlayerCharacter->HasItem(RequireItemType))
+	{
+		IInteractableInterface::Interact_Implementation(InteractActor);
+		PlayerCharacter->RemoveInventoryItem(RequireItemType);
+		OnInteract.Broadcast();
+		IsActivated = true;
+	}
+	else
+	{
+		SubtitleActor->ShowSubtitle(SubtitleText.ToString(), SubtitleDuration);
+	}
 }
 
 void ALiveTrigger::ToggleOutline_Implementation(bool bValue)

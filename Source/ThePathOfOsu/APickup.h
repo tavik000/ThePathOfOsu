@@ -27,7 +27,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	bool GiveItem();
 
-	virtual void Interact_Implementation() override;
+	virtual void Interact_Implementation(AActor* InteractActor) override;
 	virtual void ToggleOutline_Implementation(bool bValue) override;
 	virtual bool IsEnable_Implementation() override;
 	virtual void StartCheckAndUpdateWidgetVisibleTimer_Implementation() override;

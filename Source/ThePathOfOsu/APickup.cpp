@@ -91,9 +91,9 @@ bool AAPickup::GiveItem()
 	return IsGiveItemSuccessful;
 }
 
-void AAPickup::Interact_Implementation()
+void AAPickup::Interact_Implementation(AActor* InteractActor)
 {
-	IInteractableInterface::Interact_Implementation();
+	IInteractableInterface::Interact_Implementation(InteractActor);
 	OnInteract.Broadcast();
 	GiveItem();
 }

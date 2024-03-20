@@ -258,7 +258,7 @@ void APlayerCharacter::Interact()
 		{
 			if (InteractableInterface->Execute_IsEnable(FocusActor))
 			{
-				InteractableInterface->Execute_Interact(FocusActor);
+				InteractableInterface->Execute_Interact(FocusActor, this);
 			}
 		}
 	}
@@ -457,6 +457,11 @@ int32 APlayerCharacter::GetInventoryItemCount(UItem* Item) const
 		return *FoundItemCount;
 	}
 	return 0;
+}
+
+bool APlayerCharacter::HasItem(UItem* Item)
+{
+	return InventoryData.Contains(Item);
 }
 
 bool APlayerCharacter::AddInventoryItem(UItem* NewItem, int32 ItemCount)

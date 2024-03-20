@@ -2,7 +2,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Item.h"
 #include "OsuType.h"
+#include "Subtitle.h"
 #include "GameFramework/Actor.h"
 #include "Interface/InteractableInterface.h"
 #include "LiveTrigger.generated.h"
@@ -20,7 +22,7 @@ protected:
 
 public:
 	virtual void Tick(float DeltaTime) override;
-	virtual void Interact_Implementation() override;
+	virtual void Interact_Implementation(AActor* InteractActor) override;
 	virtual void ToggleOutline_Implementation(bool bValue) override;
 	virtual bool IsEnable_Implementation() override;
 	virtual void StartCheckAndUpdateWidgetVisibleTimer_Implementation() override;
@@ -43,6 +45,18 @@ public:
 
 	UPROPERTY(BlueprintAssignable, BlueprintCallable)
 	FOnInteract OnInteract;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UItem *RequireItemType;
+
+	UPROPERTY(EditDefaultsOnly)
+	ASubtitle* SubtitleActor;
+
+	UPROPERTY(EditDefaultsOnly)
+	FText SubtitleText;
+
+	UPROPERTY(EditDefaultsOnly)
+	float SubtitleDuration;
 	
 private:
 	FTimerHandle CheckAndUpdateWidgetVisibleTimer;
