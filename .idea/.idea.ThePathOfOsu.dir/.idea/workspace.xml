@@ -8,10 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Build/Windows/FileOpenOrder/CookerOpenOrder.log" beforeDir="false" afterPath="$PROJECT_DIR$/Build/Windows/FileOpenOrder/CookerOpenOrder.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Build/Windows/FileOpenOrder/EditorOpenOrder.log" beforeDir="false" afterPath="$PROJECT_DIR$/Build/Windows/FileOpenOrder/EditorOpenOrder.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/LiveTrigger.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/LiveTrigger.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/Pickups/BP_Sushi.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/Pickups/BP_Sushi.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/Pickup.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/Pickup.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +178,8 @@
       <workItem from="1710923018702" duration="80000" />
       <workItem from="1710923112024" duration="10885000" />
       <workItem from="1711002635206" duration="1303000" />
-      <workItem from="1711011085148" duration="3357000" />
+      <workItem from="1711011085148" duration="4234000" />
+      <workItem from="1711027605714" duration="303000" />
     </task>
     <servers />
   </component>

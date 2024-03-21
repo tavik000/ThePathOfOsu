@@ -42,10 +42,12 @@ void APickup::SetupOutline_Implementation()
 
 	if (!OutlineMaterial)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("OutlineMaterial is null, function: AAPickup::SetupOutline_Implementation()")));
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+		                                 FString::Printf(TEXT(
+			                                 "OutlineMaterial is null, function: AAPickup::SetupOutline_Implementation()")));
 		UE_LOG(LogTemp, Error, TEXT("OutlineMaterial is null, function: AAPickup::SetupOutline_Implementation()"));
 	}
-	
+
 	for (int i = 0; i <= Mesh->GetNumMaterials() - 1; i++)
 	{
 		// UMaterialInterface* OutlineMaterial = Cast<UMaterialInterface>(
@@ -102,7 +104,15 @@ void APickup::Interact_Implementation(APlayerCharacter* InteractCharacter)
 	{
 		IInteractableInterface::Interact_Implementation(InteractCharacter);
 		OnInteract.Broadcast();
-		GiveItem();
+		if (ItemType)
+		{
+			GiveItem();
+		}
+		else
+		{
+			UGameplayStatics::SpawnSoundAtLocation(GetWorld(), GiveItemSound, GetActorLocation());
+			Destroy();
+		}
 	}
 	else
 	{
