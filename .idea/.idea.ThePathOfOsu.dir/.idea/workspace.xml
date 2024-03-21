@@ -7,28 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Pickups/BP_Sushi.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Meshes/SM_Sushi.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Meshes/SM_SushiSet.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Meshes/SM_Sushi_Meat.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Meshes/SM_Sushi_Rice.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Meshes/SushiRice.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Meshes/SushiSalmon.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Textures/SushiRice_albedo.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Textures/SushiRice_metallic.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Textures/SushiRice_normal.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Textures/SushiRice_roughness.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Textures/SushiSalmon_albedo.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Textures/SushiSalmon_metallic.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Textures/SushiSalmon_normal.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Textures/SushiSalmon_roughness.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Textures/UserInterface/T_EatPreview.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_CollectableOsuMark.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_CollectableOsuMark.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Props/Meshes/TextureAtlas_Free.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" afterDir="false" />
-    </list>
+    <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,7 +172,7 @@
       <workItem from="1710762955153" duration="1546000" />
       <workItem from="1710771020592" duration="4710000" />
       <workItem from="1710923018702" duration="80000" />
-      <workItem from="1710923112024" duration="10285000" />
+      <workItem from="1710923112024" duration="10885000" />
     </task>
     <servers />
   </component>
