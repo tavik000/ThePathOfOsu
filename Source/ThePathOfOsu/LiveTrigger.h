@@ -8,6 +8,7 @@
 #include "Subtitle.h"
 #include "GameFramework/Actor.h"
 #include "Interface/InteractableInterface.h"
+#include "Components/BillboardComponent.h"
 #include "LiveTrigger.generated.h"
 
 UCLASS()
@@ -39,10 +40,9 @@ public:
 	
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	bool IsActivated;
-	
+
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	UBillboardComponent* InteractionHUD;
-
 
 	UPROPERTY(BlueprintAssignable, BlueprintCallable)
 	FOnInteract OnInteract;
