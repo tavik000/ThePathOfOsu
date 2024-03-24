@@ -61,6 +61,10 @@ float AOxCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 	//                                  FString::Printf(
 	// 	                                 TEXT("%s Take Damage %f, remain HP %f"), *GetName(), DamageToApply,
 	// 	                                 CurrentHp));
+	if (IsPushing())
+	{
+		OnInterruptPushing.Broadcast();
+	}
 
 	if (IsAlive())
 	{
@@ -318,9 +322,11 @@ bool AOxCharacter::TryPush()
 	{
 		return false;
 	}
+
 	UCapsuleComponent* PlayerCapsule = GetCapsuleComponent();
 	PlayerCapsule->SetCapsuleRadius(PushingEnlargedCapsuleRadius);
-	PlayerCapsule->MoveComponent(GetActorForwardVector() * PushMoveCapsuleOffset, PlayerCapsule->GetComponentRotation(), false);
+	PlayerCapsule->MoveComponent(GetActorForwardVector() * PushMoveCapsuleOffset, PlayerCapsule->GetComponentRotation(),
+	                             false);
 	AnimInstance->Montage_Play(PushMontage, 1.0f);
 	return true;
 }
@@ -332,12 +338,10 @@ void AOxCharacter::EndPush()
 		UE_LOG(LogTemp, Error, TEXT("PushMontage is null! %s"), *GetName());
 		return;
 	}
-	if (!IsPushing())
+	if (IsPushing())
 	{
-		UE_LOG(LogTemp, Error, TEXT("Is not pushing %s, EndPush()"), *GetName());
-		return;
+		AnimInstance->Montage_JumpToSection(FName("End"), PushMontage);
 	}
-	AnimInstance->Montage_JumpToSection(FName("End"), PushMontage);
 	GetCapsuleComponent()->SetCapsuleRadius(DefaultCapsuleRadius);
 }
 

@@ -11,6 +11,7 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnBeginPush);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FDoOsuGesture);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInterruptPushing);
 
 UCLASS()
 class THEPATHOFOSU_API AOxCharacter : public ACharacter
@@ -206,6 +207,9 @@ public:
 	void SetTimeScale(float TimeScale);
 
 	void OsuGestureRestorePosture();
+
+	UPROPERTY(BlueprintAssignable)
+	FOnInterruptPushing OnInterruptPushing;
 
 private:
 	float DefaultCapsuleRadius;

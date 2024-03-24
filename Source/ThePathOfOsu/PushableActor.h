@@ -34,7 +34,11 @@ protected:
 	UFUNCTION()
 	void Push();
 
-	void StopPushing();
+	UFUNCTION()
+	void StopPushing(bool IsInterrupt);
+
+	UFUNCTION()
+	void InterruptPushing();
 
 	FTimeline CurveTimeline;
 

@@ -77,6 +77,7 @@ void APushableActor::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor
 	{
 		if (PushingPlayerCharacter->TryPush())
 		{
+			PushingPlayerCharacter->OnInterruptPushing.AddDynamic(this, &APushableActor::InterruptPushing);
 			PushingPlayerCharacter->SetActorRotation(PushingDirection.Rotation());
 			PushingPlayerCharacter->AttachToActor(this, FAttachmentTransformRules::KeepWorldTransform);
 			PushingPlayerCharacter->OnBeginPush.AddDynamic(this, &APushableActor::Push);
@@ -177,7 +178,7 @@ void APushableActor::Push()
 	CurveTimeline.PlayFromStart();
 }
 
-void APushableActor::StopPushing()
+void APushableActor::StopPushing(bool IsInterrupt)
 {
 	if (!PushingPlayerCharacter)
 	{
@@ -188,13 +189,23 @@ void APushableActor::StopPushing()
 	IsBeingPushed = false;
 	PushingPlayerCharacter->OnBeginPush.RemoveDynamic(this, &APushableActor::Push);
 	PushingPlayerCharacter->EndPush();
+	PushingPlayerCharacter->OnInterruptPushing.RemoveDynamic(this, &APushableActor::InterruptPushing);
+
 	UPawnMovementComponent* MovementComponent = PushingPlayerCharacter->GetMovementComponent();
 	if (MovementComponent)
 	{
 		MovementComponent->Activate();
 		PushingPlayerCharacter->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
-		OnPushFinished.Broadcast();
+		if (!IsInterrupt)
+		{
+			OnPushFinished.Broadcast();
+		}
 	}
+}
+
+void APushableActor::InterruptPushing()
+{
+	StopPushing(true);
 }
 
 
@@ -209,6 +220,9 @@ void APushableActor::TimelineFinished()
 	if (!PushingPlayerCharacter)
 	{
 		UE_LOG(LogTemp, Error, TEXT("TimelineFinished PushingPlayerCharacter is null!, %s"), *GetName());
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+		                                 FString::Printf(
+			                                 TEXT("TimelineFinished PushingPlayerCharacter is null!, %s"), *GetName()));
 		return;
 	}
 	if (PushingPlayerCharacter->IsMoveInputBeingPressed() && CanPush(PushingPlayerCharacter))
@@ -217,6 +231,6 @@ void APushableActor::TimelineFinished()
 	}
 	else
 	{
-		StopPushing();
+		StopPushing(false);
 	}
 }
