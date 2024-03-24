@@ -8,13 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PushableActor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PushableActor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PushableActor.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PushableActor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_TutorialPopup.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Textures/UserInterface/T_keyboard_e.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Textures/UserInterface/T_keyboard_r.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Textures/UserInterface/keyboard_e.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Textures/UserInterface/keyboard_e.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Textures/UserInterface/keyboard_r.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Textures/UserInterface/keyboard_r.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +179,7 @@
       <workItem from="1711002635206" duration="1303000" />
       <workItem from="1711011085148" duration="4234000" />
       <workItem from="1711027605714" duration="1483000" />
-      <workItem from="1711293423297" duration="3813000" />
+      <workItem from="1711293423297" duration="4681000" />
     </task>
     <servers />
   </component>
