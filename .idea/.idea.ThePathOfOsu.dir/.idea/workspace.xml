@@ -8,11 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_TutorialPopup.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Textures/UserInterface/T_keyboard_e.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Textures/UserInterface/T_keyboard_r.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/UserInterface/keyboard_e.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Textures/UserInterface/keyboard_e.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Textures/UserInterface/keyboard_r.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Textures/UserInterface/keyboard_r.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/copilot/chatSessions/00000000000.xd" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/copilot/chatSessions/00000000000.xd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
