@@ -57,6 +57,8 @@ APlayerCharacter::APlayerCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
+
+	
 }
 
 void APlayerCharacter::BeginPlay()
@@ -88,6 +90,8 @@ void APlayerCharacter::BeginPlay()
 			                                 TEXT("InteractableObjectTypes is empty!, %s"),
 			                                 *GetName()));
 	}
+	
+	WalkSpeed = CharacterMovementComponent->MaxWalkSpeed;
 }
 
 void APlayerCharacter::Tick(float DeltaSeconds)
@@ -155,6 +159,12 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::Interact);
+		
+		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Started, this,
+		                                   &APlayerCharacter::OnSprintStart);
+		
+		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this,
+		                                   &APlayerCharacter::OnSprintEnd);
 
 		EnhancedInputComponent->BindAction(UseItemAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::TryUseItem);
@@ -262,6 +272,20 @@ void APlayerCharacter::Interact()
 bool APlayerCharacter::CanUseItem()
 {
 	return Super::CanUseItem() && InventoryData.Num() > 0 && HasItem(CurrentSlotItem);
+}
+
+void APlayerCharacter::OnSprintStart()
+{
+	if (IsSprinting) return;
+	IsSprinting = true;
+	CharacterMovementComponent->MaxWalkSpeed = SprintSpeed;
+}
+
+void APlayerCharacter::OnSprintEnd()
+{
+	if (!IsSprinting) return;
+	IsSprinting = false;
+	CharacterMovementComponent->MaxWalkSpeed = WalkSpeed;
 }
 
 void APlayerCharacter::UnlockTarget()

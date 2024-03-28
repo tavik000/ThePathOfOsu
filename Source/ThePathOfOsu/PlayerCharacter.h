@@ -20,6 +20,7 @@ class UInputAction;
 struct FInputActionValue;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerUseItem);
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerDeath);
 
 UCLASS(Config=Game)
@@ -65,12 +66,16 @@ class APlayerCharacter : public AOxCharacter
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* UseItemAction;
-	
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* SprintAction;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* OsuAction;
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* PauseAction;
+	
 
 public:
 	APlayerCharacter();
@@ -89,6 +94,11 @@ protected:
 	void TryJump();
 	void Interact();
 	virtual bool CanUseItem() override;
+
+	void OnSprintStart();
+
+	void OnSprintEnd();
+
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -153,11 +163,19 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FOnPlayerDeath OnPlayerDeath;
-	
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
+	float SprintSpeed = 600.0f;
+
 private:
+	float WalkSpeed;
+	
 	bool IsMeleeAttackInputReceived = false;
 
 	bool IsMovingInputPressing = false;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	bool IsSprinting = false;
 
 	UPROPERTY(EditDefaultsOnly)
 	float MaxStamina = 100;
@@ -183,7 +201,7 @@ private:
 
 	FTimerHandle FindInteractableTimerHandle;
 	void FindAndHighlightInteractableObjectNearPlayer();
-	
+
 	UPROPERTY(EditAnywhere)
 	TArray<TEnumAsByte<EObjectTypeQuery>> InteractableObjectTypes;
 
