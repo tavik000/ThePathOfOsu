@@ -69,6 +69,9 @@ class APlayerCharacter : public AOxCharacter
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* SprintAction;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* CrouchAction;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* OsuAction;
@@ -94,11 +97,14 @@ protected:
 	void TryJump();
 	void Interact();
 	virtual bool CanUseItem() override;
+	bool CanCrouch();
 
 	void OnSprintStart();
 
 	void OnSprintEnd();
 
+	void TryCrouch();
+	
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -176,6 +182,9 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	bool IsSprinting = false;
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	bool IsCrouching = false;
 
 	UPROPERTY(EditDefaultsOnly)
 	float MaxStamina = 100;

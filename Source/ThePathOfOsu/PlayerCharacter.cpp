@@ -57,8 +57,6 @@ APlayerCharacter::APlayerCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
-
-	
 }
 
 void APlayerCharacter::BeginPlay()
@@ -90,7 +88,7 @@ void APlayerCharacter::BeginPlay()
 			                                 TEXT("InteractableObjectTypes is empty!, %s"),
 			                                 *GetName()));
 	}
-	
+
 	WalkSpeed = CharacterMovementComponent->MaxWalkSpeed;
 }
 
@@ -159,12 +157,15 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 		EnhancedInputComponent->BindAction(InteractAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::Interact);
-		
+
 		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::OnSprintStart);
-		
+
 		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this,
 		                                   &APlayerCharacter::OnSprintEnd);
+		
+		EnhancedInputComponent->BindAction(CrouchAction, ETriggerEvent::Started, this,
+		                                   &APlayerCharacter::TryCrouch);
 
 		EnhancedInputComponent->BindAction(UseItemAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::TryUseItem);
@@ -274,6 +275,11 @@ bool APlayerCharacter::CanUseItem()
 	return Super::CanUseItem() && InventoryData.Num() > 0 && HasItem(CurrentSlotItem);
 }
 
+bool APlayerCharacter::CanCrouch()
+{
+	return CanMove();
+}
+
 void APlayerCharacter::OnSprintStart()
 {
 	if (IsSprinting) return;
@@ -286,6 +292,21 @@ void APlayerCharacter::OnSprintEnd()
 	if (!IsSprinting) return;
 	IsSprinting = false;
 	CharacterMovementComponent->MaxWalkSpeed = WalkSpeed;
+}
+
+void APlayerCharacter::TryCrouch()
+{
+	if (!CanCrouch()) return;
+	if (IsCrouching)
+	{
+		CharacterMovementComponent->UnCrouch();
+		IsCrouching = false;
+	}
+	else
+	{
+		CharacterMovementComponent->Crouch();
+		IsCrouching = true;
+	}
 }
 
 void APlayerCharacter::UnlockTarget()
@@ -311,12 +332,15 @@ void APlayerCharacter::TryTargetLock()
 		{
 			LockTargetEnemy = Cast<AEnemyCharacter>(OutHit.GetActor());
 
-			// GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::White, FString::Printf(TEXT("Target Actor: %s"),
-			// *TargetActor->GetName()));
-			LockTargetEnemy->ShowTargetWidget();
-			CharacterMovementComponent->bOrientRotationToMovement = false;
-			bUseControllerRotationYaw = true;
-			IsTargetLocking = true;
+			if (LockTargetEnemy)
+			{
+				// GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::White, FString::Printf(TEXT("Target Actor: %s"),
+				// *TargetActor->GetName()));
+				LockTargetEnemy->ShowTargetWidget();
+				CharacterMovementComponent->bOrientRotationToMovement = false;
+				bUseControllerRotationYaw = true;
+				IsTargetLocking = true;
+			}
 		}
 	}
 }
@@ -356,12 +380,15 @@ void APlayerCharacter::TryFistAttack()
 	if (IsHit)
 	{
 		AEnemyCharacter* InFrontEnemy = Cast<AEnemyCharacter>(OutHit.GetActor());
-		bool IsInAttackRange = InFrontEnemy->GetDistanceTo(this) <= 130;
-		if (IsInAttackRange && InFrontEnemy->IsExecutable)
+		if (InFrontEnemy)
 		{
-			ExecutingTarget = InFrontEnemy;
-			AnimInstance->Montage_Play(ExecutePunchAttackMontage, 1.f);
-			return;
+			bool IsInAttackRange = InFrontEnemy->GetDistanceTo(this) <= 130;
+			if (IsInAttackRange && InFrontEnemy->IsExecutable)
+			{
+				ExecutingTarget = InFrontEnemy;
+				AnimInstance->Montage_Play(ExecutePunchAttackMontage, 1.f);
+				return;
+			}
 		}
 	}
 
