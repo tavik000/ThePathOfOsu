@@ -163,7 +163,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 		EnhancedInputComponent->BindAction(SprintAction, ETriggerEvent::Completed, this,
 		                                   &APlayerCharacter::OnSprintEnd);
-		
+
 		EnhancedInputComponent->BindAction(CrouchAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::TryCrouch);
 
@@ -280,9 +280,15 @@ bool APlayerCharacter::CanCrouch()
 	return CanMove();
 }
 
+bool APlayerCharacter::CanSprint()
+{
+	return CanMove() && !IsCrouching;
+}
+
 void APlayerCharacter::OnSprintStart()
 {
 	if (IsSprinting) return;
+	if (!CanSprint()) return;
 	IsSprinting = true;
 	CharacterMovementComponent->MaxWalkSpeed = SprintSpeed;
 }
@@ -300,11 +306,13 @@ void APlayerCharacter::TryCrouch()
 	if (IsCrouching)
 	{
 		CharacterMovementComponent->UnCrouch();
+		CharacterMovementComponent->MaxWalkSpeed = WalkSpeed;
 		IsCrouching = false;
 	}
 	else
 	{
 		CharacterMovementComponent->Crouch();
+		CharacterMovementComponent->MaxWalkSpeed = CrouchSpeed;
 		IsCrouching = true;
 	}
 }

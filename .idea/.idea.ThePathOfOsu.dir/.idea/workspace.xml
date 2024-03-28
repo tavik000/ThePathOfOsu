@@ -8,17 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Inputs/IA_Crouch.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/ABP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/ABP_PlayerCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/Lyra/ABP_LyraLocomotion.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/Lyra/ABP_LyraLocomotion.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/Lyra/BP_Lyra.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/Lyra/BP_Lyra.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Jump_Fall_Land.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Jump_Fall_Land.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Jump_RecoveryAdditive.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Jump_RecoveryAdditive.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Animations/Manny/BS_MM_WalkRun.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Animations/Manny/BS_MM_WalkRun.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Inputs/IMC_Osu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Inputs/IMC_Osu.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.h" afterDir="false" />
@@ -191,7 +183,7 @@
       <workItem from="1711293423297" duration="4681000" />
       <workItem from="1711641728653" duration="34000" />
       <workItem from="1711641839722" duration="7036000" />
-      <workItem from="1711660205444" duration="307000" />
+      <workItem from="1711660205444" duration="1771000" />
     </task>
     <servers />
   </component>

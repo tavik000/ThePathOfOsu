@@ -98,6 +98,7 @@ protected:
 	void Interact();
 	virtual bool CanUseItem() override;
 	bool CanCrouch();
+	bool CanSprint();
 
 	void OnSprintStart();
 
@@ -172,6 +173,9 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
 	float SprintSpeed = 600.0f;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
+	float CrouchSpeed = 150.0f;
 
 private:
 	float WalkSpeed;
