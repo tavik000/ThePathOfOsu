@@ -84,8 +84,9 @@ void APlayerCharacter::BeginPlay()
 
 	if (InteractableObjectTypes.IsEmpty())
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("InteractableObjectTypes is empty!, %s"),
-		                                                                         *GetName()));
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(
+			                                 TEXT("InteractableObjectTypes is empty!, %s"),
+			                                 *GetName()));
 	}
 }
 
@@ -160,7 +161,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 		EnhancedInputComponent->BindAction(OsuAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::TryOsu);
-		
+
 		EnhancedInputComponent->BindAction(PauseAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::TogglePauseGame);
 	}
@@ -234,12 +235,6 @@ void APlayerCharacter::SearchEnemyInFront(FHitResult& OutHit, bool& IsHit)
 	                                                          FLinearColor::Red, FLinearColor::Green, 15.f);
 }
 
-void APlayerCharacter::UnlockTarget()
-{
-	IsTargetLocking = false;
-	LockTargetEnemy->HideTargetWidget();
-}
-
 void APlayerCharacter::TryJump()
 {
 	if (!CanCharacterJump())
@@ -269,6 +264,14 @@ bool APlayerCharacter::CanUseItem()
 	return Super::CanUseItem() && InventoryData.Num() > 0 && HasItem(CurrentSlotItem);
 }
 
+void APlayerCharacter::UnlockTarget()
+{
+	IsTargetLocking = false;
+	LockTargetEnemy->HideTargetWidget();
+	CharacterMovementComponent->bOrientRotationToMovement = true;
+	bUseControllerRotationYaw = false;
+}
+
 void APlayerCharacter::TryTargetLock()
 {
 	if (IsTargetLocking)
@@ -287,6 +290,8 @@ void APlayerCharacter::TryTargetLock()
 			// GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::White, FString::Printf(TEXT("Target Actor: %s"),
 			// *TargetActor->GetName()));
 			LockTargetEnemy->ShowTargetWidget();
+			CharacterMovementComponent->bOrientRotationToMovement = false;
+			bUseControllerRotationYaw = true;
 			IsTargetLocking = true;
 		}
 	}
@@ -408,7 +413,8 @@ void APlayerCharacter::FindAndHighlightInteractableObjectNearPlayer()
 {
 	TArray<AActor*> IgnoredActors;
 	IgnoredActors.Add(this);
-	bool IsHit = UKismetSystemLibrary::SphereOverlapActors(GetWorld(), GetActorLocation(), FindHighlightInteractiveObjectDistance,
+	bool IsHit = UKismetSystemLibrary::SphereOverlapActors(GetWorld(), GetActorLocation(),
+	                                                       FindHighlightInteractiveObjectDistance,
 	                                                       InteractableObjectTypes, nullptr,
 	                                                       IgnoredActors, CloseActors);
 	if (IsHit)
