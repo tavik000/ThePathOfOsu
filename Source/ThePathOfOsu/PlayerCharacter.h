@@ -100,8 +100,12 @@ protected:
 	void TryJump();
 	void Interact();
 	virtual bool CanUseItem() override;
+	virtual bool CanOsu() override;
 	bool CanCrouch();
 	bool CanSprint();
+	virtual bool CanAttack() override;
+	virtual bool CanBlock() override;
+	virtual bool CanCharacterJump() override;
 
 	void OnSprintStart();
 

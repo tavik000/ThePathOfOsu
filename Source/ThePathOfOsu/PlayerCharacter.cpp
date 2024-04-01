@@ -276,7 +276,12 @@ void APlayerCharacter::Interact()
 
 bool APlayerCharacter::CanUseItem()
 {
-	return Super::CanUseItem() && InventoryData.Num() > 0 && HasItem(CurrentSlotItem);
+	return Super::CanUseItem() && InventoryData.Num() > 0 && HasItem(CurrentSlotItem) && !IsCrouching;
+}
+
+bool APlayerCharacter::CanOsu()
+{
+	return Super::CanOsu() && !IsCrouching;
 }
 
 bool APlayerCharacter::CanCrouch()
@@ -287,6 +292,24 @@ bool APlayerCharacter::CanCrouch()
 bool APlayerCharacter::CanSprint()
 {
 	return CanMove() && !IsCrouching;
+}
+
+bool APlayerCharacter::CanAttack()
+{
+	return Super::CanAttack()
+		&& !IsCrouching;
+}
+
+bool APlayerCharacter::CanBlock()
+{
+	return Super::CanBlock()
+		&& !IsCrouching;
+}
+
+bool APlayerCharacter::CanCharacterJump()
+{
+	return Super::CanCharacterJump()
+		&& !IsCrouching;
 }
 
 void APlayerCharacter::OnSprintStart()
