@@ -232,6 +232,7 @@ void APlayerCharacter::Look(const FInputActionValue& Value)
 		// add yaw and pitch input to controller
 		AddControllerYawInput(LookAxisVector.X / 2.0f);
 		AddControllerPitchInput(LookAxisVector.Y / 2.0f);
+		TurnRate = LookAxisVector.X;
 	}
 }
 

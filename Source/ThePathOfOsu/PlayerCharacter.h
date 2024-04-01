@@ -115,7 +115,7 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	// To add mapping context
-	virtual void BeginPlay();
+	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaSeconds) override;
 
 	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,
@@ -181,6 +181,9 @@ public:
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
 	float CrouchSpeed = 150.0f;
+
+	UPROPERTY(BlueprintReadOnly)
+	float TurnRate;
 
 private:
 	float WalkSpeed;
