@@ -8,8 +8,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_CD.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_CU.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_LBC.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_LBD.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_LBU.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_LC.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_LD.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_LU.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_RBC.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_RBD.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_RBU.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_RC.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_RD.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/MM_Unarmed_Idle_Ready_AO_RU.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +192,7 @@
       <workItem from="1711293423297" duration="4681000" />
       <workItem from="1711641728653" duration="34000" />
       <workItem from="1711641839722" duration="7036000" />
-      <workItem from="1711660205444" duration="9974000" />
+      <workItem from="1711660205444" duration="10571000" />
     </task>
     <servers />
   </component>
