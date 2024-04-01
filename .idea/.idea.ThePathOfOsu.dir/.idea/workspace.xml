@@ -8,31 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Dodge/AM_MM_DiveRoll_B.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Dodge/AM_MM_DiveRoll_F.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Dodge/AM_MM_DiveRoll_L.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Dodge/AM_MM_DiveRoll_R.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Inputs/IA_DodgeRoll.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Textures/UserInterface/T_keyboard_q.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Textures/UserInterface/T_keyboard_shift.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Textures/UserInterface/T_keyboard_space.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Textures/UserInterface/T_keyboard_t.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_EnemyDummy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_EnemyDummy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/Lyra/BP_Lyra.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/Lyra/BP_Lyra.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_TutorialPopup.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/UI/WBP_TutorialPopup.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Dodge/MM_DiveRoll_B.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Dodge/MM_DiveRoll_B.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Dodge/MM_DiveRoll_F.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Dodge/MM_DiveRoll_F.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Dodge/MM_DiveRoll_L.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Dodge/MM_DiveRoll_L.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Dodge/MM_DiveRoll_R.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Dodge/MM_DiveRoll_R.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Inputs/IMC_Osu.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Inputs/IMC_Osu.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,7 +180,7 @@
       <workItem from="1711293423297" duration="4681000" />
       <workItem from="1711641728653" duration="34000" />
       <workItem from="1711641839722" duration="7036000" />
-      <workItem from="1711660205444" duration="8684000" />
+      <workItem from="1711660205444" duration="9974000" />
     </task>
     <servers />
   </component>
