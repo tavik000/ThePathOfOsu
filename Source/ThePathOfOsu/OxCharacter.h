@@ -63,6 +63,18 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Combat")
 	float BreakMontagePlayRate = 0.7f;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	UAnimMontage* DodgeRollForwardMontage;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	UAnimMontage* DodgeRollBackwardMontage;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	UAnimMontage* DodgeRollLeftMontage;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Combat")
+	UAnimMontage* DodgeRollRightMontage;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Combat")
 	UAnimMontage* DieMontage;
@@ -134,6 +146,9 @@ protected:
 
 	UFUNCTION(BlueprintPure)
 	virtual bool CanOsu();
+	
+	UFUNCTION(BlueprintPure)
+	virtual bool CanDodgeRoll();
 
 
 	virtual void Die();
@@ -160,8 +175,10 @@ public:
 	virtual void TryUseItem();
 	virtual void TryOsu();
 	virtual bool TryPush();
+	virtual void TryDodgeRoll();
 	void EndPush();
 	bool IsPushing();
+	bool IsDodging();
 
 	UFUNCTION(BlueprintPure)
 	bool IsDead() const;

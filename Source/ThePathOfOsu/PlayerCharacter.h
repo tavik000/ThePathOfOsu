@@ -72,6 +72,9 @@ class APlayerCharacter : public AOxCharacter
 	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* CrouchAction;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* DodgeRollAction;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* OsuAction;
@@ -105,6 +108,8 @@ protected:
 	void OnSprintEnd();
 
 	void TryCrouch();
+
+	virtual void TryDodgeRoll() override;
 	
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
@@ -221,4 +226,6 @@ private:
 	void TogglePauseGame();
 
 	UOsuGameInstance* GameInstance;
+
+	FVector2D CurrentMovementVector;
 };

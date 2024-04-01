@@ -167,6 +167,9 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		EnhancedInputComponent->BindAction(CrouchAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::TryCrouch);
 
+		EnhancedInputComponent->BindAction(DodgeRollAction, ETriggerEvent::Started, this,
+		                                   &APlayerCharacter::TryDodgeRoll);
+
 		EnhancedInputComponent->BindAction(UseItemAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::TryUseItem);
 
@@ -189,7 +192,7 @@ void APlayerCharacter::Move(const FInputActionValue& Value)
 		return;
 	}
 	// input is a Vector2D
-	FVector2D MovementVector = Value.Get<FVector2D>();
+	CurrentMovementVector = Value.Get<FVector2D>();
 
 	if (Controller != nullptr)
 	{
@@ -204,8 +207,8 @@ void APlayerCharacter::Move(const FInputActionValue& Value)
 		const FVector RightDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 
 		// add movement 
-		AddMovementInput(ForwardDirection, MovementVector.Y);
-		AddMovementInput(RightDirection, MovementVector.X);
+		AddMovementInput(ForwardDirection, CurrentMovementVector.Y);
+		AddMovementInput(RightDirection, CurrentMovementVector.X);
 	}
 }
 
@@ -315,6 +318,33 @@ void APlayerCharacter::TryCrouch()
 		CharacterMovementComponent->MaxWalkSpeed = CrouchSpeed;
 		IsCrouching = true;
 	}
+}
+
+void APlayerCharacter::TryDodgeRoll()
+{
+	if (!CanDodgeRoll()) return;
+	if (IsDodging()) return;
+	if (!IsTargetLocking)
+	{
+		AnimInstance->Montage_Play(DodgeRollForwardMontage, 1.0f);
+		return;
+	}
+	if (CurrentMovementVector.X > 0)
+	{
+		AnimInstance->Montage_Play(DodgeRollRightMontage, 1.0f);
+		return;
+	}
+	if (CurrentMovementVector.X < 0)
+	{
+		AnimInstance->Montage_Play(DodgeRollLeftMontage, 1.0f);
+		return;
+	}
+	if (CurrentMovementVector.Y < 0)
+	{
+		AnimInstance->Montage_Play(DodgeRollBackwardMontage, 1.0f);
+		return;
+	}
+	AnimInstance->Montage_Play(DodgeRollForwardMontage, 1.0f);
 }
 
 void APlayerCharacter::UnlockTarget()

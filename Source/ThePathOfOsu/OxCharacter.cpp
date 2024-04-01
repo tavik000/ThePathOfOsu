@@ -207,6 +207,11 @@ bool AOxCharacter::CanOsu()
 	return CanMove();
 }
 
+bool AOxCharacter::CanDodgeRoll()
+{
+	return CanMove();
+}
+
 bool AOxCharacter::CanPush()
 {
 	return CanMove() && !AnimInstance->Montage_IsPlaying(PushMontage);
@@ -331,6 +336,12 @@ bool AOxCharacter::TryPush()
 	return true;
 }
 
+void AOxCharacter::TryDodgeRoll()
+{
+	
+	
+}
+
 void AOxCharacter::EndPush()
 {
 	if (!PushMontage)
@@ -348,6 +359,14 @@ void AOxCharacter::EndPush()
 bool AOxCharacter::IsPushing()
 {
 	return AnimInstance->Montage_IsPlaying(PushMontage);
+}
+
+bool AOxCharacter::IsDodging()
+{
+	return AnimInstance->Montage_IsPlaying(DodgeRollForwardMontage) ||
+		AnimInstance->Montage_IsPlaying(DodgeRollBackwardMontage) ||
+		AnimInstance->Montage_IsPlaying(DodgeRollLeftMontage) ||
+		AnimInstance->Montage_IsPlaying(DodgeRollRightMontage);
 }
 
 void AOxCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
