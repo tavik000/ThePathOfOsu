@@ -289,6 +289,21 @@ bool APlayerCharacter::CanCrouch()
 	return CanMove();
 }
 
+bool APlayerCharacter::CanUncrouch()
+{
+	FVector PlayerLocation = GetActorLocation();
+	FVector UpVector = UKismetMathLibrary::GetUpVector(GetActorRotation());
+	FVector TraceEndLocation = PlayerLocation + UpVector * 100.0f;
+	FHitResult TraceHitResult;
+	FCollisionQueryParams TraceCollisionParams;
+	TraceCollisionParams.AddIgnoredActor(this);
+	GetWorld()->LineTraceSingleByChannel(TraceHitResult, PlayerLocation, TraceEndLocation,
+	                                     ECC_Visibility,
+	                                     TraceCollisionParams);
+	bool IsSomethingAbovePlayer = TraceHitResult.bBlockingHit;
+	return !IsSomethingAbovePlayer;
+}
+
 bool APlayerCharacter::CanSprint()
 {
 	return CanMove() && !IsCrouching;
@@ -332,6 +347,10 @@ void APlayerCharacter::TryCrouch()
 	if (!CanCrouch()) return;
 	if (IsCrouching)
 	{
+		if (!CanUncrouch())
+		{
+			return;
+		}
 		UnCrouch();
 		CharacterMovementComponent->MaxWalkSpeed = WalkSpeed;
 		IsCrouching = false;

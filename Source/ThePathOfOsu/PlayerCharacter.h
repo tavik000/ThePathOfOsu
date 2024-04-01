@@ -102,6 +102,7 @@ protected:
 	virtual bool CanUseItem() override;
 	virtual bool CanOsu() override;
 	bool CanCrouch();
+	bool CanUncrouch();
 	bool CanSprint();
 	virtual bool CanAttack() override;
 	virtual bool CanBlock() override;
