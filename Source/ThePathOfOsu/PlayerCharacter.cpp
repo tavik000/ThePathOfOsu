@@ -309,13 +309,13 @@ void APlayerCharacter::TryCrouch()
 	if (!CanCrouch()) return;
 	if (IsCrouching)
 	{
-		CharacterMovementComponent->UnCrouch();
+		UnCrouch();
 		CharacterMovementComponent->MaxWalkSpeed = WalkSpeed;
 		IsCrouching = false;
 	}
 	else
 	{
-		CharacterMovementComponent->Crouch();
+		Crouch();
 		CharacterMovementComponent->MaxWalkSpeed = CrouchSpeed;
 		IsCrouching = true;
 	}
