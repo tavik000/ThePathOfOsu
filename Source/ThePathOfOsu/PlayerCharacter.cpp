@@ -57,6 +57,8 @@ APlayerCharacter::APlayerCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
+
+	DefaultTargetArmLength = CameraBoom->TargetArmLength;
 }
 
 void APlayerCharacter::BeginPlay()
@@ -90,6 +92,7 @@ void APlayerCharacter::BeginPlay()
 	}
 
 	WalkSpeed = CharacterMovementComponent->MaxWalkSpeed;
+	SetupCrouchSmoothCameraTimeline();
 }
 
 void APlayerCharacter::Tick(float DeltaSeconds)
@@ -120,6 +123,7 @@ void APlayerCharacter::Tick(float DeltaSeconds)
 			UnlockTarget();
 		}
 	}
+	CurveCrouchSmoothCameraTimeline.TickTimeline(DeltaSeconds);
 }
 
 
@@ -353,14 +357,42 @@ void APlayerCharacter::TryCrouch()
 		}
 		UnCrouch();
 		CharacterMovementComponent->MaxWalkSpeed = WalkSpeed;
+		CurveCrouchSmoothCameraTimeline.ReverseFromEnd();
 		IsCrouching = false;
 	}
 	else
 	{
 		Crouch();
 		CharacterMovementComponent->MaxWalkSpeed = CrouchSpeed;
+		CurveCrouchSmoothCameraTimeline.PlayFromStart();
 		IsCrouching = true;
 	}
+}
+
+void APlayerCharacter::SetupCrouchSmoothCameraTimeline()
+{
+	if (!CurveCrouchSmoothCamera)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+		                                 FString::Printf(TEXT("CurveCrouchSmoothCamera is null!")));
+		return;
+	}
+
+	FOnTimelineFloat TimelineProgress;
+	TimelineProgress.BindUFunction(this, FName("CrouchSmoothCameraTimelineProgress"));
+	CurveCrouchSmoothCameraTimeline.AddInterpFloat(CurveCrouchSmoothCamera, TimelineProgress);
+	CurveCrouchSmoothCameraTimeline.SetLooping(false);
+	CurveCrouchSmoothCameraTimelineFinishedEvent.BindUFunction(this, FName("SmoothCameraTimelineFinished"));
+	CurveCrouchSmoothCameraTimeline.SetTimelineFinishedFunc(CurveCrouchSmoothCameraTimelineFinishedEvent);
+}
+
+void APlayerCharacter::CrouchSmoothCameraTimelineProgress(float Value)
+{
+	CameraBoom->TargetArmLength = FMath::Lerp(DefaultTargetArmLength, CrouchCameraTargetArmLength, Value);
+}
+
+void APlayerCharacter::SmoothCameraTimelineFinished()
+{
 }
 
 void APlayerCharacter::TryDodgeRoll()
@@ -581,6 +613,7 @@ void APlayerCharacter::TogglePauseGame()
 {
 	GameInstance->TogglePauseGame();
 }
+
 
 float APlayerCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator,
                                    AActor* DamageCauser)

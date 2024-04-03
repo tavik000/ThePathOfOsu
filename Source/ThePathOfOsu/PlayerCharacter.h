@@ -10,6 +10,7 @@
 #include "Item.h"
 #include "OsuType.h"
 #include "OsuGameInstance.h"
+#include "Components/TimelineComponent.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "PlayerCharacter.generated.h"
 
@@ -194,6 +195,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	EAnimationState CurrentAnimationState;
 
+	
 private:
 	float WalkSpeed;
 	
@@ -240,4 +242,24 @@ private:
 	UOsuGameInstance* GameInstance;
 
 	FVector2D CurrentMovementVector;
+
+	void SetupCrouchSmoothCameraTimeline();
+	
+	FTimeline CurveCrouchSmoothCameraTimeline;
+
+	FOnTimelineEvent CurveCrouchSmoothCameraTimelineFinishedEvent;
+
+	UPROPERTY(EditAnywhere)
+	UCurveFloat* CurveCrouchSmoothCamera;
+
+	UPROPERTY(EditDefaultsOnly)
+	float CrouchCameraTargetArmLength;
+	
+	float DefaultTargetArmLength;;
+
+	UFUNCTION()
+	void CrouchSmoothCameraTimelineProgress(float Value);
+	
+	UFUNCTION()
+	void SmoothCameraTimelineFinished();
 };
