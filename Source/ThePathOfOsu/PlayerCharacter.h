@@ -8,6 +8,7 @@
 #include "OxCharacter.h"
 #include "Logging/LogMacros.h"
 #include "Item.h"
+#include "OsuType.h"
 #include "OsuGameInstance.h"
 #include "Kismet/KismetSystemLibrary.h"
 #include "PlayerCharacter.generated.h"
@@ -189,6 +190,9 @@ public:
 
 	UPROPERTY(BlueprintReadOnly)
 	float TurnRate;
+
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
+	EAnimationState CurrentAnimationState;
 
 private:
 	float WalkSpeed;

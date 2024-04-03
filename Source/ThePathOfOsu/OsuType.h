@@ -11,3 +11,9 @@ struct THEPATHOFOSU_API FOsuType
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInteract);
+
+UENUM(BlueprintType)
+enum class EAnimationState : uint8 {
+	UNARMED = 0 UMETA(DisplayName = "Unarmed"),
+	PISTOL = 1  UMETA(DisplayName = "Pistol"),
+};
