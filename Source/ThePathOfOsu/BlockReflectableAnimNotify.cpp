@@ -13,7 +13,7 @@ void UBlockReflectableAnimNotify::NotifyBegin(USkeletalMeshComponent* MeshComp, 
 	AOxCharacter* Character = Cast<AOxCharacter>(MeshComp->GetOwner());
 	if (Character)
 	{
-		Character->IsBlockReflectable = true;
+		Character->IsGuardReflectable = true;
 	}
 }
 
@@ -24,6 +24,6 @@ void UBlockReflectableAnimNotify::NotifyEnd(USkeletalMeshComponent* MeshComp, UA
 	AOxCharacter* Character = Cast<AOxCharacter>(MeshComp->GetOwner());
 	if (Character)
 	{
-		Character->IsBlockReflectable = false;
+		Character->IsGuardReflectable = false;
 	}
 }

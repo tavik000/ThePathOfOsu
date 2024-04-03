@@ -187,7 +187,7 @@ bool AOxCharacter::IsPlayingFistAttackMontage()
 	return false;
 }
 
-bool AOxCharacter::CanBlock()
+bool AOxCharacter::CanGuard()
 {
 	return IsAlive() && !AnimInstance->Montage_IsPlaying(BeReflectedMontage) &&
 		!AnimInstance->Montage_IsPlaying(BreakMontage) &&
@@ -251,7 +251,7 @@ void AOxCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 }
 
-void AOxCharacter::TryBlock()
+void AOxCharacter::TryGuard()
 {
 }
 
@@ -392,7 +392,7 @@ void AOxCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AAct
 			// 	*GetName(), *OtherActor->GetName(), *OtherComp->GetName(), *OverlappedComponent->GetName()));
 			return;
 		}
-		if (IsAttackReflectable && VictimActor->IsBlockReflectable)
+		if (IsAttackReflectable && VictimActor->IsGuardReflectable)
 		{
 			// Reflect
 			// GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Green, TEXT("Reflect"));
@@ -403,7 +403,7 @@ void AOxCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AAct
 		}
 		else
 		{
-			if (VictimActor->IsBlocking)
+			if (VictimActor->IsGuarding)
 			{
 				// Add Posture
 				// GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, TEXT("Blocking"));

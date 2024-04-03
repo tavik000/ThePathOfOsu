@@ -55,7 +55,7 @@ class APlayerCharacter : public AOxCharacter
 	UInputAction* LookAction;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	UInputAction* BlockAction;
+	UInputAction* GuardOrZoomAction;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* AttackAction;
@@ -107,7 +107,7 @@ protected:
 	bool CanUncrouch();
 	bool CanSprint();
 	virtual bool CanAttack() override;
-	virtual bool CanBlock() override;
+	virtual bool CanGuard() override;
 	virtual bool CanCharacterJump() override;
 
 	void OnSprintStart();
@@ -139,7 +139,10 @@ public:
 
 
 	bool IsMoveInputBeingPressed();
-	virtual void TryBlock() override;
+	virtual void TryGuard() override;
+	void TryGuardOrZoom();
+	void GunZoomInCamera();
+	void GunZoomOutCamera();
 	virtual void TryFistAttack() override;
 	void TryTargetLock();
 
@@ -243,23 +246,31 @@ private:
 
 	FVector2D CurrentMovementVector;
 
-	void SetupCrouchSmoothCameraTimeline();
-	
-	FTimeline CurveCrouchSmoothCameraTimeline;
-
-	FOnTimelineEvent CurveCrouchSmoothCameraTimelineFinishedEvent;
-
-	UPROPERTY(EditAnywhere)
-	UCurveFloat* CurveCrouchSmoothCamera;
-
-	UPROPERTY(EditDefaultsOnly)
-	float CrouchCameraTargetArmLength;
-	
 	float DefaultTargetArmLength;;
 
-	UFUNCTION()
-	void CrouchSmoothCameraTimelineProgress(float Value);
+	void SetupGunCameraZoomTimeline();
+	
+	FTimeline GunCameraZoomTimeline;
+	
+	UPROPERTY(EditAnywhere)
+	UCurveFloat* GunCameraZoomCurve;
+
+	UPROPERTY(EditDefaultsOnly)
+	FVector GunZoomCameraSocketOffset;
+	
+	UPROPERTY(EditDefaultsOnly)
+	FVector CrouchGunZoomCameraSocketOffset;
+	
+	FVector DefaultCameraSocketOffset;
+	
+	UPROPERTY(EditDefaultsOnly)
+	float GunZoomTargetArmLength;
+	
+	UPROPERTY(EditDefaultsOnly)
+	float CrouchGunZoomTargetArmLength;
 	
 	UFUNCTION()
-	void SmoothCameraTimelineFinished();
+	void GunCameraZoomTimelineProgress(float Value);
+
+	bool IsGunZooming = false;
 };

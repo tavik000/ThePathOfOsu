@@ -139,7 +139,7 @@ protected:
 	bool IsPlayingFistAttackMontage();
 
 	UFUNCTION(BlueprintPure)
-	virtual bool CanBlock();
+	virtual bool CanGuard();
 
 	UFUNCTION(BlueprintPure)
 	virtual bool CanUseItem();
@@ -167,7 +167,7 @@ public:
 	UFUNCTION(BlueprintPure)
 	virtual bool CanPush();
 
-	virtual void TryBlock();
+	virtual void TryGuard();
 	virtual void TryFistAttack();
 	virtual void BeginFistAttack(bool IsLeftFist);
 	virtual void EndFistAttack(bool IsLeftFist);
@@ -211,8 +211,8 @@ public:
 	float PunchDamage = 15;
 
 	bool IsAttackReflectable = false;
-	bool IsBlockReflectable = false;
-	bool IsBlocking = false;
+	bool IsGuardReflectable = false;
+	bool IsGuarding = false;
 	bool IsExecutable = false;
 
 	TSet<FString> BlockMovementReasons;

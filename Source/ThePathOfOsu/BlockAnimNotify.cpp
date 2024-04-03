@@ -12,7 +12,7 @@ void UBlockAnimNotify::NotifyBegin(USkeletalMeshComponent* MeshComp, UAnimSequen
 	AOxCharacter* Character = Cast<AOxCharacter>(MeshComp->GetOwner());
 	if (Character)
 	{
-		Character->IsBlocking = true;
+		Character->IsGuarding = true;
 	}
 }
 
@@ -23,6 +23,6 @@ void UBlockAnimNotify::NotifyEnd(USkeletalMeshComponent* MeshComp, UAnimSequence
 	AOxCharacter* Character = Cast<AOxCharacter>(MeshComp->GetOwner());
 	if (Character)
 	{
-		Character->IsBlocking = false;
+		Character->IsGuarding = false;
 	}
 }

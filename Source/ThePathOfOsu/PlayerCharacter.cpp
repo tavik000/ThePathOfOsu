@@ -59,6 +59,7 @@ APlayerCharacter::APlayerCharacter()
 	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
 
 	DefaultTargetArmLength = CameraBoom->TargetArmLength;
+	DefaultCameraSocketOffset = CameraBoom->SocketOffset;
 }
 
 void APlayerCharacter::BeginPlay()
@@ -92,7 +93,7 @@ void APlayerCharacter::BeginPlay()
 	}
 
 	WalkSpeed = CharacterMovementComponent->MaxWalkSpeed;
-	SetupCrouchSmoothCameraTimeline();
+	SetupGunCameraZoomTimeline();
 }
 
 void APlayerCharacter::Tick(float DeltaSeconds)
@@ -123,7 +124,7 @@ void APlayerCharacter::Tick(float DeltaSeconds)
 			UnlockTarget();
 		}
 	}
-	CurveCrouchSmoothCameraTimeline.TickTimeline(DeltaSeconds);
+	GunCameraZoomTimeline.TickTimeline(DeltaSeconds);
 }
 
 
@@ -150,7 +151,8 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Look);
 
 		// Blocking
-		EnhancedInputComponent->BindAction(BlockAction, ETriggerEvent::Started, this, &APlayerCharacter::TryBlock);
+		EnhancedInputComponent->BindAction(GuardOrZoomAction, ETriggerEvent::Started, this,
+		                                   &APlayerCharacter::TryGuardOrZoom);
 
 		// Attacking
 		EnhancedInputComponent->BindAction(AttackAction, ETriggerEvent::Started, this,
@@ -319,9 +321,9 @@ bool APlayerCharacter::CanAttack()
 		&& !IsCrouching;
 }
 
-bool APlayerCharacter::CanBlock()
+bool APlayerCharacter::CanGuard()
 {
-	return Super::CanBlock()
+	return Super::CanGuard()
 		&& !IsCrouching;
 }
 
@@ -357,42 +359,44 @@ void APlayerCharacter::TryCrouch()
 		}
 		UnCrouch();
 		CharacterMovementComponent->MaxWalkSpeed = WalkSpeed;
-		CurveCrouchSmoothCameraTimeline.ReverseFromEnd();
 		IsCrouching = false;
 	}
 	else
 	{
 		Crouch();
 		CharacterMovementComponent->MaxWalkSpeed = CrouchSpeed;
-		CurveCrouchSmoothCameraTimeline.PlayFromStart();
 		IsCrouching = true;
 	}
 }
 
-void APlayerCharacter::SetupCrouchSmoothCameraTimeline()
+
+void APlayerCharacter::SetupGunCameraZoomTimeline()
 {
-	if (!CurveCrouchSmoothCamera)
+	if (!GunCameraZoomCurve)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
-		                                 FString::Printf(TEXT("CurveCrouchSmoothCamera is null!")));
+		                                 FString::Printf(TEXT("GunCameraZoomCurve is null!")));
 		return;
 	}
 
 	FOnTimelineFloat TimelineProgress;
-	TimelineProgress.BindUFunction(this, FName("CrouchSmoothCameraTimelineProgress"));
-	CurveCrouchSmoothCameraTimeline.AddInterpFloat(CurveCrouchSmoothCamera, TimelineProgress);
-	CurveCrouchSmoothCameraTimeline.SetLooping(false);
-	CurveCrouchSmoothCameraTimelineFinishedEvent.BindUFunction(this, FName("SmoothCameraTimelineFinished"));
-	CurveCrouchSmoothCameraTimeline.SetTimelineFinishedFunc(CurveCrouchSmoothCameraTimelineFinishedEvent);
+	TimelineProgress.BindUFunction(this, FName("GunCameraZoomTimelineProgress"));
+	GunCameraZoomTimeline.AddInterpFloat(GunCameraZoomCurve, TimelineProgress);
+	GunCameraZoomTimeline.SetLooping(false);
 }
 
-void APlayerCharacter::CrouchSmoothCameraTimelineProgress(float Value)
+void APlayerCharacter::GunCameraZoomTimelineProgress(float Value)
 {
-	CameraBoom->TargetArmLength = FMath::Lerp(DefaultTargetArmLength, CrouchCameraTargetArmLength, Value);
-}
-
-void APlayerCharacter::SmoothCameraTimelineFinished()
-{
+	if (IsCrouching)
+	{
+		CameraBoom->TargetArmLength = FMath::Lerp(DefaultTargetArmLength, CrouchGunZoomTargetArmLength, Value);
+		CameraBoom->SocketOffset = FMath::Lerp(DefaultCameraSocketOffset, CrouchGunZoomCameraSocketOffset, Value);
+	}
+	else
+	{
+		CameraBoom->TargetArmLength = FMath::Lerp(DefaultTargetArmLength, GunZoomTargetArmLength, Value);
+		CameraBoom->SocketOffset = FMath::Lerp(DefaultCameraSocketOffset, GunZoomCameraSocketOffset, Value);
+	}
 }
 
 void APlayerCharacter::TryDodgeRoll()
@@ -463,11 +467,42 @@ bool APlayerCharacter::IsMoveInputBeingPressed()
 	return IsMovingInputPressing;
 }
 
-void APlayerCharacter::TryBlock()
+void APlayerCharacter::TryGuard()
 {
-	if (!CanBlock()) return;
-	Super::TryBlock();
+	if (!CanGuard()) return;
+	Super::TryGuard();
 	AnimInstance->Montage_Play(BlockMontage, BlockMontagePlayRate);
+}
+
+void APlayerCharacter::TryGuardOrZoom()
+{
+	if (CurrentAnimationState == EAnimationState::UNARMED)
+	{
+		TryGuard();
+	}
+	else
+	{
+		if (IsGunZooming)
+		{
+			GunZoomOutCamera();
+		}
+		else
+		{
+			GunZoomInCamera();
+		}
+	}
+}
+
+void APlayerCharacter::GunZoomInCamera()
+{
+	IsGunZooming = true;
+	GunCameraZoomTimeline.PlayFromStart();
+}
+
+void APlayerCharacter::GunZoomOutCamera()
+{
+	IsGunZooming = false;
+	GunCameraZoomTimeline.ReverseFromEnd();
 }
 
 void APlayerCharacter::TryFistAttack()
