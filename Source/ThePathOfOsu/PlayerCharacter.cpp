@@ -503,6 +503,7 @@ void APlayerCharacter::TryGuardOrZoom()
 	{
 		if (!IsGunZooming)
 		{
+			GunCameraZoomTimeline.Stop();
 			GunZoomInCamera();
 		}
 	}
@@ -516,6 +517,7 @@ void APlayerCharacter::TryZoomOut()
 	}
 	if (IsGunZooming)
 	{
+		GunCameraZoomTimeline.Stop();
 		GunZoomOutCamera();
 	}
 }
@@ -523,14 +525,18 @@ void APlayerCharacter::TryZoomOut()
 void APlayerCharacter::GunZoomInCamera()
 {
 	IsGunZooming = true;
+	const float CurrentPlaybackPosition = GunCameraZoomTimeline.GetPlaybackPosition();
 	GunCameraZoomTimeline.PlayFromStart();
+	GunCameraZoomTimeline.SetPlaybackPosition(CurrentPlaybackPosition, true);
 	OnGunZoomIn.Broadcast();
 }
 
 void APlayerCharacter::GunZoomOutCamera()
 {
 	IsGunZooming = false;
+	const float CurrentPlaybackPosition = GunCameraZoomTimeline.GetPlaybackPosition();
 	GunCameraZoomTimeline.ReverseFromEnd();
+	GunCameraZoomTimeline.SetPlaybackPosition(CurrentPlaybackPosition, true);
 	OnGunZoomOut.Broadcast();
 }
 
