@@ -94,6 +94,7 @@ void APlayerCharacter::BeginPlay()
 
 	WalkSpeed = CharacterMovementComponent->MaxWalkSpeed;
 	SetupGunCameraZoomTimeline();
+	SetupCrosshairWidget();
 }
 
 void APlayerCharacter::Tick(float DeltaSeconds)
@@ -150,9 +151,11 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Look);
 
-		// Blocking
+		// Guard or Gun Zoom
 		EnhancedInputComponent->BindAction(GuardOrZoomAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::TryGuardOrZoom);
+		EnhancedInputComponent->BindAction(GuardOrZoomAction, ETriggerEvent::Completed, this,
+		                                   &APlayerCharacter::TryZoomOut);
 
 		// Attacking
 		EnhancedInputComponent->BindAction(AttackAction, ETriggerEvent::Started, this,
@@ -399,11 +402,27 @@ void APlayerCharacter::GunCameraZoomTimelineProgress(float Value)
 	}
 }
 
+void APlayerCharacter::SetupCrosshairWidget()
+{
+	if (!CrosshairWidgetClass)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+		                                 FString::Printf(TEXT("CrosshairWidgetClass is null")));
+		return;
+	}
+	CrosshairWidget = CreateWidget<UUserWidget>(PlayerController, CrosshairWidgetClass);
+	if (CrosshairWidget)
+	{
+		CrosshairWidget->AddToViewport();
+		HideCrosshair();
+	}
+}
+
 void APlayerCharacter::TryDodgeRoll()
 {
 	if (!CanDodgeRoll()) return;
 	if (IsDodging()) return;
-	if (!IsTargetLocking)
+	if (!IsTargetLocking && CurrentAnimationState == EAnimationState::UNARMED)
 	{
 		AnimInstance->Montage_Play(DodgeRollForwardMontage, 1.0f);
 		return;
@@ -482,14 +501,22 @@ void APlayerCharacter::TryGuardOrZoom()
 	}
 	else
 	{
-		if (IsGunZooming)
-		{
-			GunZoomOutCamera();
-		}
-		else
+		if (!IsGunZooming)
 		{
 			GunZoomInCamera();
 		}
+	}
+}
+
+void APlayerCharacter::TryZoomOut()
+{
+	if (CurrentAnimationState == EAnimationState::UNARMED)
+	{
+		return;
+	}
+	if (IsGunZooming)
+	{
+		GunZoomOutCamera();
 	}
 }
 
@@ -497,12 +524,14 @@ void APlayerCharacter::GunZoomInCamera()
 {
 	IsGunZooming = true;
 	GunCameraZoomTimeline.PlayFromStart();
+	OnGunZoomIn.Broadcast();
 }
 
 void APlayerCharacter::GunZoomOutCamera()
 {
 	IsGunZooming = false;
 	GunCameraZoomTimeline.ReverseFromEnd();
+	OnGunZoomOut.Broadcast();
 }
 
 void APlayerCharacter::TryFistAttack()
@@ -770,4 +799,14 @@ bool APlayerCharacter::UseItem(UItem* Item)
 bool APlayerCharacter::UseSlotItem()
 {
 	return UseItem(CurrentSlotItem);
+}
+
+void APlayerCharacter::ShowCrosshair()
+{
+	CrosshairWidget->SetVisibility(ESlateVisibility::Visible);
+}
+
+void APlayerCharacter::HideCrosshair()
+{
+	CrosshairWidget->SetVisibility(ESlateVisibility::Hidden);
 }

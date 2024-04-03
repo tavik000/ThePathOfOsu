@@ -25,6 +25,10 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerUseItem);
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerDeath);
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGunZoomIn);
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGunZoomOut);
+
 UCLASS(Config=Game)
 class APlayerCharacter : public AOxCharacter
 {
@@ -71,10 +75,10 @@ class APlayerCharacter : public AOxCharacter
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* SprintAction;
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* CrouchAction;
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* DodgeRollAction;
 
@@ -83,7 +87,6 @@ class APlayerCharacter : public AOxCharacter
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* PauseAction;
-	
 
 public:
 	APlayerCharacter();
@@ -117,7 +120,7 @@ protected:
 	void TryCrouch();
 
 	virtual void TryDodgeRoll() override;
-	
+
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -141,6 +144,7 @@ public:
 	bool IsMoveInputBeingPressed();
 	virtual void TryGuard() override;
 	void TryGuardOrZoom();
+	void TryZoomOut();
 	void GunZoomInCamera();
 	void GunZoomOutCamera();
 	virtual void TryFistAttack() override;
@@ -188,7 +192,7 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
 	float SprintSpeed = 600.0f;
-	
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
 	float CrouchSpeed = 150.0f;
 
@@ -198,17 +202,22 @@ public:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	EAnimationState CurrentAnimationState;
 
-	
+	UFUNCTION(BlueprintCallable)
+	void ShowCrosshair();
+
+	UFUNCTION(BlueprintCallable)
+	void HideCrosshair();
+
 private:
 	float WalkSpeed;
-	
+
 	bool IsMeleeAttackInputReceived = false;
 
 	bool IsMovingInputPressing = false;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	bool IsSprinting = false;
-	
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	bool IsCrouching = false;
 
@@ -249,28 +258,40 @@ private:
 	float DefaultTargetArmLength;;
 
 	void SetupGunCameraZoomTimeline();
-	
+
 	FTimeline GunCameraZoomTimeline;
-	
+
 	UPROPERTY(EditAnywhere)
 	UCurveFloat* GunCameraZoomCurve;
 
 	UPROPERTY(EditDefaultsOnly)
 	FVector GunZoomCameraSocketOffset;
-	
+
 	UPROPERTY(EditDefaultsOnly)
 	FVector CrouchGunZoomCameraSocketOffset;
-	
+
 	FVector DefaultCameraSocketOffset;
-	
+
 	UPROPERTY(EditDefaultsOnly)
 	float GunZoomTargetArmLength;
-	
+
 	UPROPERTY(EditDefaultsOnly)
 	float CrouchGunZoomTargetArmLength;
-	
+
 	UFUNCTION()
 	void GunCameraZoomTimelineProgress(float Value);
 
 	bool IsGunZooming = false;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnGunZoomIn OnGunZoomIn;
+
+	UPROPERTY(BlueprintAssignable)
+	FOnGunZoomOut OnGunZoomOut;
+
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<UUserWidget> CrosshairWidgetClass;
+
+	UUserWidget* CrosshairWidget;
+	void SetupCrosshairWidget();
 };
