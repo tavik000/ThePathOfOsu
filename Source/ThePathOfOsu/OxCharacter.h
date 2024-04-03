@@ -179,6 +179,7 @@ public:
 	void EndPush();
 	bool IsPushing();
 	bool IsDodging();
+	bool IsJumping();
 
 	UFUNCTION(BlueprintPure)
 	bool IsDead() const;

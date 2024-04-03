@@ -290,7 +290,7 @@ bool APlayerCharacter::CanOsu()
 
 bool APlayerCharacter::CanCrouch()
 {
-	return CanMove();
+	return CanMove() && !IsJumping();
 }
 
 bool APlayerCharacter::CanUncrouch()
@@ -305,12 +305,12 @@ bool APlayerCharacter::CanUncrouch()
 	                                     ECC_Visibility,
 	                                     TraceCollisionParams);
 	bool IsSomethingAbovePlayer = TraceHitResult.bBlockingHit;
-	return !IsSomethingAbovePlayer;
+	return !IsSomethingAbovePlayer && !IsJumping();
 }
 
 bool APlayerCharacter::CanSprint()
 {
-	return CanMove() && !IsCrouching;
+	return CanMove() && !IsCrouching && !IsJumping();
 }
 
 bool APlayerCharacter::CanAttack()

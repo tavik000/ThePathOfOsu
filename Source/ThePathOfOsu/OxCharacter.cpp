@@ -142,7 +142,7 @@ bool AOxCharacter::CanRegenPosture()
 		&& !AnimInstance->Montage_IsPlaying(HitReactMontage) && !AnimInstance->Montage_IsPlaying(DieMontage)
 		&& !AnimInstance->Montage_IsPlaying(BlockMontage)
 		&& IsAlive()
-		&& BlockMovementReasons.IsEmpty();
+		&& BlockMovementReasons.IsEmpty() && !IsJumping();
 }
 
 bool AOxCharacter::CanMove()
@@ -172,7 +172,7 @@ bool AOxCharacter::CanAttack()
 		!AnimInstance->Montage_IsPlaying(BreakMontage) &&
 		!AnimInstance->Montage_IsPlaying(HitReactMontage) &&
 		!AnimInstance->Montage_IsPlaying(ExecutePunchAttackMontage) && !AnimInstance->Montage_IsPlaying(BlockMontage)
-		&& BlockMovementReasons.IsEmpty();
+		&& BlockMovementReasons.IsEmpty() && !IsJumping();
 }
 
 bool AOxCharacter::IsPlayingFistAttackMontage()
@@ -194,27 +194,27 @@ bool AOxCharacter::CanBlock()
 		!AnimInstance->Montage_IsPlaying(HitReactMontage) &&
 		!AnimInstance->Montage_IsPlaying(ExecutePunchAttackMontage)
 		&& !AnimInstance->Montage_IsPlaying(BlockMontage)
-		&& !IsPlayingFistAttackMontage();
+		&& !IsPlayingFistAttackMontage() && !IsJumping();
 }
 
 bool AOxCharacter::CanUseItem()
 {
-	return CanMove();
+	return CanMove() && !IsJumping();
 }
 
 bool AOxCharacter::CanOsu()
 {
-	return CanMove();
+	return CanMove() && !IsJumping();
 }
 
 bool AOxCharacter::CanDodgeRoll()
 {
-	return CanMove();
+	return CanMove() && !IsJumping();
 }
 
 bool AOxCharacter::CanPush()
 {
-	return CanMove() && !AnimInstance->Montage_IsPlaying(PushMontage);
+	return CanMove() && !AnimInstance->Montage_IsPlaying(PushMontage) && !IsJumping();
 }
 
 void AOxCharacter::Die()
@@ -367,6 +367,11 @@ bool AOxCharacter::IsDodging()
 		AnimInstance->Montage_IsPlaying(DodgeRollBackwardMontage) ||
 		AnimInstance->Montage_IsPlaying(DodgeRollLeftMontage) ||
 		AnimInstance->Montage_IsPlaying(DodgeRollRightMontage);
+}
+
+bool AOxCharacter::IsJumping()
+{
+	return CharacterMovementComponent->IsFalling();
 }
 
 void AOxCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
