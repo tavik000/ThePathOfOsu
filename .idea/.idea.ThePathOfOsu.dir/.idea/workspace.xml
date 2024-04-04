@@ -7,23 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Pistol.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Rifle.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_WeaponSystem.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/GunBase.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/GunBase.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponBase.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponBase.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponSystemComponent.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponSystemComponent.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/Lyra/BP_Lyra.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/Lyra/BP_Lyra.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Meshes/SKM_Manny_Simple.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Meshes/SKM_Manny_Simple.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Meshes/SK_Mannequin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Meshes/SK_Mannequin.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OsuType.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OsuType.h" afterDir="false" />
-    </list>
+    <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -196,7 +180,7 @@
       <workItem from="1711660205444" duration="15201000" />
       <workItem from="1712078865378" duration="18000" />
       <workItem from="1712078894381" duration="13106000" />
-      <workItem from="1712208744657" duration="4217000" />
+      <workItem from="1712208744657" duration="4794000" />
     </task>
     <servers />
   </component>
