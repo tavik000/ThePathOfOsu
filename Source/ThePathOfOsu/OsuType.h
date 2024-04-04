@@ -16,4 +16,5 @@ UENUM(BlueprintType)
 enum class EAnimationState : uint8 {
 	UNARMED = 0 UMETA(DisplayName = "Unarmed"),
 	PISTOL = 1  UMETA(DisplayName = "Pistol"),
+	RIFLE = 2 UMETA(DisplayName = "Rifle"),
 };
