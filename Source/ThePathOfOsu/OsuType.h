@@ -18,3 +18,9 @@ enum class EAnimationState : uint8 {
 	PISTOL = 1  UMETA(DisplayName = "Pistol"),
 	RIFLE = 2 UMETA(DisplayName = "Rifle"),
 };
+
+UENUM(BlueprintType)
+enum class EWeaponState : uint8 {
+	UnEquip = 0 UMETA(DisplayName = "UnEquip"),
+	Equip = 1  UMETA(DisplayName = "Equip"),
+};
