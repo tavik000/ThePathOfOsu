@@ -23,6 +23,17 @@ AOxCharacter::AOxCharacter()
 	                                               TEXT("hand_r"));
 	RightFistCollisionComponent->SetSphereRadius(32.0f);
 
+	PistolSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("PistolSceneComponent"));
+	PistolSceneComponent->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("PistolHost_Socket"));
+	PistolChildActorComponent = CreateDefaultSubobject<UChildActorComponent>(TEXT("PistolChildActorComponent"));
+	PistolChildActorComponent->AttachToComponent(PistolSceneComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	
+	RifleSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RifleSceneComponent"));
+	RifleSceneComponent->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("RifleHost_Socket"));
+	RifleChildActorComponent = CreateDefaultSubobject<UChildActorComponent>(TEXT("RifleChildActorComponent"));
+	RifleChildActorComponent->AttachToComponent(RifleSceneComponent, FAttachmentTransformRules::KeepRelativeTransform);
+
+
 	CurrentHp = MaxHp;
 	DefaultCapsuleRadius = GetCapsuleComponent()->GetUnscaledCapsuleRadius();
 }

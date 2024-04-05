@@ -106,7 +106,20 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	float OsuGestureRestorePostureAmount = 30.0f;
-	
+
+	UPROPERTY(VisibleAnywhere)
+	USceneComponent* PistolSceneComponent;
+
+	UPROPERTY(VisibleAnywhere)
+	UChildActorComponent* PistolChildActorComponent;
+
+	UPROPERTY(VisibleAnywhere)
+	USceneComponent* RifleSceneComponent;
+
+	UPROPERTY(VisibleAnywhere)
+	UChildActorComponent* RifleChildActorComponent;
+
+
 	UFUNCTION()
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp,
 	                    int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);

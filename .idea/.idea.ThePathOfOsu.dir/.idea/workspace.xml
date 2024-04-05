@@ -7,7 +7,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="" />
+    <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_LyraPistol.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_LyraRifle.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_LyraWeaponSystem.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/Pistol.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/Pistol.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/Rifle.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/Rifle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/Lyra/BP_Lyra.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/Lyra/BP_Lyra.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Pistol.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Pistol.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Rifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Rifle.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_WeaponSystem.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_WeaponSystem.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -180,7 +196,8 @@
       <workItem from="1711660205444" duration="15201000" />
       <workItem from="1712078865378" duration="18000" />
       <workItem from="1712078894381" duration="13106000" />
-      <workItem from="1712208744657" duration="4794000" />
+      <workItem from="1712208744657" duration="6103000" />
+      <workItem from="1712307727733" duration="5423000" />
     </task>
     <servers />
   </component>
