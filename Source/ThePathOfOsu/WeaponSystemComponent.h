@@ -6,6 +6,7 @@
 #include "Components/ActorComponent.h"
 #include "WeaponSystemComponent.generated.h"
 
+class AOxCharacter;
 
 UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
 class THEPATHOFOSU_API UWeaponSystemComponent : public UActorComponent
@@ -13,15 +14,45 @@ class THEPATHOFOSU_API UWeaponSystemComponent : public UActorComponent
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this component's properties
 	UWeaponSystemComponent();
 
 protected:
-	// Called when the game starts
 	virtual void BeginPlay() override;
 
 public:
-	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType,
 	                           FActorComponentTickFunction* ThisTickFunction) override;
+
+	UFUNCTION(BlueprintCallable)
+	void UnequipAllWeapon();
+	
+	UFUNCTION(BlueprintCallable)
+	void EquipRifle();
+	
+	UFUNCTION(BlueprintCallable)
+	void UnequipRifle();
+	
+	UFUNCTION(BlueprintCallable)
+	void EquipPistol();
+	
+	UFUNCTION(BlueprintCallable)
+	void UnequipPistol();
+
+private:
+	AOxCharacter* OwnerCharacter;
+	
+	UPROPERTY(EditAnywhere)
+	FName PistolHandSocketName;
+	
+	UPROPERTY(EditAnywhere)
+	FName PistolHostSocketName;
+	
+	UPROPERTY(EditAnywhere)
+	FName RifleHandSocketName;
+	
+	UPROPERTY(EditAnywhere)
+	FName RifleJogSocketName;
+	
+	UPROPERTY(EditAnywhere)
+	FName RifleHostSocketName;
 };

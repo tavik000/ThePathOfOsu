@@ -199,8 +199,6 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	float TurnRate;
 
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
-	EAnimationState CurrentAnimationState;
 
 	UFUNCTION(BlueprintCallable)
 	void ShowCrosshair();

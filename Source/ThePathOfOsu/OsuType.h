@@ -14,9 +14,9 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnInteract);
 
 UENUM(BlueprintType)
 enum class EAnimationState : uint8 {
-	UNARMED = 0 UMETA(DisplayName = "Unarmed"),
-	PISTOL = 1  UMETA(DisplayName = "Pistol"),
-	RIFLE = 2 UMETA(DisplayName = "Rifle"),
+	Unarmed = 0 UMETA(DisplayName = "Unarmed"),
+	Pistol = 1  UMETA(DisplayName = "Pistol"),
+	Rifle = 2 UMETA(DisplayName = "Rifle"),
 };
 
 UENUM(BlueprintType)

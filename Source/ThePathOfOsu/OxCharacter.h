@@ -7,6 +7,8 @@
 #include "GameFramework/Character.h"
 #include "NiagaraFunctionLibrary.h"
 #include "NiagaraComponent.h"
+#include "OsuType.h"
+#include "WeaponSystemComponent.h"
 #include "OxCharacter.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnBeginPush);
@@ -99,6 +101,9 @@ protected:
 	UPROPERTY(EditAnywhere)
 	UClass* HitEffectActor;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
+	UWeaponSystemComponent* WeaponSystemComponent;
+
 	UPROPERTY(EditDefaultsOnly)
 	float PushingEnlargedCapsuleRadius = 65.0f;
 	UPROPERTY(EditDefaultsOnly)
@@ -107,17 +112,6 @@ protected:
 	UPROPERTY(EditAnywhere)
 	float OsuGestureRestorePostureAmount = 30.0f;
 
-	UPROPERTY(VisibleAnywhere)
-	USceneComponent* PistolSceneComponent;
-
-	UPROPERTY(VisibleAnywhere)
-	UChildActorComponent* PistolChildActorComponent;
-
-	UPROPERTY(VisibleAnywhere)
-	USceneComponent* RifleSceneComponent;
-
-	UPROPERTY(VisibleAnywhere)
-	UChildActorComponent* RifleChildActorComponent;
 
 
 	UFUNCTION()
@@ -169,6 +163,10 @@ protected:
 	UFUNCTION()
 	virtual void OnMontageEnded(UAnimMontage* Montage, bool bInterrupted);
 
+	
+	UPROPERTY(VisibleAnywhere)
+	EAnimationState CurrentAnimationState;
+	
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -242,6 +240,28 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FOnInterruptPushing OnInterruptPushing;
 
+	UPROPERTY(VisibleAnywhere)
+	USceneComponent* PistolSceneComponent;
+
+	UPROPERTY(VisibleAnywhere)
+	UChildActorComponent* PistolChildActorComponent;
+
+	UPROPERTY(VisibleAnywhere)
+	USceneComponent* RifleSceneComponent;
+
+	UPROPERTY(VisibleAnywhere)
+	UChildActorComponent* RifleChildActorComponent;
+
+
+	UFUNCTION(BlueprintPure)
+	EAnimationState GetCurrentAnimationState() const;
+
+	UFUNCTION(BlueprintCallable)
+	void SetAnimationState(EAnimationState NewAnimationState);
+
+	
+
 private:
 	float DefaultCapsuleRadius;
+	
 };

@@ -422,7 +422,7 @@ void APlayerCharacter::TryDodgeRoll()
 {
 	if (!CanDodgeRoll()) return;
 	if (IsDodging()) return;
-	if (!IsTargetLocking && CurrentAnimationState == EAnimationState::UNARMED)
+	if (!IsTargetLocking && CurrentAnimationState == EAnimationState::Unarmed)
 	{
 		AnimInstance->Montage_Play(DodgeRollForwardMontage, 1.0f);
 		return;
@@ -495,7 +495,7 @@ void APlayerCharacter::TryGuard()
 
 void APlayerCharacter::TryGuardOrZoom()
 {
-	if (CurrentAnimationState == EAnimationState::UNARMED)
+	if (CurrentAnimationState == EAnimationState::Unarmed)
 	{
 		TryGuard();
 	}
@@ -511,7 +511,7 @@ void APlayerCharacter::TryGuardOrZoom()
 
 void APlayerCharacter::TryZoomOut()
 {
-	if (CurrentAnimationState == EAnimationState::UNARMED)
+	if (CurrentAnimationState == EAnimationState::Unarmed)
 	{
 		return;
 	}

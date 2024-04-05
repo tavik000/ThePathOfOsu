@@ -2,35 +2,81 @@
 
 
 #include "WeaponSystemComponent.h"
+#include "OxCharacter.h"
 
 
-// Sets default values for this component's properties
 UWeaponSystemComponent::UWeaponSystemComponent()
 {
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-
-	// ...
 }
 
 
-// Called when the game starts
 void UWeaponSystemComponent::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
-	
+	OwnerCharacter = Cast<AOxCharacter>(GetOwner());
 }
 
 
-// Called every frame
 void UWeaponSystemComponent::TickComponent(float DeltaTime, ELevelTick TickType,
                                            FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
 }
 
+void UWeaponSystemComponent::UnequipAllWeapon()
+{
+	switch (OwnerCharacter->GetCurrentAnimationState())
+	{
+	case EAnimationState::Rifle:
+		UnequipRifle();
+	case EAnimationState::Pistol:
+		UnequipPistol();
+		break;
+	default: ;
+	}
+}
+
+void UWeaponSystemComponent::EquipRifle()
+{
+	if (OwnerCharacter->GetCurrentAnimationState() == EAnimationState::Rifle) return;
+	if (OwnerCharacter->GetCurrentAnimationState() == EAnimationState::Pistol)
+	{
+		UnequipPistol();
+	}
+
+	OwnerCharacter->RifleChildActorComponent->AttachToComponent(OwnerCharacter->GetMesh(),
+	                                                            FAttachmentTransformRules::SnapToTargetIncludingScale,
+	                                                            RifleHandSocketName);
+	OwnerCharacter->SetAnimationState(EAnimationState::Rifle);
+}
+
+void UWeaponSystemComponent::UnequipRifle()
+{
+	OwnerCharacter->RifleChildActorComponent->AttachToComponent(OwnerCharacter->RifleSceneComponent,
+	                                                            FAttachmentTransformRules::SnapToTargetIncludingScale,
+	                                                            RifleHostSocketName);
+	OwnerCharacter->SetAnimationState(EAnimationState::Unarmed);
+}
+
+void UWeaponSystemComponent::EquipPistol()
+{
+	if (OwnerCharacter->GetCurrentAnimationState() == EAnimationState::Pistol) return;
+	if (OwnerCharacter->GetCurrentAnimationState() == EAnimationState::Rifle)
+	{
+		UnequipRifle();
+	}
+
+	OwnerCharacter->PistolChildActorComponent->AttachToComponent(OwnerCharacter->GetMesh(),
+	                                                             FAttachmentTransformRules::SnapToTargetIncludingScale,
+	                                                             PistolHandSocketName);
+	OwnerCharacter->SetAnimationState(EAnimationState::Pistol);
+}
+
+void UWeaponSystemComponent::UnequipPistol()
+{
+	OwnerCharacter->PistolChildActorComponent->AttachToComponent(OwnerCharacter->PistolSceneComponent,
+	                                                             FAttachmentTransformRules::SnapToTargetIncludingScale,
+	                                                             PistolHostSocketName);
+	OwnerCharacter->SetAnimationState(EAnimationState::Unarmed);
+}

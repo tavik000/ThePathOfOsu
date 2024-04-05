@@ -23,6 +23,8 @@ AOxCharacter::AOxCharacter()
 	                                               TEXT("hand_r"));
 	RightFistCollisionComponent->SetSphereRadius(32.0f);
 
+	WeaponSystemComponent = CreateDefaultSubobject<UWeaponSystemComponent>(TEXT("WeaponSystemComponent"));
+
 	PistolSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("PistolSceneComponent"));
 	PistolSceneComponent->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("PistolHost_Socket"));
 	PistolChildActorComponent = CreateDefaultSubobject<UChildActorComponent>(TEXT("PistolChildActorComponent"));
@@ -478,4 +480,14 @@ void AOxCharacter::SetTimeScale(float TimeScale)
 void AOxCharacter::OsuGestureRestorePosture()
 {
 	RestorePostureValue(OsuGestureRestorePostureAmount);
+}
+
+void AOxCharacter::SetAnimationState(EAnimationState NewAnimationState)
+{
+	CurrentAnimationState = NewAnimationState;
+}
+
+EAnimationState AOxCharacter::GetCurrentAnimationState() const
+{
+	return CurrentAnimationState;
 }
