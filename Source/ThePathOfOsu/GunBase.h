@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "NiagaraComponent.h"
 #include "WeaponBase.h"
 #include "GunBase.generated.h"
 
@@ -37,4 +38,16 @@ private:
 	
 	UPROPERTY(EditAnywhere)
 	USoundBase* ImpactSound;
+	
+	UPROPERTY(EditAnywhere)
+	USoundAttenuation* AttenuationSettings;
+	
+	UPROPERTY(EditAnywhere)
+	USoundConcurrency* SoundConcurrencySettings;
+	
+	UPROPERTY(EditAnywhere)
+	UNiagaraSystem* MuzzleFlash;
+
+	UPROPERTY(EditAnywhere)
+	UNiagaraSystem* ImpactEffect;
 };

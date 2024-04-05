@@ -8,11 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Audios/Lyra/Submixes/VoiceSubmix.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Audios/Lyra/Submixes/VoiceSubmix.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Pistol.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Pistol.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Rifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Rifle.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapons/Pistol/Mesh/SK_Pistol.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Weapons/Pistol/Mesh/SK_Pistol.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapons/Rifle/Mesh/SK_Rifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Weapons/Rifle/Mesh/SK_Rifle.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/GunBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/GunBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/GunBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/GunBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponBase.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponBase.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +198,7 @@
       <workItem from="1712078865378" duration="18000" />
       <workItem from="1712078894381" duration="13106000" />
       <workItem from="1712208744657" duration="6103000" />
-      <workItem from="1712307727733" duration="17869000" />
+      <workItem from="1712307727733" duration="19613000" />
     </task>
     <servers />
   </component>

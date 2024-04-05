@@ -1,7 +1,7 @@
 #include "GunBase.h"
-
 #include "Kismet/GameplayStatics.h"
 #include "Engine/DamageEvents.h"
+#include "NiagaraFunctionLibrary.h"
 
 
 AGunBase::AGunBase()
@@ -36,10 +36,18 @@ void AGunBase::Tick(float DeltaTime)
 
 void AGunBase::Shoot()
 {
-	// UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, GunMeshComponent, TEXT("MuzzleFlashSocket"));
+	if (MuzzleFlash)
+	{
+		UNiagaraFunctionLibrary::SpawnSystemAttached(MuzzleFlash, WeaponMesh, TEXT("MuzzleFlashSocket"),
+		                                             FVector::ZeroVector,
+		                                             FRotator::ZeroRotator, EAttachLocation::KeepRelativeOffset, true);
+	}
+	
 	if (MuzzleSound)
 	{
-		UGameplayStatics::SpawnSoundAttached(MuzzleSound, WeaponMesh, TEXT("MuzzleFlashSocket"));
+		// UGameplayStatics::SpawnSoundAttached(MuzzleSound, WeaponMesh, TEXT("MuzzleFlashSocket"));
+		UGameplayStatics::SpawnSoundAtLocation(GetWorld(), MuzzleSound, GetActorLocation(), FRotator::ZeroRotator, 1.0f,
+		                                       1.0f, 0.0f, AttenuationSettings, SoundConcurrencySettings, true);
 	}
 	FHitResult Hit;
 	FVector ShotDirection;
