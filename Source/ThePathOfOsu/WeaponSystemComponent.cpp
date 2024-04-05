@@ -15,6 +15,15 @@ void UWeaponSystemComponent::BeginPlay()
 {
 	Super::BeginPlay();
 	OwnerCharacter = Cast<AOxCharacter>(GetOwner());
+	Rifle = Cast<ARifle>(OwnerCharacter->RifleChildActorComponent->GetChildActor());
+	Pistol = Cast<APistol>(OwnerCharacter->PistolChildActorComponent->GetChildActor());
+	if (!Rifle || !Pistol)
+	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("Rifle or Pistol is null")));
+		return;
+	}
+	Rifle->SetOwner(OwnerCharacter);
+	Pistol->SetOwner(OwnerCharacter);
 }
 
 
@@ -24,12 +33,31 @@ void UWeaponSystemComponent::TickComponent(float DeltaTime, ELevelTick TickType,
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 }
 
+void UWeaponSystemComponent::TryFire()
+{
+	switch (OwnerCharacter->GetCurrentAnimationState())
+	{
+	case EAnimationState::Rifle:
+		Rifle->Shoot();
+		break;
+	case EAnimationState::Pistol:
+		Pistol->Shoot();
+		break;
+	default: ;
+	}
+}
+
+void UWeaponSystemComponent::OnFireActionEnd()
+{
+}
+
 void UWeaponSystemComponent::UnequipAllWeapon()
 {
 	switch (OwnerCharacter->GetCurrentAnimationState())
 	{
 	case EAnimationState::Rifle:
 		UnequipRifle();
+		break;
 	case EAnimationState::Pistol:
 		UnequipPistol();
 		break;

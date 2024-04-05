@@ -3,23 +3,21 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GunBase.h"
 #include "WeaponBase.h"
 #include "Pistol.generated.h"
 
 UCLASS()
-class THEPATHOFOSU_API APistol : public AWeaponBase
+class THEPATHOFOSU_API APistol : public AGunBase
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this actor's properties
 	APistol();
 
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 };

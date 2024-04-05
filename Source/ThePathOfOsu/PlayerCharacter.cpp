@@ -159,7 +159,10 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 		// Attacking
 		EnhancedInputComponent->BindAction(AttackAction, ETriggerEvent::Started, this,
-		                                   &APlayerCharacter::TryFistAttack);
+		                                   &APlayerCharacter::TryAttack);
+		
+		EnhancedInputComponent->BindAction(AttackAction, ETriggerEvent::Completed, this,
+		                                   &APlayerCharacter::OnAttackActionEnd);
 
 		EnhancedInputComponent->BindAction(TargetLockAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::TryTargetLock);
@@ -445,6 +448,15 @@ void APlayerCharacter::TryDodgeRoll()
 	AnimInstance->Montage_Play(DodgeRollForwardMontage, 1.0f);
 }
 
+void APlayerCharacter::OnAttackActionEnd()
+{
+	if (CurrentAnimationState != EAnimationState::Unarmed)
+	{
+		WeaponSystemComponent->OnFireActionEnd();
+	}
+	
+}
+
 void APlayerCharacter::UnlockTarget()
 {
 	IsTargetLocking = false;
@@ -478,6 +490,18 @@ void APlayerCharacter::TryTargetLock()
 				IsTargetLocking = true;
 			}
 		}
+	}
+}
+
+void APlayerCharacter::TryAttack()
+{
+	if (CurrentAnimationState == EAnimationState::Unarmed)
+	{
+		TryFistAttack();
+	}
+	else
+	{
+		WeaponSystemComponent->TryFire();
 	}
 }
 

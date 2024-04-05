@@ -2,11 +2,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "GunBase.h"
 #include "WeaponBase.h"
 #include "Rifle.generated.h"
 
 UCLASS()
-class THEPATHOFOSU_API ARifle : public AWeaponBase
+class THEPATHOFOSU_API ARifle : public AGunBase
 {
 	GENERATED_BODY()
 

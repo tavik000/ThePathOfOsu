@@ -30,6 +30,7 @@ AOxCharacter::AOxCharacter()
 	PistolChildActorComponent = CreateDefaultSubobject<UChildActorComponent>(TEXT("PistolChildActorComponent"));
 	PistolChildActorComponent->AttachToComponent(PistolSceneComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	
+	
 	RifleSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RifleSceneComponent"));
 	RifleSceneComponent->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("RifleHost_Socket"));
 	RifleChildActorComponent = CreateDefaultSubobject<UChildActorComponent>(TEXT("RifleChildActorComponent"));
@@ -265,6 +266,10 @@ void AOxCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 }
 
 void AOxCharacter::TryGuard()
+{
+}
+
+void AOxCharacter::TryAttack()
 {
 }
 

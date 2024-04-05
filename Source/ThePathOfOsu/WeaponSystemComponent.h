@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Pistol.h"
+#include "Rifle.h"
 #include "Components/ActorComponent.h"
 #include "WeaponSystemComponent.generated.h"
 
@@ -23,36 +25,42 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType,
 	                           FActorComponentTickFunction* ThisTickFunction) override;
 
+	void TryFire();
+	void OnFireActionEnd();
+
 	UFUNCTION(BlueprintCallable)
 	void UnequipAllWeapon();
-	
+
 	UFUNCTION(BlueprintCallable)
 	void EquipRifle();
-	
+
 	UFUNCTION(BlueprintCallable)
 	void UnequipRifle();
-	
+
 	UFUNCTION(BlueprintCallable)
 	void EquipPistol();
-	
+
 	UFUNCTION(BlueprintCallable)
 	void UnequipPistol();
 
 private:
 	AOxCharacter* OwnerCharacter;
-	
+
 	UPROPERTY(EditAnywhere)
 	FName PistolHandSocketName;
-	
+
 	UPROPERTY(EditAnywhere)
 	FName PistolHostSocketName;
-	
+
 	UPROPERTY(EditAnywhere)
 	FName RifleHandSocketName;
-	
+
 	UPROPERTY(EditAnywhere)
 	FName RifleJogSocketName;
-	
+
 	UPROPERTY(EditAnywhere)
 	FName RifleHostSocketName;
+
+	APistol* Pistol;
+	ARifle* Rifle;
 };

@@ -121,6 +121,7 @@ protected:
 
 	virtual void TryDodgeRoll() override;
 
+	void OnAttackActionEnd();
 	// APawn interface
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
@@ -141,6 +142,7 @@ public:
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
 
+	virtual void TryAttack() override;
 	bool IsMoveInputBeingPressed();
 	virtual void TryGuard() override;
 	void TryGuardOrZoom();

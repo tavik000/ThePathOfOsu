@@ -179,6 +179,7 @@ public:
 	virtual bool CanPush();
 
 	virtual void TryGuard();
+	virtual void TryAttack();
 	virtual void TryFistAttack();
 	virtual void BeginFistAttack(bool IsLeftFist);
 	virtual void EndFistAttack(bool IsLeftFist);

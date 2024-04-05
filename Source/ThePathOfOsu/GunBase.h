@@ -1,4 +1,3 @@
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -18,4 +17,17 @@ protected:
 
 public:
 	virtual void Tick(float DeltaTime) override;
+
+	void Shoot();
+	
+private:
+	UPROPERTY(EditAnywhere)
+	float MaxRange = 5000.f;
+
+	UPROPERTY(EditAnywhere)
+	float Damage = 10.f;
+
+	bool TryGunTrace(FHitResult& Hit, FVector& ShotDirection);
+
+	AController* OwnerController;
 };
