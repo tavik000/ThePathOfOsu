@@ -495,6 +495,11 @@ void APlayerCharacter::TryTargetLock()
 
 void APlayerCharacter::TryAttack()
 {
+	if (!CanAttack())
+	{
+		return;
+	}
+	
 	if (CurrentAnimationState == EAnimationState::Unarmed)
 	{
 		TryFistAttack();
@@ -576,10 +581,6 @@ void APlayerCharacter::TryFistAttack()
 		return;
 	}
 
-	if (!CanAttack())
-	{
-		return;
-	}
 
 	FHitResult OutHit;
 	bool IsHit;

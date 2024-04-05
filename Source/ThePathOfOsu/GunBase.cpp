@@ -20,7 +20,7 @@ void AGunBase::BeginPlay()
 			GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("OwnerPawn is null")));
 			return;
 		}
-	
+
 		OwnerController = OwnerPawn->GetController();
 		if (OwnerController == nullptr)
 		{
@@ -37,14 +37,20 @@ void AGunBase::Tick(float DeltaTime)
 void AGunBase::Shoot()
 {
 	// UGameplayStatics::SpawnEmitterAttached(MuzzleFlash, GunMeshComponent, TEXT("MuzzleFlashSocket"));
-	// UGameplayStatics::SpawnSoundAttached(MuzzleSound, GunMeshComponent, TEXT("MuzzleFlashSocket"));
+	if (MuzzleSound)
+	{
+		UGameplayStatics::SpawnSoundAttached(MuzzleSound, WeaponMesh, TEXT("MuzzleFlashSocket"));
+	}
 	FHitResult Hit;
 	FVector ShotDirection;
 	if (bool IsHit = TryGunTrace(Hit, ShotDirection))
 	{
 		// DrawDebugPoint(GetWorld(), Hit.Location, 20, FColor::Red, true);
 		// UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, Hit.Location, ShotDirection.Rotation());
-		// UGameplayStatics::PlaySoundAtLocation(GetWorld(), ImpactSound, Hit.Location);
+		if (ImpactSound)
+		{
+			UGameplayStatics::PlaySoundAtLocation(GetWorld(), ImpactSound, Hit.Location);
+		}
 		AActor* HitActor = Hit.GetActor();
 		if (HitActor != nullptr)
 		{

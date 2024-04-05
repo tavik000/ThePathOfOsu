@@ -21,6 +21,7 @@ public:
 	void Shoot();
 	
 private:
+	
 	UPROPERTY(EditAnywhere)
 	float MaxRange = 5000.f;
 
@@ -30,4 +31,10 @@ private:
 	bool TryGunTrace(FHitResult& Hit, FVector& ShotDirection);
 
 	AController* OwnerController;
+	
+	UPROPERTY(EditAnywhere)
+	USoundBase* MuzzleSound;
+	
+	UPROPERTY(EditAnywhere)
+	USoundBase* ImpactSound;
 };
