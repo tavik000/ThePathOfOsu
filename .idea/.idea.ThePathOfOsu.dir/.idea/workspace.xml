@@ -8,11 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_SecurityCheckDoor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Fonts/MI_Font_MSGothic_Unlit.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Props/Materials/MI_SecurityCheckDoor.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/ABP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/ABP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Fonts/M_Font_MSGothic.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fonts/M_Font_MSGothic.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponSystemComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponSystemComponent.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +182,7 @@
       <workItem from="1711011085148" duration="4234000" />
       <workItem from="1711027605714" duration="1483000" />
       <workItem from="1711293423297" duration="4681000" />
-      <workItem from="1712423897169" duration="3963000" />
+      <workItem from="1712423897169" duration="5720000" />
     </task>
     <servers />
   </component>

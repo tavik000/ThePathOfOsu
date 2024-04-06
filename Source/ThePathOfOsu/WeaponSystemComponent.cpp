@@ -33,6 +33,8 @@ void UWeaponSystemComponent::BeginPlay()
 		PlayerCharacter->OnPlayerAddItem.AddDynamic(this, &UWeaponSystemComponent::OnPlayerAddItem);
 	}
 	
+	OwnerCharacter->PistolChildActorComponent->SetVisibility(false);
+	OwnerCharacter->RifleChildActorComponent->SetVisibility(false);
 }
 
 
@@ -113,6 +115,7 @@ void UWeaponSystemComponent::EquipRifle()
 		UnequipPistol();
 	}
 
+	OwnerCharacter->RifleChildActorComponent->SetVisibility(true);
 	OwnerCharacter->RifleChildActorComponent->AttachToComponent(OwnerCharacter->GetMesh(),
 	                                                            FAttachmentTransformRules::SnapToTargetIncludingScale,
 	                                                            RifleHandSocketName);
@@ -124,6 +127,7 @@ void UWeaponSystemComponent::UnequipRifle()
 	OwnerCharacter->RifleChildActorComponent->AttachToComponent(OwnerCharacter->RifleSceneComponent,
 	                                                            FAttachmentTransformRules::SnapToTargetIncludingScale,
 	                                                            RifleHostSocketName);
+	OwnerCharacter->RifleChildActorComponent->SetVisibility(false);
 	OwnerCharacter->SetAnimationState(EAnimationState::Unarmed);
 }
 
@@ -142,6 +146,7 @@ void UWeaponSystemComponent::EquipPistol()
 		UnequipRifle();
 	}
 
+	OwnerCharacter->PistolChildActorComponent->SetVisibility(true);
 	OwnerCharacter->PistolChildActorComponent->AttachToComponent(OwnerCharacter->GetMesh(),
 	                                                             FAttachmentTransformRules::SnapToTargetIncludingScale,
 	                                                             PistolHandSocketName);
@@ -153,6 +158,8 @@ void UWeaponSystemComponent::UnequipPistol()
 	OwnerCharacter->PistolChildActorComponent->AttachToComponent(OwnerCharacter->PistolSceneComponent,
 	                                                             FAttachmentTransformRules::SnapToTargetIncludingScale,
 	                                                             PistolHostSocketName);
+	
+	OwnerCharacter->PistolChildActorComponent->SetVisibility(false);
 	OwnerCharacter->SetAnimationState(EAnimationState::Unarmed);
 }
 
