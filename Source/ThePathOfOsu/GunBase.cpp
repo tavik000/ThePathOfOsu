@@ -60,6 +60,10 @@ void AGunBase::Shoot()
 	{
 		// DrawDebugPoint(GetWorld(), Hit.Location, 20, FColor::Red, true);
 		// UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, Hit.Location, ShotDirection.Rotation());
+		if (ImpactEffect)
+		{
+			UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), ImpactEffect, Hit.ImpactPoint, ShotDirection.Rotation());
+		}
 		if (ImpactSound)
 		{
 			UGameplayStatics::PlaySoundAtLocation(GetWorld(), ImpactSound, Hit.Location);
