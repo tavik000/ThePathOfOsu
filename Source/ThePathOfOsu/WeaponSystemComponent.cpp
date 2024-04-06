@@ -88,6 +88,11 @@ void UWeaponSystemComponent::PlayFireMontage()
 
 void UWeaponSystemComponent::UnequipAllWeapon()
 {
+	APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(OwnerCharacter);
+	if (PlayerCharacter)
+	{
+		PlayerCharacter->TryZoomOut();
+	}
 	switch (OwnerCharacter->GetCurrentAnimationState())
 	{
 	case EAnimationState::Rifle:
