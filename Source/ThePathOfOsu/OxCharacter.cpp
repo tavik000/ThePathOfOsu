@@ -227,17 +227,18 @@ bool AOxCharacter::CanGuard()
 		!AnimInstance->Montage_IsPlaying(HitReactMontage) &&
 		!AnimInstance->Montage_IsPlaying(ExecutePunchAttackMontage)
 		&& !AnimInstance->Montage_IsPlaying(BlockMontage)
-		&& !IsPlayingFistAttackMontage() && !IsJumping();
+		&& !IsPlayingFistAttackMontage() && !IsJumping()
+	&& !IsDodging();
 }
 
 bool AOxCharacter::CanUseItem()
 {
-	return CanMove() && !IsJumping();
+	return CanMove() && !IsJumping() && !IsDodging();
 }
 
 bool AOxCharacter::CanOsu()
 {
-	return CanMove() && !IsJumping();
+	return CanMove() && !IsJumping() && !IsDodging();
 }
 
 bool AOxCharacter::CanDodgeRoll()
@@ -247,7 +248,7 @@ bool AOxCharacter::CanDodgeRoll()
 
 bool AOxCharacter::CanPush()
 {
-	return CanMove() && !AnimInstance->Montage_IsPlaying(PushMontage) && !IsJumping();
+	return CanMove() && !AnimInstance->Montage_IsPlaying(PushMontage) && !IsJumping() && !IsDodging();
 }
 
 void AOxCharacter::Die()
