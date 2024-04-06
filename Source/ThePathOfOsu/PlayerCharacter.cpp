@@ -722,8 +722,6 @@ void APlayerCharacter::FindAndHighlightInteractableObjectNearPlayer()
 	                                                       IgnoredActors, CloseActors);
 	if (IsHit)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::White, FString::Printf(TEXT("CloseActors Num: %d"),
-		                                                                           CloseActors.Num()));
 		float MinDistance = 1000000;
 		AActor* ClosestInteractableObject = nullptr;
 		for (AActor* OverlappingActor : CloseActors)
