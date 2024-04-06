@@ -100,6 +100,13 @@ void UWeaponSystemComponent::UnequipAllWeapon()
 
 void UWeaponSystemComponent::EquipRifle()
 {
+	if (APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(OwnerCharacter))
+	{
+		if (PlayerCharacter->GetIsTargetLocking())
+		{
+			PlayerCharacter->UnlockTarget();
+		}
+	}
 	if (OwnerCharacter->GetCurrentAnimationState() == EAnimationState::Rifle) return;
 	if (OwnerCharacter->GetCurrentAnimationState() == EAnimationState::Pistol)
 	{
@@ -122,6 +129,13 @@ void UWeaponSystemComponent::UnequipRifle()
 
 void UWeaponSystemComponent::EquipPistol()
 {
+	if (APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(OwnerCharacter))
+	{
+		if (PlayerCharacter->GetIsTargetLocking())
+		{
+			PlayerCharacter->UnlockTarget();
+		}
+	}
 	if (OwnerCharacter->GetCurrentAnimationState() == EAnimationState::Pistol) return;
 	if (OwnerCharacter->GetCurrentAnimationState() == EAnimationState::Rifle)
 	{

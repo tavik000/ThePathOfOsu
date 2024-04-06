@@ -482,6 +482,8 @@ void APlayerCharacter::UnlockTarget()
 
 void APlayerCharacter::TryTargetLock()
 {
+	if (CurrentAnimationState != EAnimationState::Unarmed) return;
+	
 	if (IsTargetLocking)
 	{
 		UnlockTarget();
@@ -701,6 +703,11 @@ void APlayerCharacter::SetAnimationState(EAnimationState NewAnimationState)
 		ShowCrosshair();
 		break;
 	}
+}
+
+bool APlayerCharacter::GetIsTargetLocking()
+{
+	return IsTargetLocking;
 }
 
 void APlayerCharacter::BeginFistAttack(bool IsLeftFist)

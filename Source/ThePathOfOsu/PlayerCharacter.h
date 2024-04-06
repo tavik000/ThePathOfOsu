@@ -104,7 +104,6 @@ protected:
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
 	void SearchEnemyInFront(FHitResult& OutHit, bool& IsHit);
-	void UnlockTarget();
 
 	void TryJump();
 	void Interact();
@@ -158,7 +157,8 @@ public:
 	void GunZoomOutCamera();
 	virtual void TryFistAttack() override;
 	void TryTargetLock();
-
+	void UnlockTarget();
+	
 	UFUNCTION()
 	void OnPlayMontageNotifyBegin(FName NotifyName, const FBranchingPointNotifyPayload& BranchingPointPayload);
 
@@ -222,6 +222,8 @@ public:
 	FOnPlayerAddItem OnPlayerAddItem;
 
 	virtual void SetAnimationState(EAnimationState NewAnimationState) override;
+
+	bool GetIsTargetLocking();
 	
 private:
 	float WalkSpeed;
