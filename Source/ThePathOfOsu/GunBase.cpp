@@ -64,7 +64,8 @@ void AGunBase::Shoot()
 		// UGameplayStatics::SpawnEmitterAtLocation(GetWorld(), ImpactEffect, Hit.Location, ShotDirection.Rotation());
 		if (ImpactEffect)
 		{
-			UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), ImpactEffect, Hit.ImpactPoint, ShotDirection.Rotation());
+			UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), ImpactEffect, Hit.ImpactPoint,
+			                                               ShotDirection.Rotation());
 		}
 		if (ImpactSound)
 		{
@@ -77,7 +78,7 @@ void AGunBase::Shoot()
 			HitActor->TakeDamage(Damage, DamageEvent, OwnerController, this);
 		}
 	}
-	
+
 	if (BulletTraceActorClass)
 	{
 		FVector BulletSpawnLocation = WeaponMesh->GetSocketLocation(MuzzleSocketName);

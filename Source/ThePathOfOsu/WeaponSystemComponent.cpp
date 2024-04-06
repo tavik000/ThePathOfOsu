@@ -24,6 +24,7 @@ void UWeaponSystemComponent::BeginPlay()
 	}
 	Rifle->SetOwner(OwnerCharacter);
 	Pistol->SetOwner(OwnerCharacter);
+	GetWorld()->GetTimerManager().SetTimer(RifleFireTimerHandle, this, &UWeaponSystemComponent::CheckRifleFire, RifleFireRate, true);
 }
 
 
@@ -38,8 +39,7 @@ void UWeaponSystemComponent::TryFire()
 	switch (OwnerCharacter->GetCurrentAnimationState())
 	{
 	case EAnimationState::Rifle:
-		Rifle->Shoot();
-		PlayFireMontage();
+		IsRifleFiring = true;
 		break;
 	case EAnimationState::Pistol:
 		Pistol->Shoot();
@@ -51,6 +51,15 @@ void UWeaponSystemComponent::TryFire()
 
 void UWeaponSystemComponent::OnFireActionEnd()
 {
+	switch (OwnerCharacter->GetCurrentAnimationState())
+	{
+	case EAnimationState::Rifle:
+		IsRifleFiring = false;
+		break;
+	case EAnimationState::Pistol:
+		break;
+	default: ;
+	}
 }
 
 void UWeaponSystemComponent::PlayFireMontage()
@@ -123,4 +132,13 @@ void UWeaponSystemComponent::UnequipPistol()
 	                                                             FAttachmentTransformRules::SnapToTargetIncludingScale,
 	                                                             PistolHostSocketName);
 	OwnerCharacter->SetAnimationState(EAnimationState::Unarmed);
+}
+
+void UWeaponSystemComponent::CheckRifleFire()
+{
+	if (IsRifleFiring && OwnerCharacter->GetCurrentAnimationState() == EAnimationState::Rifle)
+	{
+		Rifle->Shoot();
+		PlayFireMontage();
+	}
 }

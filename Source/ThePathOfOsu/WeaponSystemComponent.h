@@ -71,4 +71,12 @@ private:
 
 	APistol* Pistol;
 	ARifle* Rifle;
+
+	FTimerHandle RifleFireTimerHandle;
+	void CheckRifleFire();
+
+	bool IsRifleFiring = false;
+
+	UPROPERTY(EditAnywhere)
+	float RifleFireRate = 0.1f;
 };
