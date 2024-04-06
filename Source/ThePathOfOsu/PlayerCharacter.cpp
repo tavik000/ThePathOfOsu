@@ -334,7 +334,11 @@ bool APlayerCharacter::CanPunch()
 
 bool APlayerCharacter::CanFire()
 {
-	return Super::CanFire() && (IsCrouching && !IsMoving());
+	if (IsCrouching)
+	{
+		return Super::CanFire() && !IsMoving();
+	}
+	return Super::CanFire();
 }
 
 bool APlayerCharacter::CanGuard()
@@ -346,7 +350,7 @@ bool APlayerCharacter::CanGuard()
 bool APlayerCharacter::CanCharacterJump()
 {
 	return Super::CanCharacterJump()
-		&& !IsCrouching;
+		&& !IsCrouching && !IsDodging();
 }
 
 void APlayerCharacter::OnSprintStart()
