@@ -354,6 +354,10 @@ void AOxCharacter::TryOsu()
 	DoOsuGesture.Broadcast();
 }
 
+void AOxCharacter::TryDodgeRoll()
+{
+}
+
 bool AOxCharacter::TryPush()
 {
 	if (!PushMontage)
@@ -374,10 +378,6 @@ bool AOxCharacter::TryPush()
 	return true;
 }
 
-void AOxCharacter::TryDodgeRoll()
-{
-}
-
 void AOxCharacter::EndPush()
 {
 	if (!PushMontage)
@@ -392,7 +392,7 @@ void AOxCharacter::EndPush()
 	GetCapsuleComponent()->SetCapsuleRadius(DefaultCapsuleRadius);
 }
 
-bool AOxCharacter::IsPushing()
+bool AOxCharacter::IsPushing() const
 {
 	return AnimInstance->Montage_IsPlaying(PushMontage);
 }

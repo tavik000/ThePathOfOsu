@@ -198,7 +198,10 @@ public:
 	virtual bool TryPush();
 	virtual void TryDodgeRoll();
 	void EndPush();
-	bool IsPushing();
+	
+	UFUNCTION(BlueprintPure)
+	bool IsPushing() const;
+	
 	bool IsDodging();
 	bool IsJumping();
 

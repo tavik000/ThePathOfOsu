@@ -237,6 +237,7 @@ private:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	bool IsCrouching = false;
+	
 
 	UPROPERTY(EditDefaultsOnly)
 	float MaxStamina = 100;
