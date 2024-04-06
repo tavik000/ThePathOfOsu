@@ -160,7 +160,7 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 		// Attacking
 		EnhancedInputComponent->BindAction(AttackAction, ETriggerEvent::Started, this,
 		                                   &APlayerCharacter::TryAttack);
-		
+
 		EnhancedInputComponent->BindAction(AttackAction, ETriggerEvent::Completed, this,
 		                                   &APlayerCharacter::OnAttackActionEnd);
 
@@ -324,7 +324,17 @@ bool APlayerCharacter::CanSprint()
 bool APlayerCharacter::CanAttack()
 {
 	return Super::CanAttack()
-		&& !IsCrouching && !IsSprinting;
+		&& !IsSprinting;
+}
+
+bool APlayerCharacter::CanPunch()
+{
+	return Super::CanPunch() && !IsCrouching;
+}
+
+bool APlayerCharacter::CanFire()
+{
+	return Super::CanFire() && (IsCrouching && !IsMoving());
 }
 
 bool APlayerCharacter::CanGuard()
@@ -456,7 +466,6 @@ void APlayerCharacter::OnAttackActionEnd()
 	{
 		WeaponSystemComponent->OnFireActionEnd();
 	}
-	
 }
 
 void APlayerCharacter::UnlockTarget()
@@ -501,14 +510,20 @@ void APlayerCharacter::TryAttack()
 	{
 		return;
 	}
-	
+
 	if (CurrentAnimationState == EAnimationState::Unarmed)
 	{
-		TryFistAttack();
+		if (CanPunch())
+		{
+			TryFistAttack();
+		}
 	}
 	else
 	{
-		WeaponSystemComponent->TryFire();
+		if (CanFire())
+		{
+			WeaponSystemComponent->TryFire();
+		}
 	}
 }
 

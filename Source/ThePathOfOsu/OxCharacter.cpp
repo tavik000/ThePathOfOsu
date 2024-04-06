@@ -26,13 +26,16 @@ AOxCharacter::AOxCharacter()
 	WeaponSystemComponent = CreateDefaultSubobject<UWeaponSystemComponent>(TEXT("WeaponSystemComponent"));
 
 	PistolSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("PistolSceneComponent"));
-	PistolSceneComponent->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("PistolHost_Socket"));
+	PistolSceneComponent->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform,
+	                                        TEXT("PistolHost_Socket"));
 	PistolChildActorComponent = CreateDefaultSubobject<UChildActorComponent>(TEXT("PistolChildActorComponent"));
-	PistolChildActorComponent->AttachToComponent(PistolSceneComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	
-	
+	PistolChildActorComponent->
+		AttachToComponent(PistolSceneComponent, FAttachmentTransformRules::KeepRelativeTransform);
+
+
 	RifleSceneComponent = CreateDefaultSubobject<USceneComponent>(TEXT("RifleSceneComponent"));
-	RifleSceneComponent->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, TEXT("RifleHost_Socket"));
+	RifleSceneComponent->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform,
+	                                       TEXT("RifleHost_Socket"));
 	RifleChildActorComponent = CreateDefaultSubobject<UChildActorComponent>(TEXT("RifleChildActorComponent"));
 	RifleChildActorComponent->AttachToComponent(RifleSceneComponent, FAttachmentTransformRules::KeepRelativeTransform);
 
@@ -187,6 +190,22 @@ bool AOxCharacter::CanAttack()
 		!AnimInstance->Montage_IsPlaying(HitReactMontage) &&
 		!AnimInstance->Montage_IsPlaying(ExecutePunchAttackMontage) && !AnimInstance->Montage_IsPlaying(BlockMontage)
 		&& BlockMovementReasons.IsEmpty() && !IsJumping() && !IsDodging() && !IsPushing();
+}
+
+bool AOxCharacter::CanPunch()
+{
+	return true;
+}
+
+bool AOxCharacter::CanFire()
+{
+	return true;
+}
+
+bool AOxCharacter::IsMoving()
+{
+	return CharacterMovementComponent->Velocity.Size() > 0.3f || CharacterMovementComponent->IsFalling() ||
+		!CharacterMovementComponent->GetCurrentAcceleration().Equals(FVector::ZeroVector, 0.1f);
 }
 
 bool AOxCharacter::IsPlayingFistAttackMontage()
@@ -356,8 +375,6 @@ bool AOxCharacter::TryPush()
 
 void AOxCharacter::TryDodgeRoll()
 {
-	
-	
 }
 
 void AOxCharacter::EndPush()

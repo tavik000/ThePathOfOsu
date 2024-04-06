@@ -141,6 +141,15 @@ protected:
 
 	UFUNCTION(BlueprintPure)
 	virtual bool CanAttack();
+	
+	UFUNCTION(BlueprintPure)
+	virtual bool CanPunch();
+	
+	UFUNCTION(BlueprintPure)
+	virtual bool CanFire();
+	
+	UFUNCTION(BlueprintPure)
+	virtual bool IsMoving();
 
 	UFUNCTION(BlueprintPure)
 	bool IsPlayingFistAttackMontage();

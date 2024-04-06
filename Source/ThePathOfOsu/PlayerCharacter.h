@@ -110,6 +110,8 @@ protected:
 	bool CanUncrouch();
 	bool CanSprint();
 	virtual bool CanAttack() override;
+	virtual bool CanPunch() override;
+	virtual bool CanFire() override;
 	virtual bool CanGuard() override;
 	virtual bool CanCharacterJump() override;
 
