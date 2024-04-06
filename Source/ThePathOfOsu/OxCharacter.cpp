@@ -492,6 +492,11 @@ void AOxCharacter::SetAnimationState(EAnimationState NewAnimationState)
 	CurrentAnimationState = NewAnimationState;
 }
 
+void AOxCharacter::PlayMontage(UAnimMontage* MontageToPlay, float PlayRate)
+{
+	AnimInstance->Montage_Play(MontageToPlay, PlayRate);
+}
+
 EAnimationState AOxCharacter::GetCurrentAnimationState() const
 {
 	return CurrentAnimationState;

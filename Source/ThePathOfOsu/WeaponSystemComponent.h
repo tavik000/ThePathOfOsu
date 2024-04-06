@@ -21,12 +21,20 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
+	UPROPERTY(EditDefaultsOnly, Category = "Animation")
+	UAnimMontage* PistolFireMontage;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Animation")
+	UAnimMontage* RifleFireMontage;
+	
 public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType,
 	                           FActorComponentTickFunction* ThisTickFunction) override;
 
 	void TryFire();
 	void OnFireActionEnd();
+
+	void PlayFireMontage();
 
 	UFUNCTION(BlueprintCallable)
 	void UnequipAllWeapon();

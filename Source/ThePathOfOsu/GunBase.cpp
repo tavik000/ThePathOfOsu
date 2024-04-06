@@ -42,13 +42,18 @@ void AGunBase::Shoot()
 		                                             FVector::ZeroVector,
 		                                             FRotator::ZeroRotator, EAttachLocation::KeepRelativeOffset, true);
 	}
-	
+
 	if (MuzzleSound)
 	{
 		// UGameplayStatics::SpawnSoundAttached(MuzzleSound, WeaponMesh, TEXT("MuzzleFlashSocket"));
 		UGameplayStatics::SpawnSoundAtLocation(GetWorld(), MuzzleSound, GetActorLocation(), FRotator::ZeroRotator, 1.0f,
 		                                       1.0f, 0.0f, AttenuationSettings, SoundConcurrencySettings, true);
 	}
+	if (FireMontage)
+	{
+		WeaponMesh->PlayAnimation(FireMontage, false);
+	}
+
 	FHitResult Hit;
 	FVector ShotDirection;
 	if (bool IsHit = TryGunTrace(Hit, ShotDirection))

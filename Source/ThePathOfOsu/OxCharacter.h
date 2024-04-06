@@ -260,6 +260,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetAnimationState(EAnimationState NewAnimationState);
 
+	UFUNCTION(BlueprintCallable)
+	void PlayMontage(UAnimMontage* MontageToPlay, float PlayRate = 1.0f);
 	
 
 private:

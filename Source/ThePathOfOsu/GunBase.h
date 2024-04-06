@@ -50,4 +50,7 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	UNiagaraSystem* ImpactEffect;
+	
+	UPROPERTY(EditDefaultsOnly, Category = "Animation")
+	UAnimMontage* FireMontage;
 };

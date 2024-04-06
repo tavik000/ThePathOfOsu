@@ -39,9 +39,11 @@ void UWeaponSystemComponent::TryFire()
 	{
 	case EAnimationState::Rifle:
 		Rifle->Shoot();
+		PlayFireMontage();
 		break;
 	case EAnimationState::Pistol:
 		Pistol->Shoot();
+		PlayFireMontage();
 		break;
 	default: ;
 	}
@@ -49,6 +51,20 @@ void UWeaponSystemComponent::TryFire()
 
 void UWeaponSystemComponent::OnFireActionEnd()
 {
+}
+
+void UWeaponSystemComponent::PlayFireMontage()
+{
+	switch (OwnerCharacter->GetCurrentAnimationState())
+	{
+	case EAnimationState::Rifle:
+		OwnerCharacter->PlayMontage(RifleFireMontage);
+		break;
+	case EAnimationState::Pistol:
+		OwnerCharacter->PlayMontage(PistolFireMontage);
+		break;
+	default: ;
+	}
 }
 
 void UWeaponSystemComponent::UnequipAllWeapon()
