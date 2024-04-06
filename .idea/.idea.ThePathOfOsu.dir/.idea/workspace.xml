@@ -8,9 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Rifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Rifle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_CompleteAllMissionGameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameModes/BP_CompleteAllMissionGameMode.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PlayerCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,29 +23,22 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/OxCharacter.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/OxCharacter.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/OxCharacter.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/WeaponSystemComponent.cpp" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Development/Unreal Projects/PersonalProject/ThePathOfOsu/Source/ThePathOfOsu/LiveTrigger.h" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -61,11 +56,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;Uproject.ThePathOfOsu.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/lyra-locomotion&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -186,14 +180,7 @@
       <workItem from="1711011085148" duration="4234000" />
       <workItem from="1711027605714" duration="1483000" />
       <workItem from="1711293423297" duration="4681000" />
-      <workItem from="1711641728653" duration="34000" />
-      <workItem from="1711641839722" duration="7036000" />
-      <workItem from="1711660205444" duration="15201000" />
-      <workItem from="1712078865378" duration="18000" />
-      <workItem from="1712078894381" duration="13106000" />
-      <workItem from="1712208744657" duration="6103000" />
-      <workItem from="1712307727733" duration="20607000" />
-      <workItem from="1712377350052" duration="14321000" />
+      <workItem from="1712423897169" duration="748000" />
     </task>
     <servers />
   </component>
@@ -201,7 +188,6 @@
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

@@ -25,6 +25,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerUseItem);
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerDeath);
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnPlayerFire);
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGunZoomIn);
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGunZoomOut);
@@ -196,6 +198,9 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FOnPlayerDeath OnPlayerDeath;
+	
+	UPROPERTY(BlueprintAssignable)
+	FOnPlayerFire OnPlayerFire;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Movement")
 	float SprintSpeed = 600.0f;

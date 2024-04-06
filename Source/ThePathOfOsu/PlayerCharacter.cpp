@@ -526,6 +526,7 @@ void APlayerCharacter::TryAttack()
 	{
 		if (CanFire())
 		{
+			OnPlayerFire.Broadcast();
 			WeaponSystemComponent->TryFire();
 		}
 	}
