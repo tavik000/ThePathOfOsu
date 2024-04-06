@@ -438,6 +438,10 @@ void AOxCharacter::OnOverlapBegin(UPrimitiveComponent* OverlappedComponent, AAct
 		}
 		else
 		{
+			if (VictimActor->IsDodging())
+			{
+				return;
+			}
 			if (VictimActor->IsGuarding)
 			{
 				// Add Posture
