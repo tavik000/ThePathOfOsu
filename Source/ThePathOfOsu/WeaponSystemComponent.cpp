@@ -24,7 +24,8 @@ void UWeaponSystemComponent::BeginPlay()
 	}
 	Rifle->SetOwner(OwnerCharacter);
 	Pistol->SetOwner(OwnerCharacter);
-	GetWorld()->GetTimerManager().SetTimer(RifleFireTimerHandle, this, &UWeaponSystemComponent::CheckRifleFire, RifleFireRate, true);
+	GetWorld()->GetTimerManager().SetTimer(RifleFireTimerHandle, this, &UWeaponSystemComponent::CheckRifleFire,
+	                                       RifleFireRate, true);
 }
 
 
@@ -140,5 +141,25 @@ void UWeaponSystemComponent::CheckRifleFire()
 	{
 		Rifle->Shoot();
 		PlayFireMontage();
+	}
+}
+
+void UWeaponSystemComponent::StartSprint()
+{
+	if (OwnerCharacter->GetCurrentAnimationState() == EAnimationState::Rifle)
+	{
+		OwnerCharacter->RifleChildActorComponent->AttachToComponent(OwnerCharacter->GetMesh(),
+		                                                            FAttachmentTransformRules::SnapToTargetIncludingScale,
+		                                                            RifleJogSocketName);
+	}
+}
+
+void UWeaponSystemComponent::EndSprint()
+{
+	if (OwnerCharacter->GetCurrentAnimationState() == EAnimationState::Rifle)
+	{
+		OwnerCharacter->RifleChildActorComponent->AttachToComponent(OwnerCharacter->GetMesh(),
+		                                                             FAttachmentTransformRules::SnapToTargetIncludingScale,
+		                                                             RifleHandSocketName);
 	}
 }

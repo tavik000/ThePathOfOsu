@@ -324,7 +324,7 @@ bool APlayerCharacter::CanSprint()
 bool APlayerCharacter::CanAttack()
 {
 	return Super::CanAttack()
-		&& !IsCrouching;
+		&& !IsCrouching && !IsSprinting;
 }
 
 bool APlayerCharacter::CanGuard()
@@ -345,6 +345,7 @@ void APlayerCharacter::OnSprintStart()
 	if (!CanSprint()) return;
 	IsSprinting = true;
 	CharacterMovementComponent->MaxWalkSpeed = SprintSpeed;
+	WeaponSystemComponent->StartSprint();
 }
 
 void APlayerCharacter::OnSprintEnd()
@@ -352,6 +353,7 @@ void APlayerCharacter::OnSprintEnd()
 	if (!IsSprinting) return;
 	IsSprinting = false;
 	CharacterMovementComponent->MaxWalkSpeed = WalkSpeed;
+	WeaponSystemComponent->EndSprint();
 }
 
 void APlayerCharacter::TryCrouch()

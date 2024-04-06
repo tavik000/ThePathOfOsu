@@ -51,6 +51,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void UnequipPistol();
 
+	void StartSprint();
+	void EndSprint();
+
 private:
 	AOxCharacter* OwnerCharacter;
 

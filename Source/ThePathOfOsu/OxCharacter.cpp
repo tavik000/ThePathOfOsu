@@ -186,7 +186,7 @@ bool AOxCharacter::CanAttack()
 		!AnimInstance->Montage_IsPlaying(BreakMontage) &&
 		!AnimInstance->Montage_IsPlaying(HitReactMontage) &&
 		!AnimInstance->Montage_IsPlaying(ExecutePunchAttackMontage) && !AnimInstance->Montage_IsPlaying(BlockMontage)
-		&& BlockMovementReasons.IsEmpty() && !IsJumping();
+		&& BlockMovementReasons.IsEmpty() && !IsJumping() && !IsDodging() && !IsPushing();
 }
 
 bool AOxCharacter::IsPlayingFistAttackMontage()
