@@ -111,7 +111,7 @@ bool AGunBase::TryGunTrace(FHitResult& Hit, FVector& ShotDirection)
 	Params.AddIgnoredActor(this);
 	Params.AddIgnoredActor(GetOwner());
 
-	bool IsHit = GetWorld()->LineTraceSingleByChannel(Hit, PlayerViewPointLocation, EndLocation, ECC_GameTraceChannel1,
+	bool IsHit = GetWorld()->LineTraceSingleByChannel(Hit, PlayerViewPointLocation, EndLocation, ECC_Pawn,
 	                                                  Params);
 	return IsHit;
 }
