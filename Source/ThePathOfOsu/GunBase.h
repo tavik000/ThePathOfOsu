@@ -53,4 +53,13 @@ private:
 	
 	UPROPERTY(EditDefaultsOnly, Category = "Animation")
 	UAnimMontage* FireMontage;
+	
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<AActor> BulletTraceActorClass;
+	
+	UPROPERTY(EditDefaultsOnly)
+	TSubclassOf<AActor> ImpactDecalActorClass;
+
+	UPROPERTY(EditAnywhere)
+	FName MuzzleSocketName = TEXT("MuzzleFlashSocket");
 };

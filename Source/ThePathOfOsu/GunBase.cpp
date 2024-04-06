@@ -1,6 +1,7 @@
 #include "GunBase.h"
 #include "Kismet/GameplayStatics.h"
 #include "Engine/DamageEvents.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "NiagaraFunctionLibrary.h"
 
 
@@ -38,7 +39,7 @@ void AGunBase::Shoot()
 {
 	if (MuzzleFlash)
 	{
-		UNiagaraFunctionLibrary::SpawnSystemAttached(MuzzleFlash, WeaponMesh, TEXT("MuzzleFlashSocket"),
+		UNiagaraFunctionLibrary::SpawnSystemAttached(MuzzleFlash, WeaponMesh, MuzzleSocketName,
 		                                             FVector::ZeroVector,
 		                                             FRotator::ZeroRotator, EAttachLocation::KeepRelativeOffset, true);
 	}
@@ -53,6 +54,7 @@ void AGunBase::Shoot()
 	{
 		WeaponMesh->PlayAnimation(FireMontage, false);
 	}
+
 
 	FHitResult Hit;
 	FVector ShotDirection;
@@ -74,6 +76,19 @@ void AGunBase::Shoot()
 			FPointDamageEvent DamageEvent(Damage, Hit, ShotDirection, nullptr);
 			HitActor->TakeDamage(Damage, DamageEvent, OwnerController, this);
 		}
+	}
+	
+	if (BulletTraceActorClass)
+	{
+		FVector BulletSpawnLocation = WeaponMesh->GetSocketLocation(MuzzleSocketName);
+		FRotator BulletSpawnRotation = (Hit.TraceEnd - Hit.Location).Rotation();
+		GetWorld()->SpawnActor(BulletTraceActorClass, &BulletSpawnLocation, &BulletSpawnRotation);
+	}
+	if (ImpactDecalActorClass)
+	{
+		FVector DecalSpawnLocation = Hit.ImpactPoint;
+		FRotator DecalSpawnRotation = Hit.ImpactNormal.Rotation();
+		GetWorld()->SpawnActor(ImpactDecalActorClass, &DecalSpawnLocation, &DecalSpawnRotation);
 	}
 }
 

@@ -8,21 +8,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/Effects/BP_BulletTrace.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/Effects/BP_ImpactDecal.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/ABP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/ABP_PlayerCharacter.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Pistol/Fire/AM_MM_Pistol_Fire.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Pistol/Fire/AM_MM_Pistol_Fire.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Pistol/Fire/MM_Pistol_Fire.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Pistol/Fire/MM_Pistol_Fire.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Rifle/Fire/AM_MM_Rifle_Fire.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Rifle/Fire/AM_MM_Rifle_Fire.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Rifle/Fire/MM_Rifle_Fire.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Lyra/Animations/Rifle/Fire/MM_Rifle_Fire.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Meshes/SK_Mannequin.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Meshes/SK_Mannequin.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Pistol.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Pistol.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Rifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/BP_Rifle.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/LyraLocomotion/LyraLocomotionSample.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapons/BulletTrace/Bullet_Trace.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Weapons/BulletTrace/Bullet_Trace.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Weapons/Decal/Impact_Decal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Weapons/Decal/Impact_Decal.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/GunBase.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/GunBase.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/GunBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/GunBase.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponSystemComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponSystemComponent.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponSystemComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponSystemComponent.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +201,7 @@
       <workItem from="1712078894381" duration="13106000" />
       <workItem from="1712208744657" duration="6103000" />
       <workItem from="1712307727733" duration="20607000" />
-      <workItem from="1712377350052" duration="1883000" />
+      <workItem from="1712377350052" duration="5506000" />
     </task>
     <servers />
   </component>
