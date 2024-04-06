@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Item.h"
 #include "Pistol.h"
 #include "Rifle.h"
 #include "Components/ActorComponent.h"
@@ -54,6 +55,9 @@ public:
 	void StartSprint();
 	void EndSprint();
 
+	UFUNCTION()
+	void OnPlayerAddItem(UItem* Item);
+	
 private:
 	AOxCharacter* OwnerCharacter;
 

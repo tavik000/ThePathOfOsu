@@ -29,6 +29,8 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGunZoomIn);
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGunZoomOut);
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnPlayerAddItem, UItem*, Item);
+
 UCLASS(Config=Game)
 class APlayerCharacter : public AOxCharacter
 {
@@ -137,6 +139,7 @@ protected:
 	virtual void OnMontageEnded(UAnimMontage* Montage, bool bInterrupted) override;
 	virtual void Die() override;
 
+
 public:
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
@@ -210,6 +213,11 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void HideCrosshair();
 
+	UPROPERTY(BlueprintAssignable)
+	FOnPlayerAddItem OnPlayerAddItem;
+
+	virtual void SetAnimationState(EAnimationState NewAnimationState) override;
+	
 private:
 	float WalkSpeed;
 

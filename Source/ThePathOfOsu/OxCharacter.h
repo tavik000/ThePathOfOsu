@@ -266,12 +266,12 @@ public:
 	UFUNCTION(BlueprintPure)
 	EAnimationState GetCurrentAnimationState() const;
 
-	UFUNCTION(BlueprintCallable)
-	void SetAnimationState(EAnimationState NewAnimationState);
 
 	UFUNCTION(BlueprintCallable)
 	void PlayMontage(UAnimMontage* MontageToPlay, float PlayRate = 1.0f);
 	
+	UFUNCTION(BlueprintCallable)
+	virtual void SetAnimationState(EAnimationState NewAnimationState);
 
 private:
 	float DefaultCapsuleRadius;

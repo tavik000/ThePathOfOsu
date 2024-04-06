@@ -3,6 +3,7 @@
 
 #include "WeaponSystemComponent.h"
 #include "OxCharacter.h"
+#include "PlayerCharacter.h"
 
 
 UWeaponSystemComponent::UWeaponSystemComponent()
@@ -26,6 +27,12 @@ void UWeaponSystemComponent::BeginPlay()
 	Pistol->SetOwner(OwnerCharacter);
 	GetWorld()->GetTimerManager().SetTimer(RifleFireTimerHandle, this, &UWeaponSystemComponent::CheckRifleFire,
 	                                       RifleFireRate, true);
+	APlayerCharacter* PlayerCharacter = Cast<APlayerCharacter>(OwnerCharacter);
+	if (PlayerCharacter)
+	{
+		PlayerCharacter->OnPlayerAddItem.AddDynamic(this, &UWeaponSystemComponent::OnPlayerAddItem);
+	}
+	
 }
 
 
@@ -161,5 +168,19 @@ void UWeaponSystemComponent::EndSprint()
 		OwnerCharacter->RifleChildActorComponent->AttachToComponent(OwnerCharacter->GetMesh(),
 		                                                             FAttachmentTransformRules::SnapToTargetIncludingScale,
 		                                                             RifleHandSocketName);
+	}
+}
+
+void UWeaponSystemComponent::OnPlayerAddItem(UItem* Item)
+{
+	if (Item->ItemName.EqualTo(FText::FromString("Rifle")))
+	{
+		EquipRifle();
+		Rifle->PlayPickUpSound();
+	}
+	
+	if (Item->ItemName.EqualTo(FText::FromString("Pistol")))
+	{
+		EquipPistol();
 	}
 }

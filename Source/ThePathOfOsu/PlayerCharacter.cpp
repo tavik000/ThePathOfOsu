@@ -679,6 +679,29 @@ void APlayerCharacter::Die()
 	OnPlayerDeath.Broadcast();
 }
 
+void APlayerCharacter::SetAnimationState(EAnimationState NewAnimationState)
+{
+	Super::SetAnimationState(NewAnimationState);
+	switch (CurrentAnimationState)
+	{
+	case EAnimationState::Unarmed:
+		CharacterMovementComponent->bOrientRotationToMovement = true;
+		bUseControllerRotationYaw = false;
+		HideCrosshair();
+		break;
+	case EAnimationState::Pistol:
+		CharacterMovementComponent->bOrientRotationToMovement = false;
+		bUseControllerRotationYaw = true;
+		ShowCrosshair();
+		break;
+	case EAnimationState::Rifle:
+		CharacterMovementComponent->bOrientRotationToMovement = false;
+		bUseControllerRotationYaw = true;
+		ShowCrosshair();
+		break;
+	}
+}
+
 void APlayerCharacter::BeginFistAttack(bool IsLeftFist)
 {
 	Super::BeginFistAttack(IsLeftFist);
@@ -699,6 +722,8 @@ void APlayerCharacter::FindAndHighlightInteractableObjectNearPlayer()
 	                                                       IgnoredActors, CloseActors);
 	if (IsHit)
 	{
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::White, FString::Printf(TEXT("CloseActors Num: %d"),
+		                                                                           CloseActors.Num()));
 		float MinDistance = 1000000;
 		AActor* ClosestInteractableObject = nullptr;
 		for (AActor* OverlappingActor : CloseActors)
@@ -782,6 +807,7 @@ bool APlayerCharacter::AddInventoryItem(UItem* NewItem, int32 ItemCount)
 	{
 		InventoryData.Add(NewItem, ItemCount);
 		IsAddSuccessful = true;
+		OnPlayerAddItem.Broadcast(NewItem);
 	}
 	// Temp set slotItem
 	return IsAddSuccessful;
