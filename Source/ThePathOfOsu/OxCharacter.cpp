@@ -85,7 +85,7 @@ float AOxCharacter::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 
 	if (IsAlive())
 	{
-		if (!AnimInstance->Montage_IsPlaying(BreakMontage))
+		if (!AnimInstance->Montage_IsPlaying(BreakMontage) && !Cast<AGunBase>(DamageCauser))
 		{
 			PlayAnimMontage(HitReactMontage);
 		}
