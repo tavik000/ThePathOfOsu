@@ -8,13 +8,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/BP_Lift.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/BP_MovableDoor.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Props/Materials/M_Lift.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/StarterContent/Materials/MI_Lift.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/Pickups/BP_PickupPistol.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/Pickups/BP_PickupPistol.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/Pickups/BP_PickupRifle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/Pickups/BP_PickupRifle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fonts/M_Font_MSGothic.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fonts/M_Font_MSGothic.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_PressableButton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_PressableButton.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/MovableDoor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/MovableDoor.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponSystemComponent.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/WeaponSystemComponent.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Materials/M_Concrete_Tiles.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Materials/M_Concrete_Tiles.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/Transporter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/Transporter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/Transporter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/Transporter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +189,8 @@
       <workItem from="1711011085148" duration="4234000" />
       <workItem from="1711027605714" duration="1483000" />
       <workItem from="1711293423297" duration="4681000" />
-      <workItem from="1712423897169" duration="6998000" />
+      <workItem from="1712423897169" duration="7597000" />
+      <workItem from="1712460999825" duration="5063000" />
     </task>
     <servers />
   </component>

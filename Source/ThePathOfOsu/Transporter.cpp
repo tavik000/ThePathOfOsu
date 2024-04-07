@@ -23,9 +23,9 @@ void UTransporter::BeginPlay()
 
 	if (!TriggerActor)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("TriggerActor is null! %s"), *GetOwner()->GetName()));
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+		                                 FString::Printf(TEXT("TriggerActor is null! %s"), *GetOwner()->GetName()));
 		return;
-
 	}
 	if (APressableButton* PressableButton = Cast<APressableButton>(TriggerActor))
 	{
@@ -34,8 +34,24 @@ void UTransporter::BeginPlay()
 	}
 	else
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("TriggerActor is not a PressableButton!")));
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+		                                 FString::Printf(TEXT("TriggerActor is not a PressableButton!")));
 		return;
+	}
+
+	if (BackwardTriggerActor)
+	{
+		if (APressableButton* PressableButton = Cast<APressableButton>(BackwardTriggerActor))
+		{
+			PressableButton->OnActivated.AddDynamic(this, &UTransporter::OnBackwardButtonActivated);
+			PressableButton->OnDeactivated.AddDynamic(this, &UTransporter::OnButtonDeactivated);
+		}
+		else
+		{
+			GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+			                                 FString::Printf(TEXT("TriggerActor is not a PressableButton!")));
+			return;
+		}
 	}
 }
 
@@ -47,8 +63,16 @@ void UTransporter::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
 	if (MyOwner && ArePointsSet)
 	{
 		FVector CurrentLocation = MyOwner->GetActorLocation();
-		FVector TargetLocation = IsTriggered ? EndPoint : StartPoint;
-		if (!CurrentLocation.Equals(TargetLocation))
+		FVector TargetLocation;
+		if (IsGoingBackward)
+		{
+			TargetLocation = IsTriggered ? StartPoint : EndPoint;
+		}
+		else
+		{
+			TargetLocation = IsTriggered ? EndPoint : StartPoint;
+		}
+		if (IsTriggered && !CurrentLocation.Equals(TargetLocation))
 		{
 			FVector NewLocation = FMath::VInterpConstantTo(CurrentLocation, TargetLocation, DeltaTime, Speed);
 			MyOwner->SetActorLocation(NewLocation);
@@ -58,12 +82,25 @@ void UTransporter::TickComponent(float DeltaTime, ELevelTick TickType, FActorCom
 
 void UTransporter::OnButtonActivated()
 {
+	IsGoingBackward = false;
+	IsTriggered = true;
+}
+
+void UTransporter::OnBackwardButtonActivated()
+{
+	IsGoingBackward = true;
 	IsTriggered = true;
 }
 
 void UTransporter::OnButtonDeactivated()
 {
 	IsTriggered = false;
+}
+
+void UTransporter::Reset()
+{
+	IsTriggered = false;
+	GetOwner()->SetActorLocation(StartPoint);
 }
 
 void UTransporter::SetPoints(FVector ToSetStartPoint, FVector ToSetEndPoint)

@@ -23,9 +23,14 @@ public:
 
 	UFUNCTION()
 	void OnButtonActivated();
+	
+	UFUNCTION()
+	void OnBackwardButtonActivated();
 
 	UFUNCTION()
 	void OnButtonDeactivated();
+
+	void Reset();
 
 	FVector StartPoint;
 	FVector EndPoint;
@@ -36,9 +41,12 @@ public:
 	bool IsOwnerTriggerActor;
 	UPROPERTY(EditAnywhere)
 	AActor* TriggerActor;
+	UPROPERTY(EditAnywhere)
+	AActor* BackwardTriggerActor;
 	UPROPERTY(VisibleAnywhere)
 	bool IsTriggered;
-
+	
+	bool IsGoingBackward = false;
 
 	UFUNCTION(BlueprintCallable)
 	void SetPoints(FVector ToSetStartPoint, FVector ToSetEndPoint);

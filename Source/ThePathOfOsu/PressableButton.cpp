@@ -29,13 +29,15 @@ void APressableButton::SetupOutline_Implementation()
 	MeshOutline->SetStaticMesh(Mesh->GetStaticMesh());
 	MeshOutline->SetRelativeScale3D(FVector(1.02f, 1.02f, 1.02f));
 
-	
+
 	if (!OutlineMaterial)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red, FString::Printf(TEXT("OutlineMaterial is null, function: AAPickup::SetupOutline_Implementation()")));
+		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
+		                                 FString::Printf(TEXT(
+			                                 "OutlineMaterial is null, function: AAPickup::SetupOutline_Implementation()")));
 		UE_LOG(LogTemp, Error, TEXT("OutlineMaterial is null, function: AAPickup::SetupOutline_Implementation()"));
 	}
-	
+
 	for (int i = 0; i <= Mesh->GetNumMaterials() - 1; i++)
 	{
 		// UMaterialInterface* OutlineMaterial = Cast<UMaterialInterface>(
@@ -54,9 +56,9 @@ bool APressableButton::IsInteractiveHUDVisible_Implementation()
 void APressableButton::BeginPlay()
 {
 	Super::BeginPlay();
-	Transporter->SetPoints(GetActorLocation(), GetActorLocation() + FVector(0.0f, 5.0f, 0.0f));
+	Transporter->SetPoints(GetActorLocation(), GetActorLocation() + -GetActorForwardVector() * 5.0f);
 	SetupOutline_Implementation();
-	
+
 	// FTimerHandle UnusedHandle;
 	// FTimerDelegate TimerDelegate;
 	// TimerDelegate.BindUFunction(this, FName("ToggleOutline"), true);
@@ -64,9 +66,17 @@ void APressableButton::BeginPlay()
 	// 	UnusedHandle, TimerDelegate, 5.0f, false);
 }
 
+
 void APressableButton::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
+
+void APressableButton::Reset()
+{
+	Super::Reset();
+	IsActivated = false;
+	Transporter->Reset();
 }
 
 
@@ -75,6 +85,14 @@ void APressableButton::Interact_Implementation(APlayerCharacter* InteractCharact
 	IInteractableInterface::Interact_Implementation(InteractCharacter);
 	OnActivated.Broadcast();
 	IsActivated = true;
+	if (IsToggleable)
+	{
+		FTimerHandle TimerHandle;
+		GetWorld()->GetTimerManager().SetTimer(TimerHandle, [this]()
+		{
+			Reset();
+		}, 3.0f, false);
+	}
 }
 
 void APressableButton::ToggleOutline_Implementation(bool bValue)
@@ -93,7 +111,8 @@ void APressableButton::StartCheckAndUpdateWidgetVisibleTimer_Implementation()
 {
 	IInteractableInterface::StartCheckAndUpdateWidgetVisibleTimer_Implementation();
 	GetWorldTimerManager().SetTimer(
-		CheckAndUpdateWidgetVisibleTimer, this, &APressableButton::CheckAndUpdateWidgetVisible_Implementation, 0.1f, true);
+		CheckAndUpdateWidgetVisibleTimer, this, &APressableButton::CheckAndUpdateWidgetVisible_Implementation, 0.1f,
+		true);
 }
 
 void APressableButton::CheckAndUpdateWidgetVisible_Implementation()
@@ -111,8 +130,3 @@ void APressableButton::CheckAndUpdateWidgetVisible_Implementation()
 		GetWorldTimerManager().ClearTimer(CheckAndUpdateWidgetVisibleTimer);
 	}
 }
-
-
-
-
-

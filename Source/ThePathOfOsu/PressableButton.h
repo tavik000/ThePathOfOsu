@@ -35,6 +35,8 @@ public:
 	void CheckAndUpdateWidgetVisible_Implementation() override;
 	void SetupOutline_Implementation() override;;
 	bool IsInteractiveHUDVisible_Implementation() override;
+
+	void Reset();
 	
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	USceneComponent* RootComp;
@@ -46,6 +48,9 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere)
 	bool IsActivated;
+
+	UPROPERTY(EditAnywhere)
+	bool IsToggleable = false;
 
 	UPROPERTY(BlueprintAssignable)
 	FPressableButtonOnActivated OnActivated;
