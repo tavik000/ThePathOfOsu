@@ -95,6 +95,8 @@ void APlayerCharacter::BeginPlay()
 	WalkSpeed = CharacterMovementComponent->MaxWalkSpeed;
 	SetupGunCameraZoomTimeline();
 	SetupCrosshairWidget();
+
+	SetAnimationState(EAnimationState::Unarmed);
 }
 
 void APlayerCharacter::Tick(float DeltaSeconds)
