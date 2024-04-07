@@ -8,18 +8,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/BP_Lift.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/BP_MovableDoor.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Materials/M_Lift.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/StarterContent/Materials/MI_Lift.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Props/Meshes/Structure/SM_Celling_300.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Props/Meshes/Structure/SM_UndergroundFloor_300.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Props/Meshes/Structure/SM_WallForDoor_300.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Props/Meshes/Structure/SM_Wall_300.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_PressableButton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_PressableButton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/MovableDoor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/MovableDoor.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_OpenableDoor.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/GameplayElements/InteractiveActors/BP_OpenableDoor.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/StarterContent/Materials/M_Concrete_Tiles.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/StarterContent/Materials/M_Concrete_Tiles.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/Transporter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/Transporter.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/Transporter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/Transporter.h" afterDir="false" />
     </list>
@@ -190,7 +186,8 @@
       <workItem from="1711027605714" duration="1483000" />
       <workItem from="1711293423297" duration="4681000" />
       <workItem from="1712423897169" duration="7597000" />
-      <workItem from="1712460999825" duration="5063000" />
+      <workItem from="1712460999825" duration="6206000" />
+      <workItem from="1712472834726" duration="1163000" />
     </task>
     <servers />
   </component>

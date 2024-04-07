@@ -40,7 +40,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	bool IsOwnerTriggerActor;
 	UPROPERTY(EditAnywhere)
-	AActor* TriggerActor;
+	AActor* ForwardTriggerActor;
 	UPROPERTY(EditAnywhere)
 	AActor* BackwardTriggerActor;
 	UPROPERTY(VisibleAnywhere)

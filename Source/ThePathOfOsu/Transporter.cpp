@@ -18,16 +18,16 @@ void UTransporter::BeginPlay()
 	Super::BeginPlay();
 	if (IsOwnerTriggerActor)
 	{
-		TriggerActor = GetOwner();
+		ForwardTriggerActor = GetOwner();
 	}
 
-	if (!TriggerActor)
+	if (!ForwardTriggerActor)
 	{
 		GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Red,
 		                                 FString::Printf(TEXT("TriggerActor is null! %s"), *GetOwner()->GetName()));
 		return;
 	}
-	if (APressableButton* PressableButton = Cast<APressableButton>(TriggerActor))
+	if (APressableButton* PressableButton = Cast<APressableButton>(ForwardTriggerActor))
 	{
 		PressableButton->OnActivated.AddDynamic(this, &UTransporter::OnButtonActivated);
 		PressableButton->OnDeactivated.AddDynamic(this, &UTransporter::OnButtonDeactivated);
