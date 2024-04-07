@@ -93,6 +93,11 @@ void APressableButton::Interact_Implementation(APlayerCharacter* InteractCharact
 			Reset();
 		}, 3.0f, false);
 	}
+
+	if (PressSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(GetWorld(), PressSound, GetActorLocation());
+	}
 }
 
 void APressableButton::ToggleOutline_Implementation(bool bValue)

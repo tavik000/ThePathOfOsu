@@ -67,6 +67,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	UMaterialInterface* OutlineMaterial;
 	
+	UPROPERTY(EditAnywhere)
+	USoundBase* PressSound;
+	
 private:
 	FTimerHandle CheckAndUpdateWidgetVisibleTimer;
 };

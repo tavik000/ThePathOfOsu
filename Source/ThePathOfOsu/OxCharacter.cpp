@@ -248,7 +248,7 @@ bool AOxCharacter::CanDodgeRoll()
 
 bool AOxCharacter::CanPush()
 {
-	return CanMove() && !AnimInstance->Montage_IsPlaying(PushMontage) && !IsJumping() && !IsDodging();
+	return CanMove() && !AnimInstance->Montage_IsPlaying(PushMontage) && !IsJumping();
 }
 
 void AOxCharacter::Die()
