@@ -38,7 +38,6 @@ Download in Release;
 
 ## Author
 - <img src="https://github.com/favicon.ico" width="24">[Key](https://github.com/tavik000) <br>
-- [CY](http://www2.comp.polyu.edu.hk/~18073824g/) <br>
 
 
 ## Gameplay Video:
