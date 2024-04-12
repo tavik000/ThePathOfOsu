@@ -7,23 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Props/Meshes/SM_Table.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Props/Meshes/Structure/SM_Floor_300.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ThePathOfOsu.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_EnemyDummy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_EnemyDummy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/PlayerCharacter/BP_PlayerCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Characters/Mannequins/Animations/Manny/Custom/MM_Wotage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Mannequins/Animations/Manny/Custom/MM_Wotage.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/MSPresets/M_MS_Default_Material/M_MS_Default_Material.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/MSPresets/M_MS_Default_Material/M_MS_Default_Material.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Osu_Level1.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/Osu_Level1_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/Osu_Level1_BuiltData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Megascans/3D_Assets/Wooden_Blanket_Chest_wbendbz/MI_Wooden_Blanket_Chest_wbendbz_2K.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Megascans/3D_Assets/Wooden_Blanket_Chest_wbendbz/MI_Wooden_Blanket_Chest_wbendbz_2K.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Props/Meshes/Structure/SM_WallForDoor_300.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Props/Meshes/Structure/SM_WallForDoor_300.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Sequences/LS_OsuLive.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Sequences/LS_OsuLive.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/OxCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ThePathOfOsu/PressableButton.h" afterDir="false" />
-    </list>
+    <list default="true" id="0a0aacc7-b59b-48de-8b16-2fea21a69b48" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,29 +48,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;Uproject.ThePathOfOsu.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "Uproject.ThePathOfOsu.executor": "Run",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\Key\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\Key\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\Key\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\Key\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\Key\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\Key\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="ThePathOfOsu" type="Uproject" factoryName="rider.uproject">
       <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/ThePathOfOsu.uproject" />
@@ -192,7 +176,7 @@
       <workItem from="1711293423297" duration="4681000" />
       <workItem from="1712423897169" duration="7597000" />
       <workItem from="1712460999825" duration="6206000" />
-      <workItem from="1712472834726" duration="1855000" />
+      <workItem from="1712472834726" duration="6165000" />
     </task>
     <servers />
   </component>
