@@ -712,6 +712,11 @@ bool APlayerCharacter::GetIsTargetLocking()
 	return IsTargetLocking;
 }
 
+void APlayerCharacter::SetSkipAllAnimationBlueprint(bool bValue)
+{
+	IsSkipAllAnimationBlueprint = bValue;
+}
+
 void APlayerCharacter::BeginFistAttack(bool IsLeftFist)
 {
 	Super::BeginFistAttack(IsLeftFist);

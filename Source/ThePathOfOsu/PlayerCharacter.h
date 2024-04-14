@@ -224,6 +224,12 @@ public:
 	virtual void SetAnimationState(EAnimationState NewAnimationState) override;
 
 	bool GetIsTargetLocking();
+
+	UFUNCTION(BlueprintCallable)
+	void SetSkipAllAnimationBlueprint(bool bValue);
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	bool IsSkipAllAnimationBlueprint = false;
 	
 private:
 	float WalkSpeed;
